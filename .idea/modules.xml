@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ClientSubsUser/ClientSubsUser.iml" filepath="$PROJECT_DIR$/ClientSubsUser/ClientSubsUser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ClientTempUser/ClientTempUser.iml" filepath="$PROJECT_DIR$/ClientTempUser/ClientTempUser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ParkingSystem.iml" filepath="$PROJECT_DIR$/ParkingSystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Server/Server.iml" filepath="$PROJECT_DIR$/Server/Server.iml" />
+    </modules>
+  </component>
+</project>
