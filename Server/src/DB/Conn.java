@@ -4,7 +4,6 @@ import java.sql.*;
 
 /**
  * Takes care of the database access read/write
- * @author Alexandru
  * @version 1.0
  */
 public class Conn {
