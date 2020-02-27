@@ -1,5 +1,6 @@
-import ManagerClient.IManagerClient;
-import ManagerClient.IServer;
+package ManagerClient;
+
+import serverinterface.IServer;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
