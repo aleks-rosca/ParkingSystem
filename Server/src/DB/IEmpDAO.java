@@ -1,6 +1,8 @@
 package DB;
 
+import model.Employee;
+
 public interface IEmpDAO {
-    void addEmployee( );
+    void addEmployee(Employee employee);
 
 }
