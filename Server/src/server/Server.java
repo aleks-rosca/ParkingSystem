@@ -10,7 +10,7 @@ import java.rmi.server.UnicastRemoteObject;
 public class Server extends UnicastRemoteObject implements IServer{
 
     public Server() throws RemoteException {
-        UnicastRemoteObject.exportObject(this, 0);
+       // UnicastRemoteObject.exportObject(this, 0);
     }
 
 
