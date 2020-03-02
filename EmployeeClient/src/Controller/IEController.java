@@ -1,7 +1,8 @@
 package Controller;
 
-import model.Employee;
+
+import model.EmployeeRes;
 
 public interface IEController {
-    public void addEmployee (Employee employee);
+    public void addReservation(EmployeeRes empRes) ;
 }
