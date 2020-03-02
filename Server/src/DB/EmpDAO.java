@@ -15,6 +15,7 @@ public class EmpDAO implements IEmpDAO {
 
     @Override
     public void addEmployee(Employee employee) {
+
         String sql = "INSERT INTO employee values('"+ employee.getEmpNumber()+ "','" + employee.getEmpName()+ "');";
         try {
             conn.update(sql);

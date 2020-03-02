@@ -1,7 +1,7 @@
 package Controller;
-
 import model.Employee;
 import serverinterface.IServer;
+
 
 public class MCController implements IMCController {
     private IServer serverInterface;
@@ -13,4 +13,5 @@ public class MCController implements IMCController {
     public void addEmployee(Employee employee) {
 
     }
+
 }

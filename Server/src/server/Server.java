@@ -7,7 +7,7 @@ import serverinterface.IServer;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-public class Server implements IServer {
+public class Server extends UnicastRemoteObject implements IServer{
 
     public Server() throws RemoteException {
         UnicastRemoteObject.exportObject(this, 0);
