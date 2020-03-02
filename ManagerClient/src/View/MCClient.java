@@ -16,7 +16,7 @@ public class MCClient extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent main = FXMLLoader.load(getClass().getResource("View.MCClient.fxml"));
+        Parent main = FXMLLoader.load(getClass().getResource("MCClient.fxml"));
         primaryStage.setTitle("IPMS");
         primaryStage.setScene(new Scene(main, 600, 400));
         primaryStage.show();
