@@ -5,6 +5,7 @@ import java.util.Date;
 public class EmployeeRes {
     private String date;
     private int empNo;
+    private int reservationNo = 0;
 
     public EmployeeRes(String date, int empNo) {
 
@@ -26,5 +27,8 @@ public class EmployeeRes {
 
     public void setEmpNo(int empNo) {
         this.empNo = empNo;
+    }
+    public int getReservationNo(){
+        return reservationNo;
     }
 }
