@@ -2,10 +2,8 @@ package Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.TilePane;
 import model.Employee;
 import serverinterface.IServer;
@@ -21,6 +19,7 @@ public class MCController implements IMCController, Initializable
     public TextField empNameSearchTf;
     public TextField empNameAddTf;
     public TextField empNumberAddTf;
+    public ListView selectEmployee;
     public Button empShowAllBtn;
     public Button empSearchBtn;
     private IServer serverInterface;
@@ -59,6 +58,9 @@ public class MCController implements IMCController, Initializable
             a1.show();
             empNameAddTf.clear();
             empNumberAddTf.clear();
+
+
+
         } catch (Exception e)
         {
             TilePane r = new TilePane();
@@ -109,4 +111,9 @@ public class MCController implements IMCController, Initializable
         }
     }
 
+    public void selectEmployee(MouseEvent mouseEvent)
+    {
+
+
+    }
 }

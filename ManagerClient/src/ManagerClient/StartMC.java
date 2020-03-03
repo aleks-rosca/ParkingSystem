@@ -1,6 +1,11 @@
 package ManagerClient;
 
 import Controller.MCController;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import serverinterface.IServer;
 
 import java.rmi.NotBoundException;
@@ -8,25 +13,31 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-public class StartMC
+public class StartMC extends Application
 {
+
 
     public static void main(String[] args) throws RemoteException, NotBoundException
     {
-        try
-        {
+
+
+
+            System.out.println("Testing if wgat");
             Registry reg = LocateRegistry.getRegistry("localhost", 1099);
             IServer s = (IServer) reg.lookup("IPMS");
             MCController c = new MCController(s);
+            System.out.println("Testing RUnning");
 
-        } catch (RemoteException e)
-        {
-            e.printStackTrace();
-        } catch (NotBoundException e)
-        {
-            e.printStackTrace();
-        }
+        launch(args);
 
+    }
+
+    public void start(Stage primaryStage) throws Exception
+    {
+        Parent main = FXMLLoader.load(getClass().getResource("/view/MCClient.fxml"));
+        primaryStage.setTitle("IPMS");
+        primaryStage.setScene(new Scene(main, 600, 400));
+        primaryStage.show();
     }
 }
 

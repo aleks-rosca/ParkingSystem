@@ -14,7 +14,7 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="270.0" prefWidth="542.0">
                     <children>
-                        <ListView fx:id="listOfEmpLv" layoutX="344.0" layoutY="140.0" prefHeight="219.0" prefWidth="241.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                        <ListView fx:id="listOfEmpLv" layoutX="344.0" layoutY="140.0" onMouseClicked="#selectEmployee" prefHeight="219.0" prefWidth="241.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                         <Label layoutX="65.0" layoutY="20.0" text="Add Employees" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="20.0" />
                         <Label layoutX="27.0" layoutY="72.0" text="Name" AnchorPane.leftAnchor="25.0" />
                         <Label layoutX="27.0" layoutY="105.0" text="Number" AnchorPane.leftAnchor="25.0" />
