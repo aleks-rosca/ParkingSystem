@@ -39,26 +39,8 @@ public class MCController implements IMCController, Initializable {
 
     }
 
-    public void AddEmp(ActionEvent actionEvent)
+    public void AddEmp(ActionEvent event)
     {
-        Button btn = new Button();
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Parent root;
-                try {
-                    root = FXMLLoader.load(getClass().getClassLoader().getResource("MCClient.fxml"));
-                    Stage stage = new Stage();
-                    stage.setTitle("Employee Added");
-                    stage.setScene(new Scene(root, 450, 450));
-                    stage.show();
-                    // Hide this current window (if this is what you want)
-                    ((Node)(event.getSource())).getScene().getWindow().hide();
-                }
-                catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+
     }
 }
