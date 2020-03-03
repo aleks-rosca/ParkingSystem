@@ -39,8 +39,12 @@ public class MCController implements IMCController, Initializable {
 
     }
 
-    public void AddEmp(ActionEvent event)
+    public void AddEmp(ActionEvent event) throws IOException
     {
-
+        Parent AddWindowParent = FXMLLoader.load(getClass().getResource("/view/AddWindow.fxml"));
+        Scene AddWindowScene = new Scene(AddWindowParent);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(AddWindowScene);
+        stage.show();
     }
 }
