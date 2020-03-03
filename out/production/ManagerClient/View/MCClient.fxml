@@ -3,48 +3,41 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-         prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/10.0.2-internal"
-         xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MCController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MCController">
     <tabs>
         <Tab id="pStatus" text="Parking Status">
             <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
             </content>
         </Tab>
         <Tab id="mEmployees" text="Manage Employees">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="270.0" prefWidth="542.0">
                     <children>
-                        <Pane layoutX="345.0" layoutY="40.0" prefHeight="99.0" prefWidth="212.0"
-                              AnchorPane.bottomAnchor="231.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0">
-                            <children>
-                                <TextField fx:id="empNameSearchTf" layoutX="50.0" layoutY="10.0" prefHeight="25.0"
-                                           prefWidth="150.0"/>
-                                <Label layoutX="10.0" layoutY="15.0" text="Name"/>
-                                <Button fx:id="empShowAllBtn" layoutX="10.0" layoutY="50.0" mnemonicParsing="false"
-                                        prefHeight="25.0" prefWidth="75.0" text="Show All"/>
-                                <Button fx:id="empSearchBtn" layoutX="120.0" layoutY="50.0" mnemonicParsing="false"
-                                        prefHeight="25.0" prefWidth="75.0" text="Search"/>
-                            </children>
-                        </Pane>
-                        <ListView layoutX="344.0" layoutY="140.0" prefHeight="219.0" prefWidth="241.0"/>
-                        <Label layoutX="394.0" layoutY="25.0" text="Search for Employees" AnchorPane.topAnchor="10.0"/>
-                        <Label layoutX="63.0" layoutY="19.0" text="Add Employees"/>
-                        <Label layoutX="35.0" layoutY="50.0" text="Employee Name"/>
-                        <Label layoutX="35.0" layoutY="81.0" text="Employee Number"/>
+                        <ListView fx:id="listOfEmpLv" layoutX="344.0" layoutY="140.0" prefHeight="219.0" prefWidth="241.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                        <Label layoutX="65.0" layoutY="20.0" text="Add Employees" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="20.0" />
+                        <Label layoutX="27.0" layoutY="72.0" text="Name" AnchorPane.leftAnchor="25.0" />
+                        <Label layoutX="27.0" layoutY="105.0" text="Number" AnchorPane.leftAnchor="25.0" />
+                  <TextField fx:id="empNameAddTf" layoutX="85.0" layoutY="68.0" AnchorPane.leftAnchor="85.0" />
+                  <TextField fx:id="empNumberAddTf" layoutX="85.0" layoutY="101.0" AnchorPane.leftAnchor="85.0" />
+                          <TextField fx:id="empNameSearchTf" layoutX="409.0" layoutY="60.0" prefHeight="25.0" prefWidth="150.0" AnchorPane.rightAnchor="35.0" />
+                          <Label layoutX="369.0" layoutY="64.0" text="Name" />
+                          <Button fx:id="empShowAllBtn" layoutX="369.0" layoutY="100.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Show All" textAlignment="CENTER" />
+                          <Button fx:id="empSearchBtn" layoutX="479.0" layoutY="100.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Search" AnchorPane.rightAnchor="40.0" />
+                        <Label layoutX="410.0" layoutY="20.0" text="Search for Employees" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="20.0" />
+                  <Button fx:id="addEmpBtn" layoutX="85.0" layoutY="149.0" mnemonicParsing="false" onAction="#AddEmp" text="Add" />
                     </children>
                 </AnchorPane>
             </content>
         </Tab>
         <Tab id="mGuests" text="Manage Guests">
             <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
             </content>
         </Tab>
         <Tab id="mReservation" text="Reservation">
             <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
             </content>
         </Tab>
     </tabs>
