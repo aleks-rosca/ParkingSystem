@@ -1,8 +1,6 @@
 package Controller;
-import View.AddWindow;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -24,12 +22,15 @@ public class MCController implements IMCController, Initializable {
     public Button empShowAllBtn;
     public Button empSearchBtn;
     private IServer serverInterface;
-    @FXML private Button addEmpBtn;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+    public MCController(){
+
+    }
+
     public MCController(IServer serverInterface) {
         this.serverInterface = serverInterface;
     }
@@ -38,12 +39,26 @@ public class MCController implements IMCController, Initializable {
 
     }
 
-    public void AddEmp(ActionEvent event) throws IOException
+    public void AddEmp(ActionEvent actionEvent)
     {
-        Parent AddWindowParent = FXMLLoader.load(getClass().getResource("AddWindow.fxml"));
-        Scene AddWindowScene = new Scene(AddWindowParent);
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(AddWindowScene);
-        window.show();
+        Button btn = new Button();
+        btn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Parent root;
+                try {
+                    root = FXMLLoader.load(getClass().getClassLoader().getResource("MCClient.fxml"));
+                    Stage stage = new Stage();
+                    stage.setTitle("Employee Added");
+                    stage.setScene(new Scene(root, 450, 450));
+                    stage.show();
+                    // Hide this current window (if this is what you want)
+                    ((Node)(event.getSource())).getScene().getWindow().hide();
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }
