@@ -8,17 +8,22 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-public class StartMC {
+public class StartMC
+{
 
-    public static void main(String[] args) throws RemoteException, NotBoundException {
-        try {
+    public static void main(String[] args) throws RemoteException, NotBoundException
+    {
+        try
+        {
             Registry reg = LocateRegistry.getRegistry("localhost", 1099);
             IServer s = (IServer) reg.lookup("IPMS");
             MCController c = new MCController(s);
 
-        } catch (RemoteException e) {
+        } catch (RemoteException e)
+        {
             e.printStackTrace();
-        } catch (NotBoundException e) {
+        } catch (NotBoundException e)
+        {
             e.printStackTrace();
         }
 
