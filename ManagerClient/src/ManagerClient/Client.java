@@ -1,10 +1,6 @@
 package ManagerClient;
-
-import Controller.MCController;
-import Model.Model;
 import model.Employee;
 import serverinterface.IServer;
-
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
@@ -12,7 +8,6 @@ import java.rmi.RemoteException;
 
 public class Client implements IClient {
     private IServer serverinterface;
-    private Employee employee;
 
     public Client () throws RemoteException, NotBoundException, MalformedURLException {
         serverinterface = (IServer) Naming.lookup("rmi://localhost:1099/IPMS");
@@ -22,6 +17,5 @@ public class Client implements IClient {
     @Override
     public void addEmployee(Employee employee) throws RemoteException {
         serverinterface.addEmployee(employee);
-
     }
 }

@@ -1,5 +1,4 @@
 package Controller;
-
 import ManagerClient.Client;
 import Model.Model;
 import javafx.event.ActionEvent;
@@ -8,8 +7,6 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.TilePane;
 import model.Employee;
-import serverinterface.IServer;
-
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -26,7 +23,6 @@ public class MCController implements Initializable {
     public ListView selectEmployee;
     public Button empShowAllBtn;
     public Button empSearchBtn;
-    private IServer serverInterface;
     private Model model;
     private Employee employee;
     private Client client;
@@ -36,13 +32,10 @@ public class MCController implements Initializable {
         employee = new Employee();
         client = new Client();
     }
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
-
 
     public void AddEmp(ActionEvent event) throws IOException {
         //TODO add a try catch to see if the name and number exist already\
@@ -58,7 +51,6 @@ public class MCController implements Initializable {
             a1.show();
             empNameAddTf.clear();
             empNumberAddTf.clear();
-
 
         } catch (Exception e) {
             TilePane r = new TilePane();
