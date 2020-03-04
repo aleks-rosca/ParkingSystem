@@ -48,36 +48,29 @@ public class MCController implements Initializable {
         //TODO add a try catch to see if the name and number exist already\
         employee.setEmpName(empNameAddTf.getText());
         employee.setEmpNumber(empNumberAddTf.getText());
-        System.out.println(employee.toString());
         client.addEmployee(employee);
-//        model.setNameEmp(empNameAddTf.getText());
-//        model.setNumEmp(empNumberAddTf.getText());
-        System.out.println(employee.getEmpName()+ " " + employee.getEmpNumber());
+        try {
+            // create a tile pane
+            TilePane r = new TilePane();
+            // create a alert
+            Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee " + empNameAddTf.getText() + " has been added", ButtonType.OK);
+            // show the dialog
+            a1.show();
+            empNameAddTf.clear();
+            empNumberAddTf.clear();
 
 
+        } catch (Exception e) {
+            TilePane r = new TilePane();
+            // create a alert
+            Alert a1 = new Alert(Alert.AlertType.ERROR, "Employee " + empNameAddTf.getText() + " already exists with " + empNumberAddTf.getText(), ButtonType.OK);
+            // show the dialog
+            a1.show();
+            empNameAddTf.clear();
+            empNumberAddTf.clear();
+            e.printStackTrace();
 
-//        try {
-//            // create a tile pane
-//            TilePane r = new TilePane();
-//            // create a alert
-//            Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee " + empNameAddTf.getText() + " has been added", ButtonType.OK);
-//            // show the dialog
-//            a1.show();
-//            empNameAddTf.clear();
-//            empNumberAddTf.clear();
-//
-//
-//        } catch (Exception e) {
-//            TilePane r = new TilePane();
-//            // create a alert
-//            Alert a1 = new Alert(Alert.AlertType.ERROR, "Employee " + empNameAddTf.getText() + " already exists with " + empNumberAddTf.getText(), ButtonType.OK);
-//            // show the dialog
-//            a1.show();
-//            empNameAddTf.clear();
-//            empNumberAddTf.clear();
-//            e.printStackTrace();
-
-//        }
+        }
     }
 
     public void empSearchBtn(ActionEvent actionEvent) {
