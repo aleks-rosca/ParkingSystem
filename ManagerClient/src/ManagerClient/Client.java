@@ -15,7 +15,12 @@ public class Client implements IClient {
     }
 
     @Override
-    public void addEmployee(Employee employee) throws RemoteException {
-        serverinterface.addEmployee(employee);
+    public boolean addEmployee(Employee employee) throws RemoteException {
+        if( serverinterface.addEmployee(employee)){
+
+            return true;
+        }else{
+            return false;
+        }
     }
 }

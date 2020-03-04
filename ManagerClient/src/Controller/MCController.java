@@ -1,4 +1,5 @@
 package Controller;
+
 import ManagerClient.Client;
 import Model.Model;
 import javafx.event.ActionEvent;
@@ -7,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.TilePane;
 import model.Employee;
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -32,6 +34,7 @@ public class MCController implements Initializable {
         employee = new Employee();
         client = new Client();
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -41,28 +44,22 @@ public class MCController implements Initializable {
         //TODO add a try catch to see if the name and number exist already\
         employee.setEmpName(empNameAddTf.getText());
         employee.setEmpNumber(empNumberAddTf.getText());
-        client.addEmployee(employee);
-        try {
-            // create a tile pane
-            TilePane r = new TilePane();
-            // create a alert
+        if (client.addEmployee(employee)) {
             Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee " + empNameAddTf.getText() + " has been added", ButtonType.OK);
-            // show the dialog
             a1.show();
             empNameAddTf.clear();
             empNumberAddTf.clear();
+        } else {
 
-        } catch (Exception e) {
-            TilePane r = new TilePane();
-            // create a alert
             Alert a1 = new Alert(Alert.AlertType.ERROR, "Employee " + empNameAddTf.getText() + " already exists with " + empNumberAddTf.getText(), ButtonType.OK);
-            // show the dialog
+
             a1.show();
             empNameAddTf.clear();
             empNumberAddTf.clear();
-            e.printStackTrace();
 
         }
+
+
     }
 
     public void empSearchBtn(ActionEvent actionEvent) {
