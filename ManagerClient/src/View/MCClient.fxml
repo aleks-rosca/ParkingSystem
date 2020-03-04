@@ -40,23 +40,6 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
             </content>
         </Tab>
-        <Tab id="mDisplayReservation" text="Display Reservations">
-            <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <TableView layoutX="18.0" layoutY="57.0" prefHeight="228.0" prefWidth="566.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
-                    <columns>
-                      <TableColumn prefWidth="149.428560256958" text="Name" />
-                      <TableColumn prefWidth="112.28569030761719" text="Date" />
-                        <TableColumn prefWidth="166.142822265625" text="Employee Number" />
-                        <TableColumn prefWidth="141.28579711914062" text="Reservation Number" />
-                    </columns>
-                  </TableView>
-                  <Label layoutX="240.0" layoutY="14.0" text="Display all reservations" />
-                  <Button layoutX="46.0" layoutY="300.0" mnemonicParsing="false" text="Delete" />
-               </children></AnchorPane>
-            </content>
-        </Tab>
         <Tab id="mReservation" text="Reservation">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -81,6 +64,23 @@
                         <TextField layoutX="128.0" layoutY="98.0" prefHeight="65.0" prefWidth="150.0" />
                      </children>
                   </Pane>
+               </children></AnchorPane>
+            </content>
+        </Tab>
+        <Tab id="mDisplayReservation" text="Display Reservations">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView layoutX="18.0" layoutY="57.0" prefHeight="228.0" prefWidth="566.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+                    <columns>
+                      <TableColumn prefWidth="149.428560256958" text="Name" />
+                      <TableColumn prefWidth="112.28569030761719" text="Date" />
+                        <TableColumn prefWidth="166.142822265625" text="Employee Number" />
+                        <TableColumn prefWidth="141.28579711914062" text="Reservation Number" />
+                    </columns>
+                  </TableView>
+                  <Label layoutX="240.0" layoutY="14.0" text="Display all reservations" />
+                  <Button layoutX="46.0" layoutY="300.0" mnemonicParsing="false" text="Delete" />
                </children></AnchorPane>
             </content>
         </Tab>
