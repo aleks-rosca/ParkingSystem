@@ -6,8 +6,12 @@ import java.sql.SQLException;
 
 public class EmpDAO implements IEmpDAO {
     private Conn conn;
-    public EmpDAO(){
-
+    public EmpDAO()  {
+        try {
+            conn = new Conn();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public EmpDAO(Conn conn) {
