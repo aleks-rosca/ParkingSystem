@@ -26,7 +26,7 @@ class EmpDAOTest {
 
     @org.junit.jupiter.api.Test
     void addEmployee() {
-        Employee emp = new Employee("aleks","ar987");
+        Employee emp = new Employee("zsolt","E1987");
         empDAO.addEmployee(emp);
 
 
