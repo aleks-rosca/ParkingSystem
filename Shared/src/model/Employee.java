@@ -4,7 +4,7 @@ public class Employee {
     private String empName;
     private String empNumber;
 
-    public Employee(String empName, String empNumber){
+    public Employee(String empName, String empNumber) {
         this.empName = empName;
         this.empNumber = empNumber;
     }
