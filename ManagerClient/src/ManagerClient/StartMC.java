@@ -19,14 +19,10 @@ public class StartMC extends Application
 
     public static void main(String[] args) throws RemoteException, NotBoundException
     {
-
-
-
-            System.out.println("Testing if wgat");
             Registry reg = LocateRegistry.getRegistry("localhost", 1099);
             IServer s = (IServer) reg.lookup("IPMS");
-            MCController c = new MCController(s);
-            System.out.println("Testing RUnning");
+            s.message("Manager Client Connected");
+           // System.out.println("Testing Running");
 
         launch(args);
 

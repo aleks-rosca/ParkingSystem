@@ -6,6 +6,9 @@ import java.sql.SQLException;
 
 public class EmpDAO implements IEmpDAO {
     private Conn conn;
+    public EmpDAO(){
+
+    }
 
     public EmpDAO(Conn conn) {
 
