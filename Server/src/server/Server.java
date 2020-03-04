@@ -23,9 +23,13 @@ public class Server extends UnicastRemoteObject implements IServer{
     }
 
     @Override
-    public void addEmployee(Employee employee) throws RemoteException {
-        empdb.addEmployee(employee);
-        System.out.println(employee + "test");
+    public boolean addEmployee(Employee employee) throws RemoteException {
+       if( empdb.addEmployee(employee)){
+
+           return true;
+       }else{
+           return false;
+       }
 
     }
 }
