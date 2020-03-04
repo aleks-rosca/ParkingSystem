@@ -1,15 +1,20 @@
 package Controller;
 
+import ManagerClient.Client;
 import Model.Model;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.TilePane;
+import model.Employee;
 import serverinterface.IServer;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -23,11 +28,13 @@ public class MCController implements Initializable {
     public Button empSearchBtn;
     private IServer serverInterface;
     private Model model;
+    private Employee employee;
+    private Client client;
 
-    public MCController() {
+    public MCController() throws RemoteException, NotBoundException, MalformedURLException {
         model = new Model();
-
-
+        employee = new Employee();
+        client = new Client();
     }
 
 
@@ -39,9 +46,13 @@ public class MCController implements Initializable {
 
     public void AddEmp(ActionEvent event) throws IOException {
         //TODO add a try catch to see if the name and number exist already\
-        model.setNameEmp(empNameAddTf.getText());
-        model.setNumEmp(empNumberAddTf.getText());
-        System.out.println(model.getNameEmp() + model.getNumEmp());
+        employee.setEmpName(empNameAddTf.getText());
+        employee.setEmpNumber(empNumberAddTf.getText());
+        System.out.println(employee.toString());
+        client.addEmployee(employee);
+//        model.setNameEmp(empNameAddTf.getText());
+//        model.setNumEmp(empNumberAddTf.getText());
+        System.out.println(employee.getEmpName()+ " " + employee.getEmpNumber());
 
 
 

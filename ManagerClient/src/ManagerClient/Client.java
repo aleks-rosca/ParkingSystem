@@ -1,20 +1,27 @@
 package ManagerClient;
 
+import Controller.MCController;
+import Model.Model;
 import model.Employee;
 import serverinterface.IServer;
 
+import java.net.MalformedURLException;
+import java.rmi.Naming;
+import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
 public class Client implements IClient {
-    public IServer serverInterface;
+    private IServer serverinterface;
+    private Employee employee;
 
-    public Client(IServer serverInterface) {
-        this.serverInterface = serverInterface;
-
+    public Client () throws RemoteException, NotBoundException, MalformedURLException {
+        serverinterface = (IServer) Naming.lookup("rmi://localhost:1099/IPMS");
+        serverinterface.message("Manager Connected");
     }
 
+    @Override
     public void addEmployee(Employee employee) throws RemoteException {
-        serverInterface.addEmployee(employee);
-    }
+        serverinterface.addEmployee(employee);
 
+    }
 }
