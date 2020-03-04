@@ -21,14 +21,19 @@ public class EmpDAO implements IEmpDAO {
 
 
     @Override
-    public void addEmployee(Employee employee) {
 
+    public boolean addEmployee(Employee employee) {
+        boolean added = false;
         String sql = "INSERT INTO employee values('"+ employee.getEmpNumber()+ "','" + employee.getEmpName()+ "');";
         try {
             conn.update(sql);
+            added = true;
         } catch (SQLException e) {
-            e.printStackTrace();
-        }
+            if(e.getSQLState().equals("23505")){
 
-    }
-}
+            }
+            e.printStackTrace();
+
+        }
+    return added;
+}}
