@@ -50,27 +50,31 @@ public class MCController implements IMCController, Initializable
         //TODO add a try catch to see if the name and number exist already
         try
         {
-            // create a tile pane
-            TilePane r = new TilePane();
-            // create a alert
-            Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee " + empNameAddTf.getText() + " has been added", ButtonType.OK);
-            // show the dialog
-            a1.show();
-            empNameAddTf.clear();
-            empNumberAddTf.clear();
+            if (empNameAddTf.getText().trim().isEmpty() || empNumberAddTf.getText().trim().isEmpty())
+            {
+                // create a alert
+                Alert a1 = new Alert(Alert.AlertType.ERROR, "Employee name or number field is empty ", ButtonType.OK);
 
-
-
-        } catch (Exception e)
+                a1.show();
+            }
+            else
+            {
+                // Creating an alert
+                Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee " + empNameAddTf.getText() + " has been added", ButtonType.OK);
+                // show the dialog
+                a1.show();
+                empNameAddTf.clear();
+                empNumberAddTf.clear();
+            }
+        }
+        catch (Exception e)
         {
-            TilePane r = new TilePane();
             // create a alert
             Alert a1 = new Alert(Alert.AlertType.ERROR, "Employee " + empNameAddTf.getText() + " already exists with " + empNumberAddTf.getText(), ButtonType.OK);
             // show the dialog
             a1.show();
             empNameAddTf.clear();
             empNumberAddTf.clear();
-
         }
     }
 
@@ -88,32 +92,30 @@ public class MCController implements IMCController, Initializable
             Alert a1 = new Alert(Alert.AlertType.ERROR, "Employee Search field is empty ", ButtonType.OK);
 
             a1.show();
-        } else
+        }
+        else
         {
             // create a alert
-            Alert a1 = new Alert(Alert.AlertType.ERROR, "Employee " + empNameSearchTf.getText() + " does not exist in the system" + " \n\nAdd Employee to the system? ", ButtonType.YES, ButtonType.NO);
+            Alert a1 = new Alert(Alert.AlertType.ERROR, "Employee " + empNameSearchTf.getText()
+                    + " does not exist in the system" + " \n\nAdd Employee to the system? ", ButtonType.YES, ButtonType.NO);
 
             Optional<ButtonType> result = a1.showAndWait();
             ButtonType button = result.orElse(ButtonType.NO);
             if (button == ButtonType.YES)
             {
-
                 String change = empNameSearchTf.getText();
                 empNameAddTf.setText(change);
                 empNameSearchTf.clear();
-
-
-            } else
+            }
+            else
             {
                 System.out.println("No pressed");
             }
-
         }
     }
 
     public void selectEmployee(MouseEvent mouseEvent)
     {
-
 
     }
 }

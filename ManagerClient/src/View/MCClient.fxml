@@ -14,7 +14,6 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="270.0" prefWidth="542.0">
                     <children>
-                        <ListView fx:id="listOfEmpLv" layoutX="344.0" layoutY="140.0" onMouseClicked="#selectEmployee" prefHeight="219.0" prefWidth="241.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                         <Label layoutX="65.0" layoutY="20.0" text="Add Employees" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="20.0" />
                         <Label layoutX="27.0" layoutY="72.0" text="Name" AnchorPane.leftAnchor="25.0" />
                         <Label layoutX="27.0" layoutY="105.0" text="Number" AnchorPane.leftAnchor="25.0" />
@@ -26,6 +25,12 @@
                           <Button fx:id="empSearchBtn" layoutX="479.0" layoutY="100.0" mnemonicParsing="false" onAction="#empSearchBtn" prefHeight="25.0" prefWidth="75.0" text="Search" AnchorPane.rightAnchor="40.0" />
                         <Label layoutX="410.0" layoutY="20.0" text="Search for Employees" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="20.0" />
                   <Button fx:id="addEmpBtn" layoutX="85.0" layoutY="149.0" mnemonicParsing="false" onAction="#AddEmp" text="Add" />
+                  <TableView layoutX="373.0" layoutY="143.0" prefHeight="200.0" prefWidth="200.0">
+                    <columns>
+                      <TableColumn prefWidth="98.4285888671875" text="Name" />
+                      <TableColumn prefWidth="100.42855834960938" text="Emp Num" />
+                    </columns>
+                  </TableView>
                     </children>
                 </AnchorPane>
             </content>
@@ -35,9 +40,48 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
             </content>
         </Tab>
+        <Tab id="mDisplayReservation" text="Display Reservations">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView layoutX="18.0" layoutY="57.0" prefHeight="228.0" prefWidth="566.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+                    <columns>
+                      <TableColumn prefWidth="149.428560256958" text="Name" />
+                      <TableColumn prefWidth="112.28569030761719" text="Date" />
+                        <TableColumn prefWidth="166.142822265625" text="Employee Number" />
+                        <TableColumn prefWidth="141.28579711914062" text="Reservation Number" />
+                    </columns>
+                  </TableView>
+                  <Label layoutX="240.0" layoutY="14.0" text="Display all reservations" />
+                  <Button layoutX="46.0" layoutY="300.0" mnemonicParsing="false" text="Delete" />
+               </children></AnchorPane>
+            </content>
+        </Tab>
         <Tab id="mReservation" text="Reservation">
             <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Pane layoutX="7.0" prefHeight="360.0" prefWidth="290.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+                     <children>
+                        <TextField layoutX="147.0" layoutY="77.0" prefHeight="25.0" prefWidth="130.0" />
+                        <Label layoutX="27.0" layoutY="81.0" text="Employee Number:" />
+                        <Label layoutX="100.0" layoutY="14.0" prefHeight="35.0" prefWidth="90.0" text="Reservation for&#10;employee&#10;" textAlignment="CENTER" underline="true" />
+                        <Button layoutX="116.0" layoutY="168.0" mnemonicParsing="false" text="Reserve" />
+                        <DatePicker layoutX="58.0" layoutY="126.0" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="202.0" layoutY="10.0" prefHeight="360.0" prefWidth="290.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                     <children>
+                        <TextField layoutX="128.0" layoutY="65.0" prefHeight="25.0" prefWidth="150.0" />
+                        <Label layoutX="37.0" layoutY="69.0" text="Name:" />
+                        <Label layoutX="103.0" layoutY="14.0" text="Reservation for &#10;guest" textAlignment="CENTER" underline="true" />
+                        <Button layoutX="116.0" layoutY="254.0" mnemonicParsing="false" text="Reserve" />
+                        <DatePicker layoutX="58.0" layoutY="193.0" />
+                        <Label layoutX="31.0" layoutY="113.0" text="Purpose:" />
+                        <TextField layoutX="128.0" layoutY="98.0" prefHeight="65.0" prefWidth="150.0" />
+                     </children>
+                  </Pane>
+               </children></AnchorPane>
             </content>
         </Tab>
     </tabs>
