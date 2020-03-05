@@ -1,7 +1,7 @@
 package Controller;
 
 import ManagerClient.Client;
-import Model.Model;
+import ManagerClient.IClient;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -25,14 +25,12 @@ public class MCController implements Initializable {
     public ListView selectEmployee;
     public Button empShowAllBtn;
     public Button empSearchBtn;
-    private Model model;
     private Employee employee;
-    private Client client;
+    private IClient clientinterface;
 
     public MCController() throws RemoteException, NotBoundException, MalformedURLException {
-        model = new Model();
         employee = new Employee();
-        client = new Client();
+        clientinterface = new Client();
     }
 
     @Override
@@ -44,7 +42,7 @@ public class MCController implements Initializable {
         //TODO add a try catch to see if the name and number exist already\
         employee.setEmpName(empNameAddTf.getText());
         employee.setEmpNumber(empNumberAddTf.getText());
-        if (client.addEmployee(employee)) {
+        if (clientinterface.addEmployee(employee)) {
             Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee " + empNameAddTf.getText() + " has been added", ButtonType.OK);
             a1.show();
             empNameAddTf.clear();
