@@ -79,7 +79,12 @@ public class EmpDAO implements IEmpDAO {
 
     @Override
     public void addReservetion(Employee employee, EmployeeRes employeeRes) {
-
+        String sql = "insert into empres values('"+employeeRes.getDate()+"','"+employee.getEmpNumber()+"');";
+        try {
+            conn.update(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }
