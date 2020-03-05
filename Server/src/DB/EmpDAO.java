@@ -5,20 +5,35 @@ import model.Employee;
 import java.sql.SQLException;
 
 public class EmpDAO implements IEmpDAO {
-    private Conn conn;
+    private  static Conn conn;
     public EmpDAO()  {
-        try {
-            conn = new Conn();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+        getInstancce();
+    }
+
+  /*  public EmpDAO(Conn conn) {
+        if (conn == null) {
+            try {
+                conn = new Conn();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            //this.conn = conn;
         }
     }
+*/
 
-    public EmpDAO(Conn conn) {
+  public static Conn getInstancce(){
 
-        this.conn = conn;
-    }
+      if(conn==null){
+          try {
+              conn = new Conn();
 
+          } catch (ClassNotFoundException e) {
+              e.printStackTrace();
+          }
+      }
+      return conn;
+  }
 
     @Override
 

@@ -15,12 +15,8 @@ class EmpDAOTest {
     public void setUp() {
 
 
-        try {
-            Conn db = new Conn();
-            empDAO = new EmpDAO(db);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+//            Conn db = new Conn();
+            empDAO = new EmpDAO();
 
     }
 
