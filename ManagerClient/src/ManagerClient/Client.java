@@ -28,7 +28,8 @@ public class Client implements IClient {
     }
 
     @Override
-    public void addEmployeeRes(EmployeeRes employeeRes) throws RemoteException {
-        serverinterface.addEmpRes(employeeRes);
+    public void addEmployeeRes(EmployeeRes employeeRes, Employee employee) throws RemoteException {
+        serverinterface.addEmpRes(employeeRes, employee);
+
     }
 }

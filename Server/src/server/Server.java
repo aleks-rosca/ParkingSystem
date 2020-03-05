@@ -1,6 +1,5 @@
 package server;
 
-
 import DB.EmpDAO;
 import DB.IEmpDAO;
 import model.Employee;
@@ -9,12 +8,14 @@ import serverinterface.IServer;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 
-public class Server extends UnicastRemoteObject implements IServer{
+public class Server extends UnicastRemoteObject implements IServer {
+    private ArrayList<EmployeeRes> empReservations;
     IEmpDAO empdb = new EmpDAO();
 
     public Server() throws RemoteException {
-       // UnicastRemoteObject.exportObject(this, 0);
+        // UnicastRemoteObject.exportObject(this, 0);
     }
 
 
@@ -25,12 +26,12 @@ public class Server extends UnicastRemoteObject implements IServer{
 
     @Override
     public boolean addEmployee(Employee employee) throws RemoteException {
-       if( empdb.addEmployee(employee)){
+        if (empdb.addEmployee(employee)) {
 
-           return true;
-       }else{
-           return false;
-       }
+            return true;
+        } else {
+            return false;
+        }
 
     }
 
@@ -39,4 +40,7 @@ public class Server extends UnicastRemoteObject implements IServer{
 
 
     }
+
+
 }
+

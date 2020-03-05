@@ -3,8 +3,8 @@ package model;
 import java.io.Serializable;
 
 public class Employee implements Serializable {
-    private String empName = "";
-    private String empNumber = "";
+    private String empName;
+    private String empNumber;
 
     public Employee(String empName, String empNumber) {
         this.empName = empName;
@@ -12,7 +12,7 @@ public class Employee implements Serializable {
     }
     public Employee(){
 
-    };
+    }
 
     public String getEmpName() {
         return empName;
