@@ -35,7 +35,8 @@ public class Server extends UnicastRemoteObject implements IServer{
     }
 
     @Override
-    public void addEmpRes(EmployeeRes employeeRes) throws RemoteException {
+    public void addEmpRes(EmployeeRes employeeRes, Employee employee) throws RemoteException {
+
 
     }
 }

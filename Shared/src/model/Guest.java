@@ -1,12 +1,19 @@
 package model;
 
+import java.util.Date;
+
 public class Guest {
     private String name;
     private String purpose;
+    private Date date;
+    private String resNo;
 
-    public Guest(String name, String purpose){
+
+    public Guest(String name, String purpose, Date date, String resNo) {
         this.name = name;
         this.purpose = purpose;
+        this.date = date;
+        this.resNo = resNo;
     }
 
     public String getName() {
@@ -23,5 +30,21 @@ public class Guest {
 
     public void setPurpose(String purpose) {
         this.purpose = purpose;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public String getResNo() {
+        return resNo;
+    }
+
+    public void setResNo(String resNo) {
+        this.resNo = resNo;
     }
 }
