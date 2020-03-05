@@ -1,6 +1,7 @@
 package ManagerClient;
 
 import model.Employee;
+import model.EmployeeRes;
 import serverinterface.IServer;
 
 import java.net.MalformedURLException;
@@ -24,5 +25,10 @@ public class Client implements IClient {
         } else {
             return false;
         }
+    }
+
+    @Override
+    public void addEmployeeRes(EmployeeRes employeeRes) throws RemoteException {
+        serverinterface.addEmpRes(employeeRes);
     }
 }

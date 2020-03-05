@@ -4,6 +4,7 @@ package server;
 import DB.EmpDAO;
 import DB.IEmpDAO;
 import model.Employee;
+import model.EmployeeRes;
 import serverinterface.IServer;
 
 import java.rmi.RemoteException;
@@ -30,6 +31,11 @@ public class Server extends UnicastRemoteObject implements IServer{
        }else{
            return false;
        }
+
+    }
+
+    @Override
+    public void addEmpRes(EmployeeRes employeeRes) throws RemoteException {
 
     }
 }
