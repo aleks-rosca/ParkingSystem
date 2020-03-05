@@ -7,10 +7,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class EmpDAO implements IEmpDAO {
-    private static Conn conn;
+    private  Conn conn;
+
+    {
+        try {
+            conn = new Conn();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
     public EmpDAO() {
-        getInstancce();
+        conn.getInstance();
+
     }
 
   /*  public EmpDAO(Conn conn) {
@@ -25,18 +34,7 @@ public class EmpDAO implements IEmpDAO {
     }
 */
 
-    public static Conn getInstancce() {
 
-        if (conn == null) {
-            try {
-                conn = new Conn();
-
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-        }
-        return conn;
-    }
 
     @Override
 
