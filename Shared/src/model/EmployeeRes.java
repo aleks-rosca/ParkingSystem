@@ -3,21 +3,24 @@ package model;
 import java.util.Date;
 
 public class EmployeeRes {
-    private Date date;
-
+    private String dateFromPicker, empNo;
     public EmployeeRes(){
 
     }
 
-    public EmployeeRes(Date date){
-        this.date = date;
+    public void setDateFromPicker(String dateFromPicker) {
+        this.dateFromPicker = dateFromPicker;
     }
 
-    public Date getDate() {
-        return date;
+    public String getDateFromPicker() {
+        return dateFromPicker;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setEmpNo(String empNo) {
+        this.empNo = empNo;
+    }
+
+    public String getEmpNo() {
+        return empNo;
     }
 }
