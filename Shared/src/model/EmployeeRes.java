@@ -1,9 +1,9 @@
 package model;
 
-import java.util.Date;
 
 public class EmployeeRes {
-    private String dateFromPicker, empNo;
+    private String dateFromPicker;
+    private Employee emp;
     public EmployeeRes(){
 
     }
@@ -17,10 +17,18 @@ public class EmployeeRes {
     }
 
     public void setEmpNo(String empNo) {
-        this.empNo = empNo;
+        emp.setEmpNumber(empNo);
     }
 
     public String getEmpNo() {
-        return empNo;
+        return emp.getEmpNumber();
     }
+    public String getEmpName() {
+        return emp.getEmpName();
+    }
+
+    public Employee getEmp() {
+        return emp;
+    }
+
 }

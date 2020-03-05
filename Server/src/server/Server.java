@@ -1,7 +1,5 @@
 package server;
 
-import DB.EmpDAO;
-import DB.IEmpDAO;
 import Model.Model;
 import model.Employee;
 import model.EmployeeRes;
@@ -29,11 +27,12 @@ public class Server extends UnicastRemoteObject implements IServer {
         return model.addEmployee(employee);
 
 
-
     }
 
     @Override
-    public void addEmpRes(EmployeeRes employeeRes, Employee employee) throws RemoteException {
+    public String addEmpRes(EmployeeRes employeeRes) throws RemoteException {
+        return model.addEmpRes(employeeRes);
+
 
     }
 

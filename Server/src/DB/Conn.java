@@ -12,7 +12,7 @@ public class Conn {
     private String user;
     private String pw;
     private Connection connection;
-
+    private static Conn conn;
     private static final String DRIVER = "org.postgresql.Driver";
     private static final String URL = "jdbc:postgresql://localhost:5432/postgres?currentSchema=parking";
     private static final String USER = "postgres";
@@ -63,7 +63,19 @@ public class Conn {
     public Conn() throws ClassNotFoundException {
         this(DRIVER, URL, USER, PASSWORD);
     }
+    /*Singleton*/
+    public static Conn getInstance() {
 
+        if (conn == null) {
+            try {
+                conn = new Conn();
+
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        return conn;
+    }
     /**
      * @param sql
      * @throws SQLException
