@@ -1,124 +1,99 @@
 package Controller;
 
-import Model.Model;
+import ManagerClient.Client;
+import ManagerClient.IClient;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import serverinterface.IServer;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.TilePane;
+import model.Employee;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 
-public class MCController implements Initializable
-{
+public class MCController implements Initializable {
     public TextField empNameSearchTf;
     public TextField empNameAddTf;
     public TextField empNumberAddTf;
     public ListView selectEmployee;
     public Button empShowAllBtn;
     public Button empSearchBtn;
-    private IServer serverInterface;
-    private Model model;
+    private Employee employee;
+    private IClient clientinterface;
 
-    public MCController()
-    {
-        model = new Model();
-
-
+    public MCController() throws RemoteException, NotBoundException, MalformedURLException {
+        employee = new Employee();
+        clientinterface = new Client();
     }
-
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle)
-    {
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 
-
-    public void AddEmp(ActionEvent event) throws IOException
-    {
+    public void AddEmp(ActionEvent event) throws IOException {
         //TODO add a try catch to see if the name and number exist already\
-        model.setNameEmp(empNameAddTf.getText());
-        model.setNumEmp(empNumberAddTf.getText());
-        System.out.println(model.getNameEmp() + model.getNumEmp());
-
-        try
-        {
-            if (empNameAddTf.getText().trim().isEmpty() || empNumberAddTf.getText().trim().isEmpty())
-            {
-                // create a alert
-                Alert a1 = new Alert(Alert.AlertType.ERROR, "Employee name or number field is empty ", ButtonType.OK);
-
-                a1.show();
-            } else
-            {
-                // Creating an alert
-                Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee " + empNameAddTf.getText() + " has been added", ButtonType.OK);
-                // show the dialog
-                a1.show();
-                empNameAddTf.clear();
-                empNumberAddTf.clear();
-            }
-        } catch (Exception e)
-        {
-            // create a alert
-            Alert a1 = new Alert(Alert.AlertType.ERROR, "Employee " + empNameAddTf.getText() + " already exists with " + empNumberAddTf.getText(), ButtonType.OK);
-            // show the dialog
+        employee.setEmpName(empNameAddTf.getText());
+        employee.setEmpNumber(empNumberAddTf.getText());
+        if (clientinterface.addEmployee(employee)) {
+            Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee " + empNameAddTf.getText() + " has been added", ButtonType.OK);
             a1.show();
             empNameAddTf.clear();
             empNumberAddTf.clear();
+        } else {
+
+            Alert a1 = new Alert(Alert.AlertType.ERROR, "Employee " + empNameAddTf.getText() + " already exists with " + empNumberAddTf.getText(), ButtonType.OK);
+
+            a1.show();
+            empNameAddTf.clear();
+            empNumberAddTf.clear();
+
         }
+
+
     }
 
-
-    public void empSearchBtn(ActionEvent actionEvent)
-    {
-
+    public void empSearchBtn(ActionEvent actionEvent) {
      /*   try
         {
             //TODO display empNameSearchTf.getText() in the ListView
         }
         catch (Exception e)
         { */
-        if (empNameSearchTf.getText().trim().isEmpty())
-        {
+        if (empNameSearchTf.getText().trim().isEmpty()) {
             // create a alert
             Alert a1 = new Alert(Alert.AlertType.ERROR, "Employee Search field is empty ", ButtonType.OK);
 
             a1.show();
-
-        } else
-        {
-
+        } else {
             // create a alert
             Alert a1 = new Alert(Alert.AlertType.ERROR, "Employee " + empNameSearchTf.getText() + " does not exist in the system" + " \n\nAdd Employee to the system? ", ButtonType.YES, ButtonType.NO);
 
             Optional<ButtonType> result = a1.showAndWait();
             ButtonType button = result.orElse(ButtonType.NO);
-            if (button == ButtonType.YES)
-            {
+            if (button == ButtonType.YES) {
+
                 String change = empNameSearchTf.getText();
                 empNameAddTf.setText(change);
                 empNameSearchTf.clear();
-            } else
-            {
-                if (button == ButtonType.YES)
-                {
-
-                    String change = empNameSearchTf.getText();
-                    empNameAddTf.setText(change);
-                    empNameSearchTf.clear();
 
 
-                } else
-                {
-                    System.out.println("No pressed");
-                }
+            } else {
+                System.out.println("No pressed");
             }
 
         }
+    }
+
+    public void selectEmployee(MouseEvent mouseEvent) {
+
+
     }
 }

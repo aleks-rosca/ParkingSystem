@@ -5,12 +5,10 @@ package Controller;
         import javafx.scene.control.Button;
         import javafx.scene.control.DatePicker;
         import javafx.scene.control.TextField;
-        import model.EmployeeRes;
-
         import java.net.URL;
         import java.util.ResourceBundle;
 
-public class EController implements IEController, Initializable {
+public class EController implements Initializable {
     public Button empbtnc;
     public Button addButton;
     public DatePicker choosedate;
