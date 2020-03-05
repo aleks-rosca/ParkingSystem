@@ -57,7 +57,7 @@ public class EmpDAO implements IEmpDAO {
     }
 
     @Override
-    public boolean getEmployeeByEmpNumber(String empnumber) {
+    public boolean checkEmployeeByEmpNumber(String empnumber) {
         boolean exists=false;
         String sql = "Select * from employee where empno='" + empnumber + "';";
         try {
