@@ -5,17 +5,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TabPane;
 
-import javafx.scene.control.*;
-
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
 import java.util.ResourceBundle;
 
 
-public class MCController implements Initializable
-{
+public class MCController implements Initializable {
     private Model model;
 
     @FXML
@@ -31,14 +25,8 @@ public class MCController implements Initializable
     private TabPane parkingTabPane;
 
 
-    public MCController() throws RemoteException, NotBoundException, MalformedURLException
-    {
-        model = new Model();
-    }
-
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle)
-    {
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 }

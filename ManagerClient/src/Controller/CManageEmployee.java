@@ -7,6 +7,9 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import java.util.Optional;
 
 public class CManageEmployee
@@ -15,6 +18,10 @@ public class CManageEmployee
     public TextField empNameAddTf;
     public TextField empNumberAddTf;
     private Model model;
+
+    public CManageEmployee() throws RemoteException, NotBoundException, MalformedURLException {
+        model = new Model();
+    }
 
 
     public void AddEmp(ActionEvent actionEvent) throws IOException
