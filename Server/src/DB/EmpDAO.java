@@ -64,7 +64,7 @@ public class EmpDAO implements IEmpDAO {
         try {
             ResultSet rs = conn.query(sql);
             while (rs.next()) {
-                employee.setEmpName(rs.getNString("empname"));
+                employee.setEmpName(rs.getString("empname"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
