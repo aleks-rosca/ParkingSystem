@@ -15,6 +15,7 @@ public class Server extends UnicastRemoteObject implements IServer {
     public Server() throws RemoteException {
         // UnicastRemoteObject.exportObject(this, 0);
     }
+
     @Override
     public void message(String msg) throws RemoteException {
         System.out.println(msg);
@@ -22,11 +23,10 @@ public class Server extends UnicastRemoteObject implements IServer {
 
     @Override
     public String addEmployee(Employee employee) throws RemoteException {
-        if (empdb.addEmployee(employee)) {
-            return "added";
-        }
+        return empdb.addEmployee(employee);
 
-        return "not added";
+
+
     }
 
     @Override
