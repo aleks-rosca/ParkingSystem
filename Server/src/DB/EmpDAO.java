@@ -57,19 +57,18 @@ public class EmpDAO implements IEmpDAO {
     }
 
     @Override
-    public Employee getEmployeeByEmpNumber(String empnumber) {
-        Employee employee = new Employee();
-        employee.setEmpNumber(empnumber);
+    public boolean getEmployeeByEmpNumber(String empnumber) {
+        boolean exists=false;
         String sql = "Select * from employee where empno='" + empnumber + "';";
         try {
             ResultSet rs = conn.query(sql);
             while (rs.next()) {
-                employee.setEmpName(rs.getString("empname"));
+                exists=true;
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return employee;
+        return exists;
     }
 
     @Override
