@@ -1,27 +1,21 @@
 package Model;
 
 
+import ManagerClient.Client;
+import ManagerClient.IClient;
+import model.Employee;
+
+import java.net.MalformedURLException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+
 public class Model {
-    private String nameEmp;
-    private String numEmp;
-
-    public Model(){
-
+    private IClient client;
+    public Model() throws RemoteException, NotBoundException, MalformedURLException {
+        client = new Client();
     }
-
-    public String getNameEmp() {
-        return nameEmp;
-    }
-
-    public void setNameEmp(String nameEmp) {
-        this.nameEmp = nameEmp;
-    }
-
-    public String getNumEmp() {
-        return numEmp;
-    }
-
-    public void setNumEmp(String numEmp) {
-        this.numEmp = numEmp;
+    public void createEmp(String empName, String empNum) throws RemoteException {
+        Employee emp = new Employee(empName, empNum);
+        client.addEmployee(emp);
     }
 }

@@ -2,13 +2,12 @@ package Controller;
 
 import ManagerClient.Client;
 import ManagerClient.IClient;
+import Model.Model;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.TilePane;
-import model.Employee;
-import model.EmployeeRes;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -26,39 +25,35 @@ public class MCController implements Initializable {
     public ListView selectEmployee;
     public Button empShowAllBtn;
     public Button empSearchBtn;
-    private Employee employee;
-    private EmployeeRes empRes;
     private IClient clientinterface;
+    private Model model;
 
-    public MCController() throws RemoteException, NotBoundException, MalformedURLException {
-        employee = new Employee();
-        empRes = new EmployeeRes();
-        clientinterface = new Client();
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+    public MCController() throws RemoteException, NotBoundException, MalformedURLException {
+        model = new Model();
+    }
 
     public void AddEmp(ActionEvent event) throws IOException {
         //TODO add a try catch to see if the name and number exist already\
-        employee.setEmpName(empNameAddTf.getText());
-        employee.setEmpNumber(empNumberAddTf.getText());
-        if (clientinterface.addEmployee(employee)) {
-            Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee " + empNameAddTf.getText() + " has been added", ButtonType.OK);
-            a1.show();
-            empNameAddTf.clear();
-            empNumberAddTf.clear();
-        } else {
-
-            Alert a1 = new Alert(Alert.AlertType.ERROR, "Employee " + empNameAddTf.getText() + " already exists with " + empNumberAddTf.getText(), ButtonType.OK);
-
-            a1.show();
-            empNameAddTf.clear();
-            empNumberAddTf.clear();
-
-        }
+        model.createEmp(empNameAddTf.getText(), empNumberAddTf.getText());
+//        if (model.createEmp();)) {
+//            Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee " + empNameAddTf.getText() + " has been added", ButtonType.OK);
+//            a1.show();
+//            empNameAddTf.clear();
+//            empNumberAddTf.clear();
+//        } else {
+//
+//            Alert a1 = new Alert(Alert.AlertType.ERROR, "Employee " + empNameAddTf.getText() + " already exists with " + empNumberAddTf.getText(), ButtonType.OK);
+//
+//            a1.show();
+//            empNameAddTf.clear();
+//            empNumberAddTf.clear();
+//
+//        }
 
 
     }

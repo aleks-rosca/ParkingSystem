@@ -11,7 +11,6 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 public class Server extends UnicastRemoteObject implements IServer {
-    private ArrayList<EmployeeRes> empReservations;
     IEmpDAO empdb = new EmpDAO();
 
     public Server() throws RemoteException {
@@ -37,6 +36,9 @@ public class Server extends UnicastRemoteObject implements IServer {
 
     @Override
     public void addEmpRes(EmployeeRes employeeRes, Employee employee) throws RemoteException {
+        if (empdb.checkEmployeeByEmpNumber(employee.getEmpNumber())) {
+            empdb.addReservetion(employee, employeeRes);
+        }
 
 
     }
