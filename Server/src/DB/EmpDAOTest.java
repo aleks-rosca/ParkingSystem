@@ -23,7 +23,9 @@ class EmpDAOTest {
     @org.junit.jupiter.api.Test
     void addEmployee() {
         Employee emp = new Employee("zsolt","E1987");
-        empDAO.addEmployee(emp);
+         String test = empDAO.addEmployee(emp);
+
+         assertSame("Employee added",test);
 
 
     }
