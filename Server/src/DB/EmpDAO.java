@@ -1,6 +1,7 @@
 package DB;
 
 import model.Employee;
+import model.EmployeeRes;
 
 import java.sql.SQLException;
 
@@ -51,4 +52,27 @@ public class EmpDAO implements IEmpDAO {
 
         }
     return added;
-}}
+}
+
+    @Override
+    public Employee getEmployeeByEmpNumber(String empnumber) {
+      String sql = "Select name from employee where empno="+empnumber+";";
+        try {
+            conn.query(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+      return ;
+    }
+
+    @Override
+    public Employee getEmployeeByName(String name) {
+        return null;
+    }
+
+    @Override
+    public void addReservetion(Employee employee, EmployeeRes employeeRes) {
+
+    }
+
+}
