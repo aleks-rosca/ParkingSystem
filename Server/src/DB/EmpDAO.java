@@ -7,8 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class EmpDAO implements IEmpDAO {
-    private  static Conn conn;
-    public EmpDAO()  {
+    private static Conn conn;
+
+    public EmpDAO() {
         getInstancce();
     }
 
@@ -24,52 +25,51 @@ public class EmpDAO implements IEmpDAO {
     }
 */
 
-  public static Conn getInstancce(){
+    public static Conn getInstancce() {
 
-      if(conn==null){
-          try {
-              conn = new Conn();
+        if (conn == null) {
+            try {
+                conn = new Conn();
 
-          } catch (ClassNotFoundException e) {
-              e.printStackTrace();
-          }
-      }
-      return conn;
-  }
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        return conn;
+    }
 
     @Override
 
     public boolean addEmployee(Employee employee) {
         boolean added = false;
-        String sql = "INSERT INTO employee values('"+ employee.getEmpNumber()+ "','" + employee.getEmpName()+ "');";
+        String sql = "INSERT INTO employee values('" + employee.getEmpNumber() + "','" + employee.getEmpName() + "');";
         try {
             conn.update(sql);
             added = true;
         } catch (SQLException e) {
-            if(e.getSQLState().equals("23505")){
+            if (e.getSQLState().equals("23505")) {
 
             }
             e.printStackTrace();
 
         }
-    return added;
-}
+        return added;
+    }
 
     @Override
     public Employee getEmployeeByEmpNumber(String empnumber) {
-        Employee employee=null;
+        Employee employee = new Employee();
         employee.setEmpNumber(empnumber);
-      String sql = "Select * from employee where empno="+empnumber+";";
+        String sql = "Select * from employee where empno=" + empnumber + ";";
         try {
-            ResultSet rs=conn.query(sql);
-            while (rs.next())
-            {
+            ResultSet rs = conn.query(sql);
+            while (rs.next()) {
                 employee.setEmpName(rs.getNString("empname"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-      return employee;
+        return employee;
     }
 
     @Override
