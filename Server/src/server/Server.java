@@ -2,6 +2,7 @@ package server;
 
 import DB.EmpDAO;
 import DB.IEmpDAO;
+import Model.Model;
 import model.Employee;
 import model.EmployeeRes;
 import serverinterface.IServer;
@@ -10,9 +11,11 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
 public class Server extends UnicastRemoteObject implements IServer {
-    IEmpDAO empdb = new EmpDAO();
+    private Model model;
+
 
     public Server() throws RemoteException {
+        model = new Model();
         // UnicastRemoteObject.exportObject(this, 0);
     }
 
@@ -23,7 +26,7 @@ public class Server extends UnicastRemoteObject implements IServer {
 
     @Override
     public String addEmployee(Employee employee) throws RemoteException {
-        return empdb.addEmployee(employee);
+        return model.addEmployee(employee);
 
 
 
