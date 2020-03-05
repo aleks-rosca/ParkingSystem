@@ -8,12 +8,14 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.TilePane;
 import model.Employee;
+import model.EmployeeRes;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -26,10 +28,12 @@ public class MCController implements Initializable {
     public Button empShowAllBtn;
     public Button empSearchBtn;
     private Employee employee;
+    private EmployeeRes empRes;
     private IClient clientinterface;
 
     public MCController() throws RemoteException, NotBoundException, MalformedURLException {
         employee = new Employee();
+        empRes = new EmployeeRes();
         clientinterface = new Client();
     }
 

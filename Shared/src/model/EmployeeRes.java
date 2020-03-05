@@ -5,6 +5,10 @@ import java.util.Date;
 public class EmployeeRes {
     private Date date;
 
+    public EmployeeRes(){
+
+    }
+
     public EmployeeRes(Date date){
         this.date = date;
     }
