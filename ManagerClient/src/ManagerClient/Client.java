@@ -18,13 +18,8 @@ public class Client implements IClient {
     }
 
     @Override
-    public boolean addEmployee(Employee employee) throws RemoteException {
-        if (serverinterface.addEmployee(employee)) {
-
-            return true;
-        } else {
-            return false;
-        }
+    public String addEmployee(Employee employee) throws RemoteException {
+       return  serverinterface.addEmployee(employee);
     }
 
     @Override

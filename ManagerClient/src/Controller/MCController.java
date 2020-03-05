@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TabPane;
 
+import javafx.scene.control.*;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.rmi.NotBoundException;

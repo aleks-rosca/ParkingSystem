@@ -2,21 +2,22 @@ package server;
 
 import DB.EmpDAO;
 import DB.IEmpDAO;
+import Model.Model;
 import model.Employee;
 import model.EmployeeRes;
 import serverinterface.IServer;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.ArrayList;
 
 public class Server extends UnicastRemoteObject implements IServer {
-    IEmpDAO empdb = new EmpDAO();
+    private Model model;
+
 
     public Server() throws RemoteException {
+        model = new Model();
         // UnicastRemoteObject.exportObject(this, 0);
     }
-
 
     @Override
     public void message(String msg) throws RemoteException {
@@ -24,22 +25,15 @@ public class Server extends UnicastRemoteObject implements IServer {
     }
 
     @Override
-    public boolean addEmployee(Employee employee) throws RemoteException {
-        if (empdb.addEmployee(employee)) {
+    public String addEmployee(Employee employee) throws RemoteException {
+        return model.addEmployee(employee);
 
-            return true;
-        } else {
-            return false;
-        }
+
 
     }
 
     @Override
     public void addEmpRes(EmployeeRes employeeRes, Employee employee) throws RemoteException {
-        if (empdb.checkEmployeeByEmpNumber(employee.getEmpNumber())) {
-            empdb.addReservetion(employee, employeeRes);
-        }
-
 
     }
 

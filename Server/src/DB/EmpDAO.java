@@ -40,20 +40,20 @@ public class EmpDAO implements IEmpDAO {
 
     @Override
 
-    public boolean addEmployee(Employee employee) {
-        boolean added = false;
+    public String addEmployee(Employee employee) {
+
         String sql = "INSERT INTO employee values('" + employee.getEmpNumber() + "','" + employee.getEmpName() + "');";
         try {
             conn.update(sql);
-            added = true;
+
         } catch (SQLException e) {
             if (e.getSQLState().equals("23505")) {
-
+                return "Dublicate key";
             }
             e.printStackTrace();
 
         }
-        return added;
+        return "Employee added";
     }
 
     @Override
@@ -74,16 +74,6 @@ public class EmpDAO implements IEmpDAO {
     @Override
     public Employee getEmployeeByName(String name) {
         return null;
-    }
-
-    @Override
-    public void addReservetion(Employee employee, EmployeeRes employeeRes) {
-        String sql = "insert into empres values('"+employeeRes.getDate()+"','"+employee.getEmpNumber()+"');";
-        try {
-            conn.update(sql);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
 }
