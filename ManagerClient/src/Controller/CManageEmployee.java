@@ -55,9 +55,11 @@ public class CManageEmployee
         if (empNameSearchTf.getText().trim().isEmpty()) {
             // create a alert
             Alert a1 = new Alert(Alert.AlertType.ERROR, "Employee Search field is empty ", ButtonType.OK);
-
             a1.show();
-        } else {
+
+        }
+        else
+            {
             // create a alert
             Alert a1 = new Alert(Alert.AlertType.ERROR, "Employee " + empNameSearchTf.getText() + " does not exist in the system" + " \n\nAdd Employee to the system? ", ButtonType.YES, ButtonType.NO);
 
