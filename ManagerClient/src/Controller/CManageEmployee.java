@@ -35,7 +35,6 @@ public class CManageEmployee
 //            empNumberAddTf.clear();
 //
 //        }
-
     }
 
     public void empSearchBtn(ActionEvent actionEvent)
