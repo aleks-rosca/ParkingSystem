@@ -1,14 +1,10 @@
 package Controller;
 
-import ManagerClient.Client;
-import ManagerClient.IClient;
 import Model.Model;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.TilePane;
-
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -25,7 +21,6 @@ public class MCController implements Initializable {
     public ListView selectEmployee;
     public Button empShowAllBtn;
     public Button empSearchBtn;
-    private IClient clientinterface;
     private Model model;
 
 

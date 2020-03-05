@@ -11,11 +11,13 @@ import java.rmi.RemoteException;
 
 public class Model {
     private IClient client;
+    Employee emp;
     public Model() throws RemoteException, NotBoundException, MalformedURLException {
         client = new Client();
+
     }
     public void createEmp(String empName, String empNum) throws RemoteException {
-        Employee emp = new Employee(empName, empNum);
+        emp = new Employee(empName, empNum);
         client.addEmployee(emp);
     }
 }
