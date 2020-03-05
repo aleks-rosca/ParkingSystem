@@ -60,7 +60,7 @@ public class EmpDAO implements IEmpDAO {
     public Employee getEmployeeByEmpNumber(String empnumber) {
         Employee employee = new Employee();
         employee.setEmpNumber(empnumber);
-        String sql = "Select * from employee where empno=" + empnumber + ";";
+        String sql = "Select * from employee where empno='" + empnumber + "';";
         try {
             ResultSet rs = conn.query(sql);
             while (rs.next()) {
