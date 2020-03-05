@@ -3,6 +3,7 @@ package DB;
 import model.Employee;
 import model.EmployeeRes;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class EmpDAO implements IEmpDAO {
@@ -56,13 +57,19 @@ public class EmpDAO implements IEmpDAO {
 
     @Override
     public Employee getEmployeeByEmpNumber(String empnumber) {
-      String sql = "Select name from employee where empno="+empnumber+";";
+        Employee employee=null;
+        employee.setEmpNumber(empnumber);
+      String sql = "Select * from employee where empno="+empnumber+";";
         try {
-            conn.query(sql);
+            ResultSet rs=conn.query(sql);
+            while (rs.next())
+            {
+                employee.setEmpName(rs.getNString("empname"));
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-      return ;
+      return employee;
     }
 
     @Override
