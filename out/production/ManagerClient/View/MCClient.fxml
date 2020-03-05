@@ -1,95 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Tab?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MCController">
+    <children>
+        <TabPane fx:id="MCClient" layoutY="-1.0" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" >
+            <tabs>
+                <Tab text="Parking Status">
+                    <fx:include source="../View/Parking Status.fxml"/>
+                </Tab>
+                <Tab text="Manage Employee">
+                    <fx:include source="../View/Manage Employee.fxml"/>
+                </Tab>
+                <Tab text="Employee Reservation">
+                    <fx:include source="../View/Employee Reservation.fxml"/>
+                </Tab>
+                <Tab text="Guest Reservation">
+                    <fx:include source="../View/Guest Reservation.fxml"/>
+                </Tab>
+            </tabs>
+        </TabPane>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MCController">
-    <tabs>
-        <Tab id="pStatus" text="Parking Status">
-            <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <PieChart layoutX="316.0" layoutY="123.0" prefHeight="247.0" prefWidth="284.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" />
-               </children></AnchorPane>
-            </content>
-        </Tab>
-        <Tab id="mEmployees" text="Manage Employees">
-            <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="270.0" prefWidth="542.0">
-                    <children>
-                        <Label layoutX="65.0" layoutY="20.0" text="Add Employees" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="20.0" />
-                        <Label layoutX="27.0" layoutY="72.0" text="Name" AnchorPane.leftAnchor="25.0" />
-                        <Label layoutX="27.0" layoutY="105.0" text="Number" AnchorPane.leftAnchor="25.0" />
-                  <TextField fx:id="empNameAddTf" layoutX="85.0" layoutY="68.0" AnchorPane.leftAnchor="85.0" />
-                  <TextField fx:id="empNumberAddTf" layoutX="85.0" layoutY="101.0" AnchorPane.leftAnchor="85.0" />
-                          <TextField fx:id="empNameSearchTf" layoutX="409.0" layoutY="60.0" prefHeight="25.0" prefWidth="150.0" AnchorPane.rightAnchor="35.0" />
-                          <Label layoutX="369.0" layoutY="64.0" text="Name" />
-                          <Button fx:id="empShowAllBtn" layoutX="369.0" layoutY="100.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Show All" textAlignment="CENTER" />
-                          <Button fx:id="empSearchBtn" layoutX="479.0" layoutY="100.0" mnemonicParsing="false" onAction="#empSearchBtn" prefHeight="25.0" prefWidth="75.0" text="Search" AnchorPane.rightAnchor="40.0" />
-                        <Label layoutX="410.0" layoutY="20.0" text="Search for Employees" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="20.0" />
-                  <Button fx:id="addEmpBtn" layoutX="85.0" layoutY="149.0" mnemonicParsing="false" onAction="#AddEmp" text="Add" />
-                  <TableView fx:id="manageEmpTableTv" layoutX="373.0" layoutY="143.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="27.0" AnchorPane.rightAnchor="27.0">
-                    <columns>
-                      <TableColumn fx:id="manageEmpTable" prefWidth="100" text="Name" />
-                      <TableColumn prefWidth="100" text="Emp Num" />
-                    </columns>
-                  </TableView>
-                    </children>
-                </AnchorPane>
-            </content>
-        </Tab>
-        <Tab id="mGuests" text="Guests Reservation">
-            <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <Pane layoutX="4.0" layoutY="6.0" prefHeight="106.0" prefWidth="590.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                     <children>
-                        <TextField fx:id="guestReservNameTf" layoutX="79.0" layoutY="14.0" prefHeight="25.0" prefWidth="150.0" />
-                        <Label layoutX="21.0" layoutY="18.0" text="Name:" />
-                        <Button fx:id="guestReservBtn" layoutX="270.0" layoutY="53.0" mnemonicParsing="false" text="Reserve" />
-                        <DatePicker fx:id="guestReservDateDp" layoutX="79.0" layoutY="53.0" prefHeight="25.0" prefWidth="150.0" />
-                        <Label layoutX="344.0" layoutY="18.0" text="Purpose:" />
-                        <TextField fx:id="guestReservPurposeTf" layoutX="419.0" layoutY="14.0" prefHeight="65.0" prefWidth="150.0" />
-                        <Label layoutX="24.0" layoutY="57.0" text="Date:" />
-                     </children>
-                  </Pane>
-                  <TableView fx:id="guestReservTableTv" layoutX="5.0" layoutY="111.0" prefHeight="200.0" prefWidth="579.0" AnchorPane.bottomAnchor="59.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
-                    <columns>
-                      <TableColumn prefWidth="134" text="Name" />
-                      <TableColumn prefWidth="98" text="Date" />
-                        <TableColumn prefWidth="140" text="Reservation Number" />
-                        <TableColumn prefWidth="215" text="Purpose" />
-                    </columns>
-                  </TableView>
-                  <Button fx:id="guestReservDeleteBtn" layoutX="526.0" layoutY="322.0" mnemonicParsing="false" text="Delete" />
-               </children></AnchorPane>
-            </content>
-        </Tab>
-        <Tab id="mReservation" text="Employee Reservation">
-            <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <Pane layoutX="7.0" prefHeight="97.0" prefWidth="590.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                     <children>
-                        <TextField fx:id="empReservNumTf" layoutX="123.0" layoutY="24.0" prefHeight="25.0" prefWidth="130.0" />
-                        <Label layoutX="14.0" layoutY="28.0" text="Employee Number:" />
-                        <Button fx:id="empReservBtn" layoutX="513.0" layoutY="58.0" mnemonicParsing="false" text="Reserve" />
-                        <DatePicker fx:id="empReservDateDp" layoutX="396.0" layoutY="24.0" />
-                        <Label layoutX="357.0" layoutY="28.0" text="Date:" />
-                     </children>
-                  </Pane>
-                  <TableView fx:id="empReservTableTv" layoutX="5.0" layoutY="102.0" prefHeight="212.0" prefWidth="590.0" AnchorPane.bottomAnchor="56" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
-                    <columns>
-                      <TableColumn prefWidth="150" text="Name" />
-                      <TableColumn prefWidth="112" text="Date" />
-                        <TableColumn prefWidth="167" text="Employee Number" />
-                        <TableColumn prefWidth="160.0" text="Reservation Number" />
-                    </columns>
-                  </TableView>
-                  <Button fx:id="empReservDeleteBtn" layoutX="534.0" layoutY="331.0" mnemonicParsing="false" text="Delete" />
-               </children></AnchorPane>
-            </content>
-        </Tab>
-    </tabs>
-</TabPane>
+    </children>
+</AnchorPane>

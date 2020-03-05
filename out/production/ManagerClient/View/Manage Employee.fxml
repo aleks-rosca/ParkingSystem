@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Controller.CManageEmployee"
+            prefHeight="400.0" prefWidth="600.0">
+
+
+    <children>
+        <Label layoutX="65.0" layoutY="20.0" text="Add Employees" AnchorPane.leftAnchor="70.0"
+               AnchorPane.topAnchor="20.0"/>
+        <Label layoutX="27.0" layoutY="72.0" text="Name" AnchorPane.leftAnchor="25.0"/>
+        <Label layoutX="27.0" layoutY="105.0" text="Number" AnchorPane.leftAnchor="25.0"/>
+        <TextField fx:id="empNameAddTf" layoutX="85.0" layoutY="68.0" AnchorPane.leftAnchor="85.0"/>
+        <TextField fx:id="empNumberAddTf" layoutX="85.0" layoutY="101.0" AnchorPane.leftAnchor="85.0"/>
+        <TextField fx:id="empNameSearchTf" layoutX="409.0" layoutY="60.0" prefHeight="25.0" prefWidth="150.0"
+                   AnchorPane.rightAnchor="35.0"/>
+        <Label layoutX="369.0" layoutY="64.0" text="Name"/>
+        <Button fx:id="empShowAllBtn" layoutX="369.0" layoutY="100.0" mnemonicParsing="false" prefHeight="25.0"
+                prefWidth="75.0" text="Show All" textAlignment="CENTER"/>
+        <Button fx:id="empSearchBtn" layoutX="479.0" layoutY="100.0" mnemonicParsing="false" onAction="#empSearchBtn"
+                prefHeight="25.0" prefWidth="75.0" text="Search" AnchorPane.rightAnchor="40.0"/>
+        <Label layoutX="410.0" layoutY="20.0" text="Search for Employees" AnchorPane.rightAnchor="70.0"
+               AnchorPane.topAnchor="20.0"/>
+        <Button fx:id="addEmpBtn" layoutX="85.0" layoutY="149.0" mnemonicParsing="false" onAction="#AddEmp" text="Add"/>
+        <TableView fx:id="manageEmpTableTv" layoutX="373.0" layoutY="143.0" prefHeight="200.0" prefWidth="200.0"
+                   AnchorPane.bottomAnchor="27.0" AnchorPane.rightAnchor="27.0">
+            <columns>
+                <TableColumn fx:id="manageEmpTable" prefWidth="100" text="Name"/>
+                <TableColumn prefWidth="100" text="Emp Num"/>
+            </columns>
+        </TableView>
+    </children>
+
+
+</AnchorPane>

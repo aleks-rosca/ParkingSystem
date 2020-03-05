@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Controller.CGuestReservation"
+            prefHeight="400.0" prefWidth="600.0">
+
+
+    <children>
+        <Pane layoutX="4.0" layoutY="6.0" prefHeight="106.0" prefWidth="590.0" AnchorPane.leftAnchor="5.0"
+              AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+            <children>
+                <TextField fx:id="guestReservNameTf" layoutX="79.0" layoutY="14.0" prefHeight="25.0" prefWidth="150.0"/>
+                <Label layoutX="21.0" layoutY="18.0" text="Name:"/>
+                <Button fx:id="guestReservBtn" layoutX="270.0" layoutY="53.0" mnemonicParsing="false" text="Reserve"/>
+                <DatePicker fx:id="guestReservDateDp" layoutX="79.0" layoutY="53.0" prefHeight="25.0"
+                            prefWidth="150.0"/>
+                <Label layoutX="344.0" layoutY="18.0" text="Purpose:"/>
+                <TextField fx:id="guestReservPurposeTf" layoutX="419.0" layoutY="14.0" prefHeight="65.0"
+                           prefWidth="150.0"/>
+                <Label layoutX="24.0" layoutY="57.0" text="Date:"/>
+            </children>
+        </Pane>
+        <TableView fx:id="guestReservTableTv" layoutX="5.0" layoutY="111.0" prefHeight="200.0" prefWidth="579.0"
+                   AnchorPane.bottomAnchor="59.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+            <columns>
+                <TableColumn prefWidth="134" text="Name"/>
+                <TableColumn prefWidth="98" text="Date"/>
+                <TableColumn prefWidth="140" text="Reservation Number"/>
+                <TableColumn prefWidth="215" text="Purpose"/>
+            </columns>
+        </TableView>
+        <Button fx:id="guestReservDeleteBtn" layoutX="526.0" layoutY="322.0" mnemonicParsing="false" text="Delete"/>
+    </children>
+
+
+</AnchorPane>
