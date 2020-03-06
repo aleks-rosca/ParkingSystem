@@ -7,22 +7,10 @@ import java.sql.SQLException;
 public class EmpResDAO implements IEmpResDAO {
     private Conn conn;
 
-    {
-        try {
-            conn = new Conn();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
 
     public EmpResDAO() {
 
-public class EmpResDAO implements IEmpResDAO
-{
-private Conn conn;
-    public  EmpResDAO(){
-
-         conn = Conn.getInstance();
+        conn = Conn.getInstance();
 
     }
 
