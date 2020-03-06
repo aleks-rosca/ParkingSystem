@@ -17,7 +17,12 @@ public class EmpResDAO implements IEmpResDAO {
 
     public EmpResDAO() {
 
-        conn.getInstance();
+public class EmpResDAO implements IEmpResDAO
+{
+private Conn conn;
+    public  EmpResDAO(){
+
+         conn = Conn.getInstance();
 
     }
 

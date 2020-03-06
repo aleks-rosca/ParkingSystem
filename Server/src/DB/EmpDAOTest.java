@@ -1,34 +1,39 @@
 package DB;
 
 import model.Employee;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import java.sql.SQLException;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
 class EmpDAOTest {
     private EmpDAO empDAO;
-    private Conn db;
     @BeforeEach
     public void setUp() throws ClassNotFoundException {
 
 
-          Conn db = new Conn();
             empDAO = new EmpDAO();
 
     }
 
     @org.junit.jupiter.api.Test
     void addEmployee() {
-        Employee emp = new Employee("zsolt","E1284");
+        Employee emp = new Employee("zsolt","E1289");
          String test = empDAO.addEmployee(emp);
 
          assertSame("Employee added",test);
 
 
+
+
     }
 
+    @Test
+    void checkEmployeeByEmpNumber() {
+        String empNo = "E1289";
+        Boolean check = empDAO.checkEmployeeByEmpNumber(empNo);
 
+        assertEquals(true,check);
+    }
 }
