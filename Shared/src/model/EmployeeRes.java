@@ -1,11 +1,16 @@
 package model;
 
 
-public class EmployeeRes {
-    private String dateFromPicker;
-    private Employee emp;
-    public EmployeeRes(){
+import java.io.Serializable;
 
+public class EmployeeRes implements Serializable {
+    private String dateFromPicker;
+    private Employee employeeResModel;
+    private String empNo;
+
+    public EmployeeRes(String dateFromPicker, String empNo){
+        this.dateFromPicker = dateFromPicker;
+        this.empNo = empNo;
     }
 
     public void setDateFromPicker(String dateFromPicker) {
@@ -17,18 +22,26 @@ public class EmployeeRes {
     }
 
     public void setEmpNo(String empNo) {
-        emp.setEmpNumber(empNo);
+        employeeResModel.setEmpNumber(empNo);
     }
 
     public String getEmpNo() {
-        return emp.getEmpNumber();
+        return empNo;
     }
     public String getEmpName() {
-        return emp.getEmpName();
+        return employeeResModel.getEmpName();
     }
 
     public Employee getEmp() {
-        return emp;
+        return employeeResModel;
     }
 
+    @Override
+    public String toString() {
+        return "EmployeeRes{" +
+                "dateFromPicker='" + dateFromPicker + '\'' +
+                ", emp=" + employeeResModel +
+                ", empNo='" + empNo + '\'' +
+                '}';
+    }
 }

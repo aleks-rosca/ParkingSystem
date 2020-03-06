@@ -14,7 +14,7 @@ public class Model {
 
     public Model() {
         empdb = new EmpDAO();
-   //     empResDAO = new EmpResDAO();
+        empResDAO = new EmpResDAO();
     }
 
     public String addEmployee(Employee employee) {

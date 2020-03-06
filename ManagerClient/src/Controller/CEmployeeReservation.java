@@ -1,19 +1,30 @@
 package Controller;
 
+import Model.Model;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
-public class CEmployeeReservation
-{
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+
+public class CEmployeeReservation {
     public TextField empReservNumTf;
     public DatePicker empReservDateDp;
+    private Model model;
 
-    public void reservBtnClick(ActionEvent actionEvent)
-    {
-        if (empReservNumTf.getText().trim().isEmpty())
-        {
+    public CEmployeeReservation() throws RemoteException, NotBoundException, MalformedURLException {
+        model = new Model();
+    }
+
+
+    public void reservBtnClick(ActionEvent actionEvent) throws IOException {
+        model.addEmpRes(empReservDateDp.getValue().toString(), empReservNumTf.getText());
+
+        if (empReservNumTf.getText().trim().isEmpty()) {
             // create a alert
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Employee Number");
@@ -23,8 +34,7 @@ public class CEmployeeReservation
 
             alert.show();
         }
-        if (empReservDateDp.getValue() == null)
-        {
+        if (empReservDateDp.getValue() == null) {
             // create a alert
             Alert alert1 = new Alert(Alert.AlertType.ERROR);
             alert1.setTitle("Date");

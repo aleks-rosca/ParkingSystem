@@ -19,12 +19,12 @@ public class Client implements IClient {
 
     @Override
     public String addEmployee(Employee employee) throws RemoteException {
-       return  serverinterface.addEmployee(employee);
+        return serverinterface.addEmployee(employee);
     }
 
     @Override
-    public void addEmployeeRes(EmployeeRes employeeRes, Employee employee) throws RemoteException {
-     //   serverinterface.addEmpRes(employeeRes, employee);
+    public void addEmployeeRes(EmployeeRes employeeRes) throws RemoteException {
+        serverinterface.addEmpRes(employeeRes);
 
     }
 }
