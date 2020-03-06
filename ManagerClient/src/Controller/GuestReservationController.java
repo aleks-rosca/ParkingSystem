@@ -6,7 +6,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class CGuestReservation
+public class GuestReservationController
 {
     public TextField guestReservNameTf;
     public TextArea guestReservPurposeTf;

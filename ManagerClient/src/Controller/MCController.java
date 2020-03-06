@@ -1,31 +1,31 @@
 package Controller;
 
+import Model.IMCEModel;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.TabPane;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 
-
-public class MCController implements Initializable
-{
+public class MCController {
 
     @FXML
-    private CEmployeeReservation cEmployeeReservation;
+    public EmployeeReservationController employeeReservationController;
     @FXML
-    private CGuestReservation cGuestReservation;
+    public GuestReservationController guestReservationController;
     @FXML
-    private CManageEmployee cManageEmployee;
+    public ManageEmployeeController manageEmployeeController;
     @FXML
-    private CParkingStatus cParkingStatus;
+    public ParkingStatusController parkingStatusController;
 
     @FXML
     private TabPane parkingTabPane;
+    private IMCEModel model;
 
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
+    public void init(IMCEModel model) {
+        this.model = model;
+        manageEmployeeController.init(model);
+        employeeReservationController.init(model);
     }
+
+
 }

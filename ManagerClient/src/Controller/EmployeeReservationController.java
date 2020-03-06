@@ -1,28 +1,25 @@
 package Controller;
 
-import Model.Model;
+import Model.IMCEModel;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
 
-public class CEmployeeReservation {
+public class EmployeeReservationController {
     public TextField empReservNumTf;
     public DatePicker empReservDateDp;
-    private Model model;
+    public IMCEModel mceModel;
 
-    public CEmployeeReservation() throws RemoteException, NotBoundException, MalformedURLException {
-        model = new Model();
+    public void init(IMCEModel mceModel) {
+        this.mceModel = mceModel;
     }
 
 
     public void reservBtnClick(ActionEvent actionEvent) throws IOException {
-        model.addEmpRes(empReservDateDp.getValue().toString(), empReservNumTf.getText());
+        mceModel.addEmpRes(empReservDateDp.getValue().toString(), empReservNumTf.getText());
 
         if (empReservNumTf.getText().trim().isEmpty()) {
             // create a alert

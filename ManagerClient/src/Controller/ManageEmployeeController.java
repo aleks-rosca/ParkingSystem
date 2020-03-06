@@ -1,34 +1,30 @@
 package Controller;
 
-import Model.Model;
+import Model.IMCEModel;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
 import java.util.Optional;
 
-public class CManageEmployee
-{
+public class ManageEmployeeController {
     public TextField empNameSearchTf;
     public TextField empNameAddTf;
     public TextField empNumberAddTf;
-    private Model model;
+    public IMCEModel mceModel;
 
-    public CManageEmployee() throws RemoteException, NotBoundException, MalformedURLException {
-        model = new Model();
+
+    public void init(IMCEModel mceModel) {
+        this.mceModel = mceModel;
     }
 
 
-    public void AddEmp(ActionEvent actionEvent) throws IOException
-    {
+    public void AddEmp(ActionEvent actionEvent) throws IOException {
         //TODO add a try catch to see if the name and number exist already\
-        model.createEmp(empNameAddTf.getText(), empNumberAddTf.getText());
-//        if (model.createEmp();)) {
+        mceModel.createEmp(empNameAddTf.getText(), empNumberAddTf.getText());
+//        if (model.createEmp()) {
 //            Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee " + empNameAddTf.getText() + " has been added", ButtonType.OK);
 //            a1.show();
 //            empNameAddTf.clear();
@@ -44,8 +40,7 @@ public class CManageEmployee
 //        }
     }
 
-    public void empSearchBtn(ActionEvent actionEvent)
-    {
+    public void empSearchBtn(ActionEvent actionEvent) {
          /*   try
         {
             //TODO display empNameSearchTf.getText() in the ListView
@@ -57,9 +52,7 @@ public class CManageEmployee
             Alert a1 = new Alert(Alert.AlertType.ERROR, "Employee Search field is empty ", ButtonType.OK);
             a1.show();
 
-        }
-        else
-            {
+        } else {
             // create a alert
             Alert a1 = new Alert(Alert.AlertType.ERROR, "Employee " + empNameSearchTf.getText() + " does not exist in the system" + " \n\nAdd Employee to the system? ", ButtonType.YES, ButtonType.NO);
 

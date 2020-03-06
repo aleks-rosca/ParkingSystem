@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.Tab?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MCController">
     <children>
-        <TabPane fx:id="MCClient" layoutY="-1.0" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" >
+        <TabPane fx:id="MCClient" layoutY="-1.0" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
                 <Tab text="Parking Status">
-                    <fx:include source="../View/Parking Status.fxml"/>
+                    <fx:include fx:id="parkingStatus" source="ParkingStatus.fxml"/>
                 </Tab>
                 <Tab text="Manage Employee">
-                    <fx:include source="../View/Manage Employee.fxml"/>
+                    <fx:include fx:id="manageEmployee" source="ManageEmployee.fxml"/>
                 </Tab>
                 <Tab text="Employee Reservation">
-                    <fx:include source="../View/Employee Reservation.fxml"/>
+                    <fx:include fx:id="employeeReservation" source="EmployeeReservation.fxml"/>
                 </Tab>
                 <Tab text="Guest Reservation">
-                    <fx:include source="../View/Guest Reservation.fxml"/>
+                    <fx:include fx:id="guestReservation" source="GuestReservation.fxml"/>
                 </Tab>
             </tabs>
         </TabPane>

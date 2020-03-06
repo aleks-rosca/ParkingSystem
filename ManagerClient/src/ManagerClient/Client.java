@@ -18,13 +18,21 @@ public class Client implements IClient {
     }
 
     @Override
-    public String addEmployee(Employee employee) throws RemoteException {
-        return serverinterface.addEmployee(employee);
+    public String addEmployee(Employee employee) {
+        try {
+            return serverinterface.addEmployee(employee);
+        } catch (RemoteException e) {
+            return "Error";
+        }
     }
 
     @Override
-    public void addEmployeeRes(EmployeeRes employeeRes) throws RemoteException {
-        serverinterface.addEmpRes(employeeRes);
+    public void addEmployeeRes(EmployeeRes employeeRes) {
+        try {
+            serverinterface.addEmpRes(employeeRes);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
 
     }
 }

@@ -1,12 +1,10 @@
 package DB;
 
-import model.Employee;
 import model.EmployeeRes;
 
 import java.sql.SQLException;
 
-public class EmpResDAO implements IEmpResDAO
-{
+public class EmpResDAO implements IEmpResDAO {
     private Conn conn;
 
     {
@@ -16,7 +14,8 @@ public class EmpResDAO implements IEmpResDAO
             e.printStackTrace();
         }
     }
-    public  EmpResDAO(){
+
+    public EmpResDAO() {
 
         conn.getInstance();
 
@@ -24,7 +23,7 @@ public class EmpResDAO implements IEmpResDAO
 
     @Override
     public String addReservetion(EmployeeRes employeeRes) {
-        String sql = "insert into empres values('"+employeeRes.getDateFromPicker()+"','"+employeeRes.getEmpNo()+"');";
+        String sql = "insert into empres values('" + employeeRes.getDateFromPicker() + "','" + employeeRes.getEmpNo() + "');";
         try {
             conn.update(sql);
             return "Reservation is created";

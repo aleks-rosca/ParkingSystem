@@ -5,7 +5,6 @@ import java.io.Serializable;
 
 public class EmployeeRes implements Serializable {
     private String dateFromPicker;
-    private Employee employeeResModel;
     private String empNo;
 
     public EmployeeRes(String dateFromPicker, String empNo){
@@ -22,26 +21,13 @@ public class EmployeeRes implements Serializable {
     }
 
     public void setEmpNo(String empNo) {
-        employeeResModel.setEmpNumber(empNo);
+        this.empNo = empNo;
     }
 
     public String getEmpNo() {
         return empNo;
     }
-    public String getEmpName() {
-        return employeeResModel.getEmpName();
-    }
 
-    public Employee getEmp() {
-        return employeeResModel;
-    }
 
-    @Override
-    public String toString() {
-        return "EmployeeRes{" +
-                "dateFromPicker='" + dateFromPicker + '\'' +
-                ", emp=" + employeeResModel +
-                ", empNo='" + empNo + '\'' +
-                '}';
-    }
+
 }
