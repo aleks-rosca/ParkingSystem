@@ -1,7 +1,6 @@
 package DB;
 
 import model.Employee;
-import model.EmployeeRes;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,16 +8,10 @@ import java.sql.SQLException;
 public class EmpDAO implements IEmpDAO {
     private  Conn conn;
 
-    {
-        try {
-            conn = new Conn();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
+
 
     public EmpDAO() {
-        conn.getInstance();
+     conn =    conn.getInstance();
 
     }
 

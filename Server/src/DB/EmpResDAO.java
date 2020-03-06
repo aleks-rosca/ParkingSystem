@@ -1,24 +1,15 @@
 package DB;
 
-import model.Employee;
 import model.EmployeeRes;
 
 import java.sql.SQLException;
 
 public class EmpResDAO implements IEmpResDAO
 {
-    private Conn conn;
-
-    {
-        try {
-            conn = new Conn();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
+private Conn conn;
     public  EmpResDAO(){
 
-        conn.getInstance();
+         conn = Conn.getInstance();
 
     }
 
