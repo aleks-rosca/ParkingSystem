@@ -63,7 +63,7 @@ public class Conn {
     public Conn() throws ClassNotFoundException {
         this(DRIVER, URL, USER, PASSWORD);
     }
-    /*Singleton*/
+    /*Singleton  Lazy instantiation*/
     public static Conn getInstance() {
 
         if (conn == null) {
