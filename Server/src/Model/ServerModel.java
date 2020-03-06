@@ -7,12 +7,12 @@ import DB.IEmpResDAO;
 import model.Employee;
 import model.EmployeeRes;
 
-public class Model {
+public class ServerModel implements IServerModel{
     private IEmpDAO empdb;
     private IEmpResDAO empResDAO;
 
 
-    public Model() {
+    public ServerModel() {
         empdb = new EmpDAO();
         empResDAO = new EmpResDAO();
     }

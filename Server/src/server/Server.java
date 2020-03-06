@@ -1,6 +1,7 @@
 package server;
 
-import Model.Model;
+import Model.IServerModel;
+import Model.ServerModel;
 import model.Employee;
 import model.EmployeeRes;
 import serverinterface.IServer;
@@ -9,11 +10,11 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
 public class Server extends UnicastRemoteObject implements IServer {
-    private Model model;
+    private IServerModel model;
 
 
     public Server() throws RemoteException {
-        model = new Model();
+        model = new ServerModel();
         // UnicastRemoteObject.exportObject(this, 0);
     }
 

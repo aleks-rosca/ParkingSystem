@@ -39,7 +39,7 @@ public class EmpDAO implements IEmpDAO {
 
         } catch (SQLException e) {
             if (e.getSQLState().equals("23505")) {
-                return "Dublicate key";
+                return "Duplicate key";
             }
             e.printStackTrace();
 

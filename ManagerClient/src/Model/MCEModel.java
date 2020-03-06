@@ -15,9 +15,9 @@ public class MCEModel implements IMCEModel {
 
     }
 
-    public void createEmp(String empName, String empNum) {
+    public String createEmp(String empName, String empNum) {
         employee = new Employee(empName, empNum);
-        client.addEmployee(employee);
+        return client.addEmployee(employee);
 
     }
 

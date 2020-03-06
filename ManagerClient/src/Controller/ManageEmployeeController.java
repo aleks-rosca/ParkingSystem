@@ -23,7 +23,23 @@ public class ManageEmployeeController {
 
     public void AddEmp(ActionEvent actionEvent) throws IOException {
         //TODO add a try catch to see if the name and number exist already\
-        mceModel.createEmp(empNameAddTf.getText(), empNumberAddTf.getText());
+
+        if(mceModel.createEmp(empNameAddTf.getText(), empNumberAddTf.getText()).equals("Employee added")){
+            Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee " + empNameAddTf.getText() + " has been added!", ButtonType.OK);
+            a1.show();
+            empNameAddTf.clear();
+            empNumberAddTf.clear();
+        } else if(mceModel.createEmp(empNameAddTf.getText(), empNumberAddTf.getText()).equals("Duplicate key")) {
+            Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee " + empNameAddTf.getText() + " already exists!", ButtonType.OK);
+            a1.show();
+        }else {
+            Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Error 404", ButtonType.OK);
+            a1.show();
+        }
+
+
+
+
 //        if (model.createEmp()) {
 //            Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee " + empNameAddTf.getText() + " has been added", ButtonType.OK);
 //            a1.show();
