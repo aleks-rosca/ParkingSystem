@@ -8,6 +8,5 @@
       <Button fx:id="addReservation" layoutX="251.0" layoutY="78.0" mnemonicParsing="false" text="Reservate" />
       <TextField fx:id="empNo" layoutX="27.0" layoutY="35.0" text="EmployeeNo." />
       <DatePicker fx:id="choosedate" layoutX="213.0" layoutY="35.0" />
-      <ComboBox fx:id="Hours" layoutX="413.0" layoutY="35.0" prefWidth="150.0" />
     </children>
 </AnchorPane>

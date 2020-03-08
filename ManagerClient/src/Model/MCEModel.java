@@ -25,4 +25,14 @@ public class MCEModel implements IMCEModel {
         employeeRes = new EmployeeRes(dateFromPicker, empNum);
         client.addEmployeeRes(employeeRes);
     }
+
+    public boolean checkFirstChar(String empNo){
+
+        if('E'==empNo.charAt(0)){
+            return true;
+        }else {
+            return false;
+        }
+
+    }
 }
