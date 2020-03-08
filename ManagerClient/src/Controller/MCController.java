@@ -1,49 +1,99 @@
 package Controller;
-import View.AddWindow;
+
+import ManagerClient.Client;
+import ManagerClient.IClient;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.TilePane;
 import model.Employee;
-import serverinterface.IServer;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 
-public class MCController implements IMCController, Initializable {
+public class MCController implements Initializable {
     public TextField empNameSearchTf;
+    public TextField empNameAddTf;
+    public TextField empNumberAddTf;
+    public ListView selectEmployee;
     public Button empShowAllBtn;
     public Button empSearchBtn;
-    private IServer serverInterface;
-    @FXML private Button addEmpBtn;
+    private Employee employee;
+    private IClient clientinterface;
+
+    public MCController() throws RemoteException, NotBoundException, MalformedURLException {
+        employee = new Employee();
+        clientinterface = new Client();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
-    public MCController(IServer serverInterface) {
-        this.serverInterface = serverInterface;
+
+    public void AddEmp(ActionEvent event) throws IOException {
+        //TODO add a try catch to see if the name and number exist already\
+        employee.setEmpName(empNameAddTf.getText());
+        employee.setEmpNumber(empNumberAddTf.getText());
+        if (clientinterface.addEmployee(employee)) {
+            Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee " + empNameAddTf.getText() + " has been added", ButtonType.OK);
+            a1.show();
+            empNameAddTf.clear();
+            empNumberAddTf.clear();
+        } else {
+
+            Alert a1 = new Alert(Alert.AlertType.ERROR, "Employee " + empNameAddTf.getText() + " already exists with " + empNumberAddTf.getText(), ButtonType.OK);
+
+            a1.show();
+            empNameAddTf.clear();
+            empNumberAddTf.clear();
+
+        }
+
+
     }
 
-    public void addEmployee(Employee employee) {
+    public void empSearchBtn(ActionEvent actionEvent) {
+     /*   try
+        {
+            //TODO display empNameSearchTf.getText() in the ListView
+        }
+        catch (Exception e)
+        { */
+        if (empNameSearchTf.getText().trim().isEmpty()) {
+            // create a alert
+            Alert a1 = new Alert(Alert.AlertType.ERROR, "Employee Search field is empty ", ButtonType.OK);
 
+            a1.show();
+        } else {
+            // create a alert
+            Alert a1 = new Alert(Alert.AlertType.ERROR, "Employee " + empNameSearchTf.getText() + " does not exist in the system" + " \n\nAdd Employee to the system? ", ButtonType.YES, ButtonType.NO);
+
+            Optional<ButtonType> result = a1.showAndWait();
+            ButtonType button = result.orElse(ButtonType.NO);
+            if (button == ButtonType.YES) {
+
+                String change = empNameSearchTf.getText();
+                empNameAddTf.setText(change);
+                empNameSearchTf.clear();
+
+
+            } else {
+                System.out.println("No pressed");
+            }
+
+        }
     }
 
-    public void AddEmp(ActionEvent event) throws IOException
-    {
-        Parent AddWindowParent = FXMLLoader.load(getClass().getResource("AddWindow.fxml"));
-        Scene AddWindowScene = new Scene(AddWindowParent);
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(AddWindowScene);
-        window.show();
+    public void selectEmployee(MouseEvent mouseEvent) {
+
+
     }
 }

@@ -4,9 +4,9 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.EController">
-   <children>
-      <Button fx:id="reserveButton" layoutX="220.0" layoutY="64.0" mnemonicParsing="false" onAction="#reserveEmp" text="Reserve" />
-      <DatePicker fx:id="datePicker" layoutX="46.0" layoutY="29.0" promptText="Choose date" />
-      <TextField fx:id="empNo" layoutX="46.0" layoutY="64.0" promptText="Employee No." />
-   </children>
+    <children>
+      <Button fx:id="addReservation" layoutX="251.0" layoutY="78.0" mnemonicParsing="false" text="Reservate" />
+      <TextField fx:id="empNo" layoutX="27.0" layoutY="35.0" text="EmployeeNo." />
+      <DatePicker fx:id="choosedate" layoutX="213.0" layoutY="35.0" />
+    </children>
 </AnchorPane>

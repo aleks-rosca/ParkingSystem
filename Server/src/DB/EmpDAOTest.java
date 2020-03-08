@@ -15,18 +15,14 @@ class EmpDAOTest {
     public void setUp() {
 
 
-        try {
-            Conn db = new Conn();
-            empDAO = new EmpDAO(db);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+//            Conn db = new Conn();
+            empDAO = new EmpDAO();
 
     }
 
     @org.junit.jupiter.api.Test
     void addEmployee() {
-        Employee emp = new Employee("aleks","ar987");
+        Employee emp = new Employee("zsolt","E1987");
         empDAO.addEmployee(emp);
 
 
