@@ -1,9 +1,9 @@
 package ManagerClient;
 
 import model.Employee;
-
-import java.rmi.RemoteException;
+import model.EmployeeRes;
 
 public interface IClient {
-    public boolean addEmployee(Employee employee) throws RemoteException;
+    public String addEmployee(Employee employee);
+    public void addEmployeeRes(EmployeeRes employeeRes);
 }

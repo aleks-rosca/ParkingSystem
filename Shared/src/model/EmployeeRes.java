@@ -1,34 +1,33 @@
 package model;
 
-import java.util.Date;
 
-public class EmployeeRes {
-    private String date;
-    private int empNo;
-    private int reservationNo = 0;
+import java.io.Serializable;
 
-    public EmployeeRes(String date, int empNo) {
+public class EmployeeRes implements Serializable {
+    private String dateFromPicker;
+    private String empNo;
 
-        this.date = date;
+    public EmployeeRes(String dateFromPicker, String empNo){
+        this.dateFromPicker = dateFromPicker;
         this.empNo = empNo;
     }
 
-    public String getDate() {
-        return date;
+    public void setDateFromPicker(String dateFromPicker) {
+        this.dateFromPicker = dateFromPicker;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public String getDateFromPicker() {
+        return dateFromPicker;
     }
 
-    public int getEmpNo() {
+    public void setEmpNo(String empNo) {
+        this.empNo = empNo;
+    }
+
+    public String getEmpNo() {
         return empNo;
     }
 
-    public void setEmpNo(int empNo) {
-        this.empNo = empNo;
-    }
-    public int getReservationNo(){
-        return reservationNo;
-    }
+
+
 }

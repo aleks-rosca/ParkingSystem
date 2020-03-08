@@ -2,12 +2,17 @@ package DB;
 
 import model.Employee;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class EmpDAO implements IEmpDAO {
-    private  static Conn conn;
-    public EmpDAO()  {
-        getInstancce();
+    private  Conn conn;
+
+
+
+    public EmpDAO() {
+     conn =    conn.getInstance();
+
     }
 
   /*  public EmpDAO(Conn conn) {
@@ -22,33 +27,44 @@ public class EmpDAO implements IEmpDAO {
     }
 */
 
-  public static Conn getInstancce(){
 
-      if(conn==null){
-          try {
-              conn = new Conn();
-
-          } catch (ClassNotFoundException e) {
-              e.printStackTrace();
-          }
-      }
-      return conn;
-  }
 
     @Override
 
-    public boolean addEmployee(Employee employee) {
-        boolean added = false;
-        String sql = "INSERT INTO employee values('"+ employee.getEmpNumber()+ "','" + employee.getEmpName()+ "');";
+    public String addEmployee(Employee employee) {
+
+        String sql = "INSERT INTO employee values('" + employee.getEmpNumber() + "','" + employee.getEmpName() + "');";
         try {
             conn.update(sql);
-            added = true;
-        } catch (SQLException e) {
-            if(e.getSQLState().equals("23505")){
 
+        } catch (SQLException e) {
+            if (e.getSQLState().equals("23505")) {
+                return "Duplicate key";
             }
             e.printStackTrace();
 
         }
-    return added;
-}}
+        return "Employee added";
+    }
+
+    @Override
+    public boolean checkEmployeeByEmpNumber(String empnumber) {
+        boolean exists=false;
+        String sql = "Select * from employee where empno='" + empnumber + "';";
+        try {
+            ResultSet rs = conn.query(sql);
+            while (rs.next()) {
+                exists=true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return exists;
+    }
+
+    @Override
+    public Employee getEmployeeByName(String name) {
+        return null;
+    }
+
+}

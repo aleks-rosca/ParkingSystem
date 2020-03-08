@@ -1,6 +1,7 @@
 package ManagerClient;
 
 import model.Employee;
+import model.EmployeeRes;
 import serverinterface.IServer;
 
 import java.net.MalformedURLException;
@@ -17,12 +18,21 @@ public class Client implements IClient {
     }
 
     @Override
-    public boolean addEmployee(Employee employee) throws RemoteException {
-        if (serverinterface.addEmployee(employee)) {
-
-            return true;
-        } else {
-            return false;
+    public String addEmployee(Employee employee) {
+        try {
+            return serverinterface.addEmployee(employee);
+        } catch (RemoteException e) {
+            return "Error";
         }
+    }
+
+    @Override
+    public void addEmployeeRes(EmployeeRes employeeRes) {
+        try {
+            serverinterface.addEmpRes(employeeRes);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+
     }
 }

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ManageEmployeeController">
+
+
+    <children>
+        <TableView fx:id="manageEmpTableTv" layoutX="335.0" layoutY="103.0" prefHeight="250.0" prefWidth="250.0" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="100.0">
+            <columns>
+                <TableColumn fx:id="manageEmpTable" prefWidth="125.00000220537186" text="Name" />
+                <TableColumn prefWidth="125.85711669921875" text="Emp Num" />
+            </columns>
+        </TableView>
+      <Pane layoutX="32.0" layoutY="186.0" prefHeight="162.0" prefWidth="240.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="20.0">
+         <children>
+              <TextField fx:id="empNameSearchTf" layoutX="68.0" layoutY="55.0" prefHeight="25.0" prefWidth="150.0" />
+              <Label layoutX="22.0" layoutY="59.0" text="Name" />
+              <Button fx:id="empSearchBtn" layoutX="82.0" layoutY="94.0" mnemonicParsing="false" onAction="#empSearchBtn" prefHeight="25.0" prefWidth="75.0" text="Search" />
+              <Label layoutX="63.0" layoutY="14.0" text="Search for Employees" />
+         </children>
+      </Pane>
+      <Button fx:id="manageEmpEditBtn" layoutX="500.0" layoutY="50.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Edit" AnchorPane.topAnchor="40.0" />
+      <Pane layoutX="20.0" layoutY="20.0" prefHeight="193.0" prefWidth="250.0">
+         <children>
+              <Label layoutX="84.0" layoutY="14.0" text="Add Employees" />
+              <Label layoutX="14.0" layoutY="66.0" text="Name" />
+              <Label layoutX="14.0" layoutY="99.0" text="Number" />
+              <TextField fx:id="empNameAddTf" layoutX="74.0" layoutY="62.0" />
+              <TextField fx:id="empNumberAddTf" layoutX="74.0" layoutY="95.0" />
+              <Button fx:id="addEmpBtn" layoutX="106.0" layoutY="139.0" mnemonicParsing="false" onAction="#AddEmp" text="Add" />
+         </children>
+      </Pane>
+        <Button fx:id="empShowAllBtn" layoutX="360.0" layoutY="50.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Show All" textAlignment="CENTER" AnchorPane.topAnchor="40.0" />
+    </children>
+
+
+</AnchorPane>
