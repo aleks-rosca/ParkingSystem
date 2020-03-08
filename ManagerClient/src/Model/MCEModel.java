@@ -26,13 +26,18 @@ public class MCEModel implements IMCEModel {
         client.addEmployeeRes(employeeRes);
     }
 
-    public boolean checkFirstChar(String empNo){
+    public boolean checkFirstChar(String empNo) {
 
-        if('E'==empNo.charAt(0)){
+        if ('E' == empNo.charAt(0)) {
             return true;
-        }else {
+        } else {
             return false;
         }
 
+    }
+
+    public String rearrangeChars(String empName){
+        empName = empName.substring(0,1).toUpperCase() + empName.substring(1).toLowerCase();
+        return empName;
     }
 }
