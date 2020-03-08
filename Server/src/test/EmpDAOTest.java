@@ -33,9 +33,15 @@ class EmpDAOTest {
     @org.junit.jupiter.api.Test
     void addEmployee() {
 
-         String test = empDAO.addEmployee(emp);
+         String testInsert = empDAO.addEmployee(emp);
 
-         assertSame("Employee added",test);
+         assertSame("Employee added",testInsert);
+
+         //testing that we get an error if we try to insert the same employee twice
+
+        String testDuplicate = empDAO.addEmployee(emp);
+
+        assertSame("Duplicate key",testDuplicate);
 
 
 
