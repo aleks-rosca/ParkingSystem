@@ -24,18 +24,25 @@ public class ManageEmployeeController {
     public void AddEmp(ActionEvent actionEvent) throws IOException {
         //TODO add a try catch to see if the name and number exist already\
 
-        if(mceModel.createEmp(empNameAddTf.getText(), empNumberAddTf.getText()).equals("Employee added")){
-            Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee " + empNameAddTf.getText() + " has been added!", ButtonType.OK);
-            a1.show();
-            empNameAddTf.clear();
-            empNumberAddTf.clear();
-        } else if(mceModel.createEmp(empNameAddTf.getText(), empNumberAddTf.getText()).equals("Duplicate key")) {
-            Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee " + empNameAddTf.getText() + " already exists!", ButtonType.OK);
-            a1.show();
+        if(mceModel.checkFirstChar(empNumberAddTf.getText())){
+
+            if(mceModel.createEmp(mceModel.rearrangeChars(empNameAddTf.getText()), empNumberAddTf.getText()).equals("Employee added")){
+                Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee " + empNameAddTf.getText() + " has been added!", ButtonType.OK);
+                a1.show();
+                empNameAddTf.clear();
+                empNumberAddTf.clear();
+            } else if(mceModel.createEmp(mceModel.rearrangeChars(empNameAddTf.getText()), empNumberAddTf.getText()).equals("Duplicate key")) {
+                Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee " + empNameAddTf.getText() + " already exists!", ButtonType.OK);
+                a1.show();
+            }else {
+                Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Error 404", ButtonType.OK);
+                a1.show();
+            }
         }else {
-            Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Error 404", ButtonType.OK);
+            Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee number should start from E ", ButtonType.OK);
             a1.show();
         }
+
 
 
 

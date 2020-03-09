@@ -19,10 +19,15 @@ public class EmpResDAO implements IEmpResDAO {
         String sql = "insert into empres values('" + employeeRes.getDateFromPicker() + "','" + employeeRes.getEmpNo() + "');";
         try {
             conn.update(sql);
-            return "Reservation is created";
+
         } catch (SQLException e) {
+
+            if(e.getSQLState().equals("23505")){
+                return "Reservation is not created";
+            }
             e.printStackTrace();
-            return "Reservation is not created";
         }
+
+        return "Reservation is created";
     }
 }
