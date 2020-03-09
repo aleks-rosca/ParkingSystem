@@ -11,7 +11,7 @@ public class EmpDAO implements IEmpDAO {
 
 
     public EmpDAO() {
-     conn =    conn.getInstance();
+     conn =    Conn.getInstance();
 
     }
 
