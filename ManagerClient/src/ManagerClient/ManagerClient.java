@@ -27,11 +27,12 @@ public class ManagerClient implements IManagerClient {
     }
 
     @Override
-    public void addEmployeeRes(EmployeeRes employeeRes) {
+    public String addEmployeeRes(EmployeeRes employeeRes) {
         try {
-            serverinterface.addEmpRes(employeeRes);
+            return serverinterface.addEmpRes(employeeRes);
         } catch (RemoteException e) {
             e.printStackTrace();
+            return "Error";
         }
 
     }

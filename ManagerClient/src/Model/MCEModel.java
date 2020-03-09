@@ -21,9 +21,9 @@ public class MCEModel implements IMCEModel {
 
     }
 
-    public void addEmpRes(String dateFromPicker, String empNum) {
+    public String addEmpRes(String dateFromPicker, String empNum) {
         employeeRes = new EmployeeRes(dateFromPicker, empNum);
-        client.addEmployeeRes(employeeRes);
+        return client.addEmployeeRes(employeeRes);
     }
 
     public boolean checkFirstChar(String empNo) {
