@@ -35,7 +35,7 @@ class EmpResDAOTest {
     void addReservetion() {
 
         String testInsert = test.addReservetion(testReservation);
-     //   assertSame("Reservation is created", testInsert);
+       assertSame("Reservation is created", testInsert);
     //testing response on dublicate reservation ( same employee on same day)
 
         String testDublicate = test.addReservetion(testReservation);
