@@ -24,6 +24,9 @@ public class EmpResDAO implements IEmpResDAO {
 
             if(e.getSQLState().equals("23505")){
                 return "Reservation is not created";
+            }else if(e.getSQLState().equals("23514")){
+
+                return "You can not create reservation for same day or more than 7 days ahead";
             }
             e.printStackTrace();
         }
