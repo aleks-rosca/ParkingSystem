@@ -3,10 +3,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.EController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.EReservationController">
     <children>
-      <Button fx:id="addReservation" layoutX="251.0" layoutY="78.0" mnemonicParsing="false" text="Reservate" />
-      <TextField fx:id="empNo" layoutX="27.0" layoutY="35.0" text="EmployeeNo." />
+      <Button fx:id="addReservation" layoutX="251.0" layoutY="78.0" mnemonicParsing="false" onAction="#reservate" text="Reservate" />
+      <TextField fx:id="empNoTF" layoutX="27.0" layoutY="35.0" text="EmployeeNo." />
       <DatePicker fx:id="choosedate" layoutX="213.0" layoutY="35.0" />
     </children>
 </AnchorPane>
