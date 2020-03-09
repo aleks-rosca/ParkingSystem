@@ -20,6 +20,8 @@ public class EmpParking implements IEmpParking {
             if(e.getSQLState().equals("23505")){
 
                 return "Already checked in";
+            }else if(e.getSQLState().equals("P0001")){
+                return "No such employee number";
             }
             e.printStackTrace();
         }
