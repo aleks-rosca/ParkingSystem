@@ -25,4 +25,9 @@ public class ServerModel implements IServerModel{
         return empResDAO.addReservetion(employeeRes);
     }
 
+    @Override
+    public String empCheckIn(String empNo) {
+        return null;
+    }
+
 }
