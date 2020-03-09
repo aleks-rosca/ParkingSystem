@@ -9,10 +9,10 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
-public class Client implements IClient {
+public class ManagerClient implements IManagerClient {
     private IServer serverinterface;
 
-    public Client() throws RemoteException, NotBoundException, MalformedURLException {
+    public ManagerClient() throws RemoteException, NotBoundException, MalformedURLException {
         serverinterface = (IServer) Naming.lookup("rmi://localhost:1099/IPMS");
         serverinterface.message("Manager Connected");
     }

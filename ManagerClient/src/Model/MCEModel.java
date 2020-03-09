@@ -1,6 +1,6 @@
 package Model;
 
-import ManagerClient.IClient;
+import ManagerClient.IManagerClient;
 import model.Employee;
 import model.EmployeeRes;
 
@@ -8,9 +8,9 @@ public class MCEModel implements IMCEModel {
 
     Employee employee;
     EmployeeRes employeeRes;
-    private IClient client;
+    private IManagerClient client;
 
-    public MCEModel(IClient cl) {
+    public MCEModel(IManagerClient cl) {
         client = cl;
 
     }
