@@ -1,4 +1,4 @@
-package server;
+package Server;
 
 import Model.IServerModel;
 import Model.ServerModel;
@@ -35,6 +35,11 @@ public class Server extends UnicastRemoteObject implements IServer {
         return model.addEmpRes(employeeRes);
 
 
+    }
+
+    @Override
+    public String empCheckIn(String empNo) throws RemoteException {
+        return null;//model.empCheckIn(String empNo);
     }
 
 

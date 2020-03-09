@@ -31,7 +31,7 @@ public class ManageEmployeeController {
                 a1.show();
                 empNameAddTf.clear();
                 empNumberAddTf.clear();
-            } else if(mceModel.createEmp(mceModel.rearrangeChars(empNameAddTf.getText()), empNumberAddTf.getText()).equals("Duplicate key")) {
+            } else if(mceModel.createEmp(empNameAddTf.getText(), empNumberAddTf.getText()).equals("Duplicate key")) {
                 Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee " + empNameAddTf.getText() + " already exists!", ButtonType.OK);
                 a1.show();
             }else {

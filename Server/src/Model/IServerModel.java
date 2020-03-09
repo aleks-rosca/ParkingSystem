@@ -7,4 +7,6 @@ public interface IServerModel {
     String addEmployee(Employee employee);
 
     String addEmpRes(EmployeeRes employeeRes);
+
+    String empCheckIn(String empNo);
 }
