@@ -1,8 +1,7 @@
 package test;
 
-import DB.Conn;
-import DB.EmpResDAO;
-import DB.IEmpResDAO;
+import DB.*;
+import model.Employee;
 import model.EmployeeRes;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,12 +15,15 @@ class EmpResDAOTest {
     IEmpResDAO test;
     private Conn conn;
     private EmployeeRes testReservation;
-
+    private IEmpDAO empdao; // used to create a test Employee
     @BeforeEach
     void setUp() {
         conn = Conn.getInstance(); // used for deleting reservation after they have been tested
         test = new EmpResDAO();
-        testReservation = new EmployeeRes("2020/03/13", "E1234");
+        empdao = new EmpDAO();
+        empdao.addEmployee(new Employee("Test Employee","E1289"));
+
+        testReservation = new EmployeeRes("2020/03/13", "E1289");
     }
 
     @AfterEach
@@ -41,16 +43,17 @@ class EmpResDAOTest {
         String testDublicate = test.addReservetion(testReservation);
         assertSame("Reservation is not created", testDublicate);
         //testing that employee can make multiple for more days
-        EmployeeRes testReservation2 = new EmployeeRes("CURRENT_DATE+1", "E1289");
+        EmployeeRes testReservation2 = new EmployeeRes("2020/03/10", "E1289");
         String testInsert2 = test.addReservetion(testReservation2);
         assertSame("Reservation is created", testInsert);
-        // testing that employee can't book for current date or 7+ days ahead
-        EmployeeRes testReservation3 = new EmployeeRes("CURRENT_DATE+7", "E1289");
+//        // testing that employee can't book for current date
+        EmployeeRes testReservation3 = new EmployeeRes("2020/03/09", "E1289");
         String testSameDay = test.addReservetion(testReservation3);
-        assertSame("Reservation is not created", testSameDay);
-        EmployeeRes testReservation4 = new EmployeeRes("CURRENT_DATE+8", "E1289");
+        assertSame("You can not create reservation for same day or more than 7 days ahead", testSameDay);
+      //7+ days
+        EmployeeRes testReservation4 = new EmployeeRes("2020/03/20", "E1289");
         String testMoreThanSeven = test.addReservetion(testReservation4);
-        assertSame("Reservation is not created", testMoreThanSeven);
+        assertSame("You can not create reservation for same day or more than 7 days ahead", testMoreThanSeven);
 
 
     }
