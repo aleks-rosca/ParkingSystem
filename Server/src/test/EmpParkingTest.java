@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,15 +19,21 @@ class EmpParkingTest {
     private IEmpDAO empDAO;
     private Conn conn;
     private EmployeeRes empres;
+   private LocalDate dt;
+    private LocalDate tomorrow ;
     @BeforeEach
     void setUp() {
+
+     dt =  LocalDate.now();
+        tomorrow = dt.plusDays(1);
         conn = Conn.getInstance();
         eres = new EmpResDAO();
         epark = new EmpParking();
         empDAO = new EmpDAO();
         Employee emp = new Employee("testUser2", "E2222");
         empDAO.addEmployee(emp);
-         empres = new EmployeeRes("2020/03/10",emp.getEmpNumber());
+         empres = new EmployeeRes(tomorrow.toString(),emp.getEmpNumber());
+
 
 
     }
@@ -59,9 +66,9 @@ class EmpParkingTest {
 
     void empcheckinWithRes(){// we are also testing that reservations are removed after checking in to the parking lot
         eres.addReservetion(empres);
-        String sql = "INSERT INTO parkinglot VALUES('E2222','E','2020/03/10');";
-        String sqlres= "select * from empres where empno='E2222'AND date='2020/03/10';";
-        String sqlParking= "select * from parkinglot where ID='E2222'AND date= '2020/03/10';";
+        String sql = "INSERT INTO parkinglot VALUES('E2222','E','"+tomorrow+"');";
+        String sqlres= "select * from empres where empno='E2222'AND date='"+tomorrow+"';";
+        String sqlParking= "select * from parkinglot where ID='E2222'AND date= '"+tomorrow+"';";
         boolean existsBefore= false;
         boolean existsAfter = false;
         boolean parkingExists = false;
