@@ -102,7 +102,7 @@ class EmpParkingTest {
     @Test
     void invalidEmployeeNumber() {
         String testcheckinEmp = epark.empCheckIn("E9999");
-        assertSame("No such employee number", testcheckinEmp);
+        assertEquals("No such employee number", testcheckinEmp);
 
     }
 }
