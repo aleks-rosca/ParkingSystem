@@ -91,4 +91,11 @@ class EmpParkingTest {
         assertFalse(existsAfter);
         assertTrue(parkingExists);
     }
+
+    @Test
+    void invalidEmployeeNumber() {
+        String testcheckinEmp = epark.empCheckIn("E9999");
+        assertSame("No such employee number", testcheckinEmp);
+
+    }
 }
