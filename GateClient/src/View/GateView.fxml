@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Controller.GController"
-            prefHeight="400.0" prefWidth="600.0">
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GController">
+   <children>
+      <Pane layoutX="100.0" layoutY="90.0" prefHeight="273.0" prefWidth="243.0">
+         <children>
+            <Button fx:id="gateViewPublicUserBtn" layoutY="200.0" mnemonicParsing="false" onAction="#publicUserBtn" prefHeight="50.0" prefWidth="243.0" text="Public User" />
+            <Button fx:id="gateViewGuestBtn" layoutY="150.0" mnemonicParsing="false" onAction="#guestBtn" prefHeight="50.0" prefWidth="243.0" text="Guest" />
+            <Button fx:id="gateViewEmpBtn" layoutY="100.0" mnemonicParsing="false" onAction="#employeeBtn" prefHeight="50.0" prefWidth="243.0" text="Employee" />
+            <ProgressBar fx:id="howManyleftPb" layoutX="20.0" layoutY="40.0" prefHeight="40.0" prefWidth="200.0" progress="0.0" />
+         </children>
+      </Pane>
+   </children>
 </AnchorPane>
