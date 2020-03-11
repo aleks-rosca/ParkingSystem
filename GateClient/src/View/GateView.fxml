@@ -5,13 +5,11 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GController">
    <children>
-      <Pane layoutX="100.0" layoutY="90.0" prefHeight="273.0" prefWidth="243.0">
+      <Pane layoutX="71.0" layoutY="101.0" prefHeight="171.0" prefWidth="458.0">
          <children>
-            <Button fx:id="gateViewPublicUserBtn" layoutY="200.0" mnemonicParsing="false" onAction="#publicUserBtn" prefHeight="50.0" prefWidth="243.0" text="Public User" />
-            <Button fx:id="gateViewGuestBtn" layoutY="150.0" mnemonicParsing="false" onAction="#guestBtn" prefHeight="50.0" prefWidth="243.0" text="Guest" />
-            <Button fx:id="gateViewEmpBtn" layoutY="100.0" mnemonicParsing="false" onAction="#employeeBtn" prefHeight="50.0" prefWidth="243.0" text="Employee" />
-            <ProgressBar fx:id="howManyleftPb" layoutX="20.0" layoutY="40.0" prefHeight="40.0" prefWidth="200.0" progress="0.0" />
-         </children>
-      </Pane>
+            <Button layoutX="350.0" layoutY="82.0" mnemonicParsing="false" text="Reserve" />
+            <Label layoutY="56.0" prefHeight="78.0" prefWidth="128.0" text="Enter your &#10;Employee Number or&#10;Reservation Number or&#10;Licence plate" />
+            <TextField layoutX="155.0" layoutY="82.0" />
+         </children></Pane>
    </children>
 </AnchorPane>
