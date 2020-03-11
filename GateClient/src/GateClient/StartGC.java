@@ -2,8 +2,8 @@ package GateClient;
 
 import Controller.GController;
 
-import Model.GCEModel;
-import Model.IGCEmodel;
+import Model.GCModel;
+import Model.IGCModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -26,7 +26,7 @@ public class StartGC extends Application
         GController ctrl = loader.getController();
 
         IGClient gc = new GClient();
-        IGCEmodel emodel = new GCEModel(gc);
+        IGCModel emodel = new GCModel(gc);
         ctrl.init(emodel);
         primaryStage.setTitle("Gate");
         primaryStage.setScene(new Scene(main, 600, 400));

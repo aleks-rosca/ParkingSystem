@@ -1,14 +1,19 @@
 package Controller;
 
-import Model.IGCEmodel;
+import Model.IGCModel;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 
 import java.util.Optional;
 
 public class GController {
-    public void employeeBtn(ActionEvent actionEvent)
-    {
+    public Button checkinBtn;
+    public TextField checkInTf;
+    public IGCModel model;
+
+    public void employeeBtn(ActionEvent actionEvent) {
         TextInputDialog dialog = new TextInputDialog();
         dialog.setTitle("Employee Gate Voew");
         dialog.setHeaderText("Enter Employee Number to proceed");
@@ -16,7 +21,7 @@ public class GController {
 
 // Traditional way to get the response value.
         Optional<String> result = dialog.showAndWait();
-        if (result.isPresent()){
+        if (result.isPresent()) {
             System.out.println("Employee Number: " + result.get());
         }
 
@@ -24,7 +29,12 @@ public class GController {
         result.ifPresent(name -> System.out.println("Your name: " + name));
     }
 
-    public void init(IGCEmodel model)
-    {
+    public void init(IGCModel model) {
+        this.model = model;
+    }
+
+    public void checkIn(ActionEvent actionEvent) {
+        model.empCheckIn(checkInTf.getText());
+
     }
 }

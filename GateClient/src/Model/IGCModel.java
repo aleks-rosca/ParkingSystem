@@ -1,5 +1,5 @@
 package Model;
 
-public interface IGCEmodel {
+public interface IGCModel {
     String empCheckIn(String empNo);
 }

@@ -2,7 +2,9 @@ package ManagerClient;
 
 import Controller.MCController;
 import Model.IMCEModel;
+import Model.IMCGModel;
 import Model.MCEModel;
+import Model.MCGModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

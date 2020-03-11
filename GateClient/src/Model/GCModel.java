@@ -2,11 +2,11 @@ package Model;
 
 import GateClient.IGClient;
 
-public class GCEModel implements IGCEmodel {
+public class GCModel implements IGCModel {
     private IGClient gClient;
 
 
-    public GCEModel(IGClient gc) {
+    public GCModel(IGClient gc) {
         gClient = gc;
 
     }
@@ -17,4 +17,6 @@ public class GCEModel implements IGCEmodel {
 
         return gClient.empCheckIn(empNo);
     }
+
+
 }
