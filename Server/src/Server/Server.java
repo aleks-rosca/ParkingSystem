@@ -39,7 +39,7 @@ public class Server extends UnicastRemoteObject implements IServer {
 
     @Override
     public String empCheckIn(String empNo) throws RemoteException {
-        return null;//model.empCheckIn(String empNo);
+        return model.empCheckIn(empNo);
     }
 
 
