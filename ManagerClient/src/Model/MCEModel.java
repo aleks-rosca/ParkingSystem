@@ -14,6 +14,9 @@ public class MCEModel implements IMCEModel {
         client = cl;
 
     }
+    //empty constructor for testing
+    public MCEModel(){}
+
 
     public String createEmp(String empName, String empNum) {
         employee = new Employee(empName, empNum);

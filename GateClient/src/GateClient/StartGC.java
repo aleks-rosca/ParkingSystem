@@ -1,6 +1,8 @@
 package GateClient;
 
 import Controller.GController;
+
+import Model.GCEModel;
 import Model.IGCEmodel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -22,10 +24,13 @@ public class StartGC extends Application
         loader.setLocation(getClass().getResource("/View/GateView.fxml"));
         Parent main = loader.load();
         GController ctrl = loader.getController();
-        IGClient cl = new GClient();
-        IGCEmodel model = new IGCEmodel(cl);
-        ctrl.init(model);
-        primaryStage.setTitle("IPMS");
+
+        IGClient gc = new GClient();
+        IGCEmodel emodel = new GCEModel(gc);
+        ctrl.init(emodel);
+        primaryStage.setTitle("Gate");
         primaryStage.setScene(new Scene(main, 600, 400));
         primaryStage.show();
+
+    }
 }

@@ -1,20 +1,19 @@
 package Model;
 
-import DB.EmpDAO;
-import DB.EmpResDAO;
-import DB.IEmpDAO;
-import DB.IEmpResDAO;
+import DB.*;
 import model.Employee;
 import model.EmployeeRes;
 
 public class ServerModel implements IServerModel{
     private IEmpDAO empdb;
     private IEmpResDAO empResDAO;
+    private EmpCheckDAO empcheck;
 
 
     public ServerModel() {
         empdb = new EmpDAO();
         empResDAO = new EmpResDAO();
+        empcheck = new EmpCheckDAO();
     }
 
     public String addEmployee(Employee employee) {
@@ -27,7 +26,7 @@ public class ServerModel implements IServerModel{
 
     @Override
     public String empCheckIn(String empNo) {
-        return null;
+        return empcheck.empCheckIn(empNo);
     }
 
 }

@@ -2,10 +2,10 @@ package DB;
 
 import java.sql.SQLException;
 
-public class EmpParking implements IEmpParking {
+public class EmpCheckDAO implements IEmpParking {
     private Conn conn;
 
-    public EmpParking() {
+    public EmpCheckDAO() {
 
         conn = Conn.getInstance();
     }
