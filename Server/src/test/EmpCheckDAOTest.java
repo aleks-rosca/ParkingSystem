@@ -13,7 +13,7 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class EmpParkingTest {
+class EmpCheckDAOTest {
     private IEmpParking epark;
     private IEmpResDAO eres;
     private IEmpDAO empDAO;
@@ -28,7 +28,7 @@ class EmpParkingTest {
         tomorrow = dt.plusDays(1);
         conn = Conn.getInstance();
         eres = new EmpResDAO();
-        epark = new EmpParking();
+        epark = new EmpCheckDAO();
         empDAO = new EmpDAO();
         Employee emp = new Employee("testUser2", "E2222");
         empDAO.addEmployee(emp);
