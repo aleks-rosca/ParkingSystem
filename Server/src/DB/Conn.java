@@ -16,7 +16,7 @@ public class Conn {
     private static final String DRIVER = "org.postgresql.Driver";
     private static final String URL = "jdbc:postgresql://localhost:5432/postgres?currentSchema=parking";
     private static final String USER = "postgres";
-    private static final String PASSWORD = "1234";
+    private static final String PASSWORD = "1998";
 
     /**
      * Constructor that uses driver, url, user and password

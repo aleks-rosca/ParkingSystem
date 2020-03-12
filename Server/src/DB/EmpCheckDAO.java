@@ -28,4 +28,16 @@ public class EmpCheckDAO implements IEmpCheckDAO {
 
         return "checked in to parking lot";
     }
+
+    @Override
+    public String empCheckOut(String empNo) {
+       String sql = "DELETE FROM parkinglot WHERE ID='"+empNo+"';";
+        try {
+            conn.update(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return "something went wront with check out";
+        }
+        return "checked out";
+    }
 }
