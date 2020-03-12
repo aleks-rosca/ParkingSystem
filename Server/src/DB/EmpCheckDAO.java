@@ -1,9 +1,6 @@
 package DB;
 
-import javax.swing.plaf.nimbus.State;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class EmpCheckDAO implements IEmpCheckDAO {
     private Conn conn;
@@ -34,17 +31,20 @@ public class EmpCheckDAO implements IEmpCheckDAO {
 
     @Override
     public String empCheckOut(String empNo) {
+        int delete = 0;
        String sql = "DELETE FROM parkinglot WHERE ID='"+empNo+"';";
         try {
-            ResultSet rs=conn.query(sql);
-            while(rs.next())
-            {
-                System.out.println(rs);
-            }
+          delete  =conn.delete(sql);
+
         } catch (SQLException e) {
             e.printStackTrace();
+
+        }
+        if (delete==1){
+            return "checked out";
+        }else {
             return "something went wront with check out";
         }
-        return "checked out";
+
     }
 }

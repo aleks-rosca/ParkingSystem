@@ -16,7 +16,7 @@ public class Conn {
     private static final String DRIVER = "org.postgresql.Driver";
     private static final String URL = "jdbc:postgresql://localhost:5432/postgres?currentSchema=parking";
     private static final String USER = "postgres";
-    private static final String PASSWORD = "1998";
+    private static final String PASSWORD = "1234";
 
     /**
      * Constructor that uses driver, url, user and password
@@ -87,7 +87,15 @@ public class Conn {
         closeDatabase();
 
     }
+    public int  delete(String sql) throws SQLException {
+        openDatabase();
+        Statement stm = connection.createStatement();
+        int delete = stm.executeUpdate(sql);
+        closeDatabase();
+        return delete;
 
+
+    }
     /**
      * @throws SQLException
      */

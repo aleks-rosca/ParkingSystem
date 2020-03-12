@@ -105,4 +105,13 @@ class EmpCheckDAOTest {
         assertEquals("No such employee number", testcheckinEmp);
 
     }
+
+    @Test
+    void checkOut(){
+        epark.empCheckIn(empres.getEmpNo());
+
+        String testCheckOut = epark.empCheckOut(empres.getEmpNo());
+        assertEquals("checked out", testCheckOut);
+
+    }
 }
