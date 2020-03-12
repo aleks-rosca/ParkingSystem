@@ -2,7 +2,7 @@ package DB;
 
 import java.sql.SQLException;
 
-public class EmpCheckDAO implements IEmpParking {
+public class EmpCheckDAO implements IEmpCheckDAO {
     private Conn conn;
 
     public EmpCheckDAO() {

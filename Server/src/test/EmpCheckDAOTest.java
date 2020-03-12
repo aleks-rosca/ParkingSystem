@@ -14,7 +14,7 @@ import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.*;
 
 class EmpCheckDAOTest {
-    private IEmpParking epark;
+    private IEmpCheckDAO epark;
     private IEmpResDAO eres;
     private IEmpDAO empDAO;
     private Conn conn;

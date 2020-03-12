@@ -1,6 +1,6 @@
 package DB;
 
-public interface IEmpParking {
+public interface IEmpCheckDAO {
     String empCheckIn(String empNo);
 
 }
