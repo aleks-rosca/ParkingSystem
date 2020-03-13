@@ -3,6 +3,7 @@ package serverinterface;
 
 import model.Employee;
 import model.EmployeeRes;
+import model.GuestRes;
 
 import java.io.Serializable;
 import java.rmi.Remote;
@@ -18,4 +19,6 @@ public interface IServer extends Remote, Serializable {
     String empCheckIn(String empNo) throws RemoteException;
 
     String empCheckOut(String empNo) throws RemoteException;
+
+    String addGusetRes(GuestRes guestRes) throws RemoteException;
 }

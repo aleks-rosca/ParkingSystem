@@ -9,6 +9,7 @@ public class ServerModel implements IServerModel{
     private IEmpDAO empdb;
     private IEmpResDAO empResDAO;
     private IEmpCheckDAO empcheck;
+    private IGuestResDAO guestResDAO;
 
 
     public ServerModel() {
@@ -38,7 +39,9 @@ public class ServerModel implements IServerModel{
 
     @Override
     public String addGuestRes(GuestRes guestRes) {
-        return null;
+        guestRes.setResNo("G1234");
+
+        return guestResDAO.addGuestRes(guestRes) ;
     }
 
 }
