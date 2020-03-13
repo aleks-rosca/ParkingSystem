@@ -7,12 +7,11 @@ public class GuestRes {
     private String date;
     private String resNo;
 
-
-    public GuestRes(String name, String purpose, String date, String resNo) {
+    public GuestRes(String name, String purpose, String date) {
         this.name = name;
         this.purpose = purpose;
         this.date = date;
-        this.resNo = resNo;
+        resNo = null;
     }
 
     public String getName() {
@@ -39,11 +38,11 @@ public class GuestRes {
         this.date = date;
     }
 
-    public String getResNo() {
-        return resNo;
-    }
-
     public void setResNo(String resNo) {
         this.resNo = resNo;
+    }
+
+    public String getResNo() {
+        return resNo;
     }
 }

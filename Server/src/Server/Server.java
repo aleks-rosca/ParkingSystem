@@ -4,6 +4,7 @@ import Model.IServerModel;
 import Model.ServerModel;
 import model.Employee;
 import model.EmployeeRes;
+import model.GuestRes;
 import serverinterface.IServer;
 
 import java.rmi.RemoteException;
@@ -45,6 +46,11 @@ public class Server extends UnicastRemoteObject implements IServer {
     @Override
     public String empCheckOut(String empNo) throws RemoteException {
         return model.empCheckOut(empNo);
+    }
+
+    @Override
+    public String addGusetRes(GuestRes guestRes) throws RemoteException {
+        return model.addGuestRes(guestRes);
     }
 
 

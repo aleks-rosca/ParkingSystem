@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.shape.Circle;
 
 import java.util.Optional;
 
@@ -12,6 +13,7 @@ public class GController {
     public Button checkinBtn;
     public TextField checkInTf;
     public IGCModel model;
+    public Circle circle;
 
     public void employeeBtn(ActionEvent actionEvent) {
         TextInputDialog dialog = new TextInputDialog();
