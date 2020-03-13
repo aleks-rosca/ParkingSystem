@@ -21,7 +21,7 @@ class EmpResDAOTest {
         conn = Conn.getInstance(); // used for deleting reservation after they have been tested
         test = new EmpResDAO();
         empdao = new EmpDAO();
-        empdao.addEmployee(new Employee("Test Employee","E1289"));
+        empdao.addEmployee(new Employee("Test","Employee","E1289"));
 
         testReservation = new EmployeeRes("2020/03/13", "E1289");
     }
