@@ -14,7 +14,7 @@ import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.*;
 
 class EmpCheckDAOTest {
-    private IEmpParking epark;
+    private IEmpCheckDAO epark;
     private IEmpResDAO eres;
     private IEmpDAO empDAO;
     private Conn conn;
@@ -103,6 +103,15 @@ class EmpCheckDAOTest {
     void invalidEmployeeNumber() {
         String testcheckinEmp = epark.empCheckIn("E9999");
         assertEquals("No such employee number", testcheckinEmp);
+
+    }
+
+    @Test
+    void checkOut(){
+        epark.empCheckIn(empres.getEmpNo());
+
+        String testCheckOut = epark.empCheckOut(empres.getEmpNo());
+        assertEquals("checked out", testCheckOut);
 
     }
 }

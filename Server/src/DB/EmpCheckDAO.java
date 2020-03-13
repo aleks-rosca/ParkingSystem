@@ -2,7 +2,7 @@ package DB;
 
 import java.sql.SQLException;
 
-public class EmpCheckDAO implements IEmpParking {
+public class EmpCheckDAO implements IEmpCheckDAO {
     private Conn conn;
 
     public EmpCheckDAO() {
@@ -27,5 +27,24 @@ public class EmpCheckDAO implements IEmpParking {
         }
 
         return "checked in to parking lot";
+    }
+
+    @Override
+    public String empCheckOut(String empNo) {
+        int delete = 0;
+       String sql = "DELETE FROM parkinglot WHERE ID='"+empNo+"';";
+        try {
+          delete  =conn.delete(sql);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+        if (delete==1){
+            return "checked out";
+        }else {
+            return "something went wront with check out";
+        }
+
     }
 }

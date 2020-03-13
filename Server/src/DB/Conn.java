@@ -87,7 +87,15 @@ public class Conn {
         closeDatabase();
 
     }
+    public int  delete(String sql) throws SQLException {
+        openDatabase();
+        Statement stm = connection.createStatement();
+        int delete = stm.executeUpdate(sql);
+        closeDatabase();
+        return delete;
 
+
+    }
     /**
      * @throws SQLException
      */
