@@ -2,14 +2,14 @@ package model;
 
 import java.util.Date;
 
-public class Guest {
+public class GuestRes {
     private String name;
     private String purpose;
     private Date date;
     private String resNo;
 
 
-    public Guest(String name, String purpose, Date date, String resNo) {
+    public GuestRes(String name, String purpose, Date date, String resNo) {
         this.name = name;
         this.purpose = purpose;
         this.date = date;
