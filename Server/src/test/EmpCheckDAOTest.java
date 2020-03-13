@@ -30,7 +30,7 @@ class EmpCheckDAOTest {
         eres = new EmpResDAO();
         epark = new EmpCheckDAO();
         empDAO = new EmpDAO();
-        Employee emp = new Employee("testUser2", "E2222");
+        Employee emp = new Employee("testUser2","testLastname", "E2222");
         empDAO.addEmployee(emp);
          empres = new EmployeeRes(tomorrow.toString(),emp.getEmpNumber());
 
