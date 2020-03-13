@@ -2,6 +2,7 @@ package Model;
 
 import model.Employee;
 import model.EmployeeRes;
+import model.GuestRes;
 
 public interface IServerModel {
     String addEmployee(Employee employee);
@@ -11,4 +12,6 @@ public interface IServerModel {
     String empCheckIn(String empNo);
 
     String empCheckOut(String empNo);
+
+    String addGuestRes(GuestRes guestRes);
 }
