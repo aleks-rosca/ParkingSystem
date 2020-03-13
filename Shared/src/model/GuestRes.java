@@ -5,11 +5,11 @@ import java.util.Date;
 public class GuestRes {
     private String name;
     private String purpose;
-    private Date date;
+    private String date;
     private String resNo;
 
 
-    public GuestRes(String name, String purpose, Date date, String resNo) {
+    public GuestRes(String name, String purpose, String date, String resNo) {
         this.name = name;
         this.purpose = purpose;
         this.date = date;
@@ -32,11 +32,11 @@ public class GuestRes {
         this.purpose = purpose;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
