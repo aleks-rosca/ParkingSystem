@@ -1,21 +1,32 @@
 package Controller;
 
+import Model.IMCGModel;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class GuestReservationController
-{
+import java.rmi.RemoteException;
+
+public class GuestReservationController {
     public TextField guestReservNameTf;
     public TextArea guestReservPurposeTf;
     public DatePicker guestReservDateDp;
+    public IMCGModel gModel;
 
-    public void reservGuestBtn(ActionEvent actionEvent)
-    {
-        if (guestReservNameTf.getText().trim().isEmpty())
-        {
+    public void init(IMCGModel gModel) {
+        this.gModel = gModel;
+    }
+
+    public void reservGuestBtn(ActionEvent actionEvent) {
+        try {
+            gModel.addGuestRes(guestReservNameTf.getText(), guestReservPurposeTf.getText(), guestReservDateDp.getValue().toString());
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+
+        if (guestReservNameTf.getText().trim().isEmpty()) {
             // create a alert
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Guest Name");
@@ -24,8 +35,7 @@ public class GuestReservationController
             alert.getButtonTypes();
             alert.show();
         }
-        if (guestReservDateDp.getValue() == null)
-        {
+        if (guestReservDateDp.getValue() == null) {
             // create a alert
             Alert alert1 = new Alert(Alert.AlertType.ERROR);
             alert1.setTitle("Date");
@@ -34,8 +44,7 @@ public class GuestReservationController
             alert1.getButtonTypes();
             alert1.show();
         }
-        if(guestReservPurposeTf.getText().trim().isEmpty())
-        {
+        if (guestReservPurposeTf.getText().trim().isEmpty()) {
             // create a alert
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Purpose");

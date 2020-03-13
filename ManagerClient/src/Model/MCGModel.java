@@ -5,16 +5,16 @@ import model.GuestRes;
 
 public class MCGModel implements IMCGModel{
 
-    private IManagerClient cl;
+    private IManagerClient client;
     private GuestRes guestRes;
 
-    public MCGModel(IManagerClient client){
+    public MCGModel(IManagerClient cl){
         client = cl;
     }
 
     @Override
     public String addGuestRes(String name, String purpose, String date) {
         guestRes = new GuestRes(name, purpose, date);
-        return cl.addGuestRes(guestRes);
+        return client.addGuestRes(guestRes);
     }
 }

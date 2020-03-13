@@ -25,7 +25,8 @@ public class StartMC extends Application {
         MCController ctrl = loader.getController();
         IManagerClient cl = new ManagerClient();
         IMCEModel model = new MCEModel(cl);
-        ctrl.init(model);
+        IMCGModel gModel = new MCGModel(cl);
+        ctrl.init(model, gModel);
         primaryStage.setTitle("IPMS");
         primaryStage.setScene(new Scene(main, 600, 400));
         primaryStage.show();
