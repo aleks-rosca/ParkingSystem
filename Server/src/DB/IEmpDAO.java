@@ -5,5 +5,5 @@ import model.Employee;
 public interface IEmpDAO {
     String  addEmployee(Employee employee);
     boolean checkEmployeeByEmpNumber(String empnumber);
-    Employee getEmployeeByName(String name);
+    Employee getEmployeeByName(String firstName,String lastName);
 }

@@ -5,7 +5,10 @@ import model.Employee;
 import model.EmployeeRes;
 import model.GuestRes;
 
+import java.util.Random;
+
 public class ServerModel implements IServerModel{
+    private Random random;
     private IEmpDAO empdb;
     private IEmpResDAO empResDAO;
     private IEmpCheckDAO empcheck;
@@ -16,7 +19,8 @@ public class ServerModel implements IServerModel{
         empdb = new EmpDAO();
         empResDAO = new EmpResDAO();
         empcheck = new EmpCheckDAO();
-
+        guestResDAO = new GuestResDAO();
+        random = new Random();
     }
 
     public String addEmployee(Employee employee) {
@@ -39,8 +43,7 @@ public class ServerModel implements IServerModel{
 
     @Override
     public String addGuestRes(GuestRes guestRes) {
-        guestRes.setResNo("G1234");
-
+        guestRes.setResNo("G"+Integer.toString(random.nextInt((9999-100)+1)+10));
         return guestResDAO.addGuestRes(guestRes) ;
     }
 

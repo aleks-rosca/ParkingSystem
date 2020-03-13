@@ -33,7 +33,7 @@ public class EmpDAO implements IEmpDAO {
 
     public String addEmployee(Employee employee) {
 
-        String sql = "INSERT INTO employee values('" + employee.getEmpNumber() + "','" + employee.getEmpName() + "');";
+        String sql = "INSERT INTO employee values('" + employee.getEmpNumber() + "','" + employee.getEmpFirstName() + "','"+employee.getEmpLastName()+"');";
         try {
             conn.update(sql);
 
@@ -63,7 +63,7 @@ public class EmpDAO implements IEmpDAO {
     }
 
     @Override
-    public Employee getEmployeeByName(String name) {
+    public Employee getEmployeeByName(String firstName,String lastName) {
         return null;
     }
 
