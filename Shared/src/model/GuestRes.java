@@ -1,7 +1,9 @@
 package model;
 
 
-public class GuestRes {
+import java.io.Serializable;
+
+public class GuestRes implements Serializable {
     private String name;
     private String purpose;
     private String date;
@@ -12,6 +14,9 @@ public class GuestRes {
         this.purpose = purpose;
         this.date = date;
         resNo = null;
+    }
+    public GuestRes(){
+
     }
 
     public String getName() {
@@ -38,11 +43,11 @@ public class GuestRes {
         this.date = date;
     }
 
-    public void setResNo(String resNo) {
-        this.resNo = resNo;
-    }
-
     public String getResNo() {
         return resNo;
+    }
+
+    public void setResNo(String resNo) {
+        this.resNo = resNo;
     }
 }
