@@ -6,7 +6,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
-import java.io.IOException;
+import java.rmi.RemoteException;
 
 public class EmployeeReservationController {
     public TextField empReservNumTf;
@@ -18,8 +18,12 @@ public class EmployeeReservationController {
     }
 
 
-    public void reservBtnClick(ActionEvent actionEvent) throws IOException {
-        mceModel.addEmpRes(empReservDateDp.getValue().toString(), empReservNumTf.getText());
+    public void reservBtnClick(ActionEvent actionEvent) {
+        try {
+            mceModel.addEmpRes(empReservDateDp.getValue().toString(), empReservNumTf.getText());
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
 
         if (empReservNumTf.getText().trim().isEmpty()) {
             // create a alert
