@@ -16,4 +16,6 @@ public interface IServer extends Remote, Serializable {
     String addEmpRes(EmployeeRes employeeRes) throws RemoteException;
 
     String empCheckIn(String empNo) throws RemoteException;
+
+    String empCheckOut(String empNo) throws RemoteException;
 }

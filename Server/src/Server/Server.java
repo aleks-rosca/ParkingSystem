@@ -42,6 +42,11 @@ public class Server extends UnicastRemoteObject implements IServer {
         return model.empCheckIn(empNo);
     }
 
+    @Override
+    public String empCheckOut(String empNo) throws RemoteException {
+        return model.empCheckOut(empNo);
+    }
+
 
 }
 

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/EmployeeClient/EmployeeClient.iml" filepath="$PROJECT_DIR$/EmployeeClient/EmployeeClient.iml" />
       <module fileurl="file://$PROJECT_DIR$/GateClient/GateClient.iml" filepath="$PROJECT_DIR$/GateClient/GateClient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GateClientOUT/GateClientOUT.iml" filepath="$PROJECT_DIR$/GateClientOUT/GateClientOUT.iml" />
       <module fileurl="file://$PROJECT_DIR$/ManagerClient/ManagerClient.iml" filepath="$PROJECT_DIR$/ManagerClient/ManagerClient.iml" />
       <module fileurl="file://$PROJECT_DIR$/ParkingSystem.iml" filepath="$PROJECT_DIR$/ParkingSystem.iml" />
       <module fileurl="file://$PROJECT_DIR$/Server/Server.iml" filepath="$PROJECT_DIR$/Server/Server.iml" />

@@ -14,6 +14,7 @@ public class ServerModel implements IServerModel{
         empdb = new EmpDAO();
         empResDAO = new EmpResDAO();
         empcheck = new EmpCheckDAO();
+
     }
 
     public String addEmployee(Employee employee) {
@@ -27,6 +28,11 @@ public class ServerModel implements IServerModel{
     @Override
     public String empCheckIn(String empNo) {
         return empcheck.empCheckIn(empNo);
+    }
+
+    @Override
+    public String empCheckOut(String empNo) {
+        return empcheck.empCheckOut(empNo);
     }
 
 }

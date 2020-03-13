@@ -9,4 +9,6 @@ public interface IServerModel {
     String addEmpRes(EmployeeRes employeeRes);
 
     String empCheckIn(String empNo);
+
+    String empCheckOut(String empNo);
 }
