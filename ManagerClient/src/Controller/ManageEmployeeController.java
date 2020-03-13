@@ -10,8 +10,9 @@ import java.io.IOException;
 import java.util.Optional;
 
 public class ManageEmployeeController {
+    public TextField empFirstNameAddTf;
+    public TextField empLastNameAddTf;
     public TextField empNameSearchTf;
-    public TextField empNameAddTf;
     public TextField empNumberAddTf;
     public IMCEModel mceModel;
 
@@ -26,13 +27,13 @@ public class ManageEmployeeController {
 
         if(mceModel.checkFirstChar(empNumberAddTf.getText())){
 
-            if(mceModel.createEmp(mceModel.rearrangeChars(empNameAddTf.getText()), empNumberAddTf.getText()).equals("Employee added")){
-                Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee " + empNameAddTf.getText() + " has been added!", ButtonType.OK);
+            if(mceModel.createEmp(mceModel.rearrangeChars(empFirstNameAddTf.getText()), empNumberAddTf.getText()).equals("Employee added")){
+                Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee " + empFirstNameAddTf.getText() + " has been added!", ButtonType.OK);
                 a1.show();
-                empNameAddTf.clear();
+                empFirstNameAddTf.clear();
                 empNumberAddTf.clear();
-            } else if(mceModel.createEmp(empNameAddTf.getText(), empNumberAddTf.getText()).equals("Duplicate key")) {
-                Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee " + empNameAddTf.getText() + " already exists!", ButtonType.OK);
+            } else if(mceModel.createEmp(empFirstNameAddTf.getText(), empNumberAddTf.getText()).equals("Duplicate key")) {
+                Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee " + empFirstNameAddTf.getText() + " already exists!", ButtonType.OK);
                 a1.show();
             }else {
                 Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Error 404", ButtonType.OK);
@@ -84,7 +85,7 @@ public class ManageEmployeeController {
             if (button == ButtonType.YES) {
 
                 String change = empNameSearchTf.getText();
-                empNameAddTf.setText(change);
+                empFirstNameAddTf.setText(change);
                 empNameSearchTf.clear();
 
 
