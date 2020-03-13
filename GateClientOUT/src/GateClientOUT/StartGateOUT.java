@@ -9,7 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class StartGC extends Application
+public class StartGateOUT extends Application
 {
 
     public static void main(String[] args) {
@@ -20,7 +20,7 @@ public class StartGC extends Application
     @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/View/GateView.fxml"));
+        loader.setLocation(getClass().getResource("/View/GateViewOUT.fxml"));
         Parent main = loader.load();
         GOController ctrl = loader.getController();
 
