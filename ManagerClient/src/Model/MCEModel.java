@@ -18,8 +18,8 @@ public class MCEModel implements IMCEModel {
     public MCEModel(){}
 
 
-    public String createEmp(String empName, String empNum) {
-        employee = new Employee(empName, empNum);
+    public String createEmp(String empFName, String empLName, String empNum) {
+        employee = new Employee(empFName,empLName, empNum);
         return client.addEmployee(employee);
 
     }
