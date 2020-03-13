@@ -3,23 +3,33 @@ package model;
 import java.io.Serializable;
 
 public class Employee implements Serializable {
-    private String empName;
+    private String empFirstName;
+    private String empLastName;
     private String empNumber;
 
-    public Employee(String empName, String empNumber) {
-        this.empName = empName;
+    public Employee(String empFirstName,String empLastName, String empNumber ) {
+        this.empFirstName = empFirstName;
+        this.empLastName = empLastName;
         this.empNumber = empNumber;
     }
     public Employee(){
 
     }
 
-    public String getEmpName() {
-        return empName;
+    public String getEmpFirstName() {
+        return empFirstName;
     }
 
-    public void setEmpName(String empName) {
-        this.empName = empName;
+    public void setEmpFirstName(String empFirstName) {
+        this.empFirstName = empFirstName;
+    }
+
+    public String getEmpLastName() {
+        return empLastName;
+    }
+
+    public void setEmpLastName(String empLastName) {
+        this.empLastName = empLastName;
     }
 
     public String getEmpNumber() {
@@ -33,7 +43,8 @@ public class Employee implements Serializable {
     @Override
     public String toString() {
         return "Employee{" +
-                "empName='" + empName + '\'' +
+                "empFirstName='" + empFirstName + '\'' +
+                "empLastName='" + empLastName + '\'' +
                 ", empNumber='" + empNumber + '\'' +
                 '}';
     }
