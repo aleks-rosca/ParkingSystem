@@ -3,11 +3,12 @@ package Model;
 import DB.*;
 import model.Employee;
 import model.EmployeeRes;
+import model.GuestRes;
 
 public class ServerModel implements IServerModel{
     private IEmpDAO empdb;
     private IEmpResDAO empResDAO;
-    private EmpCheckDAO empcheck;
+    private IEmpCheckDAO empcheck;
 
 
     public ServerModel() {
@@ -33,6 +34,11 @@ public class ServerModel implements IServerModel{
     @Override
     public String empCheckOut(String empNo) {
         return empcheck.empCheckOut(empNo);
+    }
+
+    @Override
+    public String addGuestRes(GuestRes guestRes) {
+        return null;
     }
 
 }
