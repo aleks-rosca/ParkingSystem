@@ -20,7 +20,7 @@ class EmpDAOTest {
     @BeforeEach
     public void setUp() throws ClassNotFoundException {
             empDAO = new EmpDAO();
-       emp = new Employee("zsolt","E2289");
+       emp = new Employee("zsolt","Görgényi","E2289");
 
     }
     @AfterEach

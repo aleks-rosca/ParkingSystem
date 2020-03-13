@@ -63,7 +63,7 @@ public class EmpDAO implements IEmpDAO {
     }
 
     @Override
-    public Employee getEmployeeByName(String name) {
+    public Employee getEmployeeByName(String firstName,String lastName) {
         return null;
     }
 
