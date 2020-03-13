@@ -2,6 +2,7 @@ package ManagerClient;
 
 import model.Employee;
 import model.EmployeeRes;
+import model.GuestRes;
 import serverinterface.IServer;
 
 import java.net.MalformedURLException;
@@ -35,5 +36,15 @@ public class ManagerClient implements IManagerClient {
             return "Error";
         }
 
+    }
+
+    @Override
+    public String addGuestRes(GuestRes guestRes) {
+        try {
+            return serverinterface.addGusetRes(guestRes);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return "Error";
     }
 }
