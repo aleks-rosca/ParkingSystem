@@ -21,7 +21,13 @@ public class GuestReservationController {
 
     public void reservGuestBtn(ActionEvent actionEvent) {
         try {
-            gModel.addGuestRes(guestReservNameTf.getText(), guestReservPurposeTf.getText(), guestReservDateDp.getValue().toString());
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Reservation");
+            alert.setHeaderText("Reservation done");
+            alert.setContentText("Reservation added. Guest reservation number is: " +  gModel.addGuestRes(guestReservNameTf.getText(), guestReservPurposeTf.getText(), guestReservDateDp.getValue().toString()));
+            alert.getButtonTypes();
+            alert.show();
+
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -53,5 +59,7 @@ public class GuestReservationController {
             alert.getButtonTypes();
             alert.show();
         }
+        guestReservNameTf.clear();
+        guestReservPurposeTf.clear();
     }
 }

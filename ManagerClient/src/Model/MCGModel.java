@@ -15,6 +15,8 @@ public class MCGModel implements IMCGModel{
     @Override
     public String addGuestRes(String name, String purpose, String date) {
         guestRes = new GuestRes(name, purpose, date);
-        return client.addGuestRes(guestRes);
+        String guestNo = client.addGuestRes(guestRes).substring(32,38);
+
+        return guestNo;
     }
 }
