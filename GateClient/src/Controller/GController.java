@@ -34,7 +34,7 @@ public class GController {
         if (checkInTf.getText().isEmpty()) {
             // create a alert
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Please fill in the field");
+            alert.setContentText("Please fill in the fields");
 
 
         }
