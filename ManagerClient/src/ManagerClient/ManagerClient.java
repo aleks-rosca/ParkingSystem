@@ -41,7 +41,7 @@ public class ManagerClient implements IManagerClient {
     @Override
     public String addGuestRes(GuestRes guestRes) {
         try {
-            return serverinterface.addGusetRes(guestRes);
+            return serverinterface.addGuestRes(guestRes);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
