@@ -26,22 +26,47 @@ public class GOController {
 
     public void checkOut(ActionEvent actionEvent) {
 
-        String temp = model.empCheckOut(checkOutTf.getText());
-        if (checkOutTf.getText().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Please fill in the fields");
-            alert.show();
-        } else if (temp.equals("checked out")) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Checked Out");
-            alert.show();
 
-        } else if (temp.equals("something went wront with check out")) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Something went wrong, try again");
-            alert.show();
+        String check = model.checkClient(checkOutTf.getText());
+        if(check.equals("employee")){
+            String temp = model.empCheckOut(checkOutTf.getText());
+            if (checkOutTf.getText().isEmpty()) {
 
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Please fill in the fields");
+                alert.show();
+            } else if (temp.equals("checked out")) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Checked Out");
+                alert.show();
+
+            } else if (temp.equals("something went wront with check out")) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Something went wrong, try again");
+                alert.show();
+
+            }
+        }else if(check.equals("guest")){
+            String temp = model.guestCheckOut(checkOutTf.getText());
+            if (checkOutTf.getText().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Please fill in the fields");
+                alert.show();
+            } else if (temp.equals("checked out")) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Checked Out");
+                alert.show();
+
+            } else if (temp.equals("something went wront with check out")) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Something went wrong, try again");
+                alert.show();
+
+            }
         }
+
+
+
         checkOutTf.clear();
     }
 }
