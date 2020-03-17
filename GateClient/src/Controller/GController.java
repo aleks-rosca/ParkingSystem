@@ -38,6 +38,9 @@ public class GController {
 
 
         }
+//        if(model.empCheckIn(checkInTf.getText().trim().equals("checked in to parking lot"))){
+//
+//        }
 
     }
 }
