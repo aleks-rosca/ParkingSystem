@@ -35,10 +35,20 @@ public class GController {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Please fill in the fields");
         }
-        model.empCheckIn(checkInTf.getText());
-        if(model.empCheckIn(checkInTf.getText()).equals("checked in to parking lot")){
+        //model.empCheckIn(checkInTf.getText());
+        else if(model.empCheckIn(checkInTf.getText()).equals("checked in to parking lot")){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Checked In");
+
+        }
+        else if(model.empCheckIn(checkInTf.getText()).equals("No such employee number")){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("No such Employee");
+
+        }
+        else if(model.empCheckIn(checkInTf.getText()).equals("Already checked in")) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Already Checked In");
 
         }
 
