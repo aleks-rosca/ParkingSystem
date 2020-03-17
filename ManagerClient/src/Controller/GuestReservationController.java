@@ -24,7 +24,7 @@ public class GuestReservationController {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Reservation");
             alert.setHeaderText("Reservation done");
-            alert.setContentText("Reservation added. Guest reservation number is: " +  gModel.addGuestRes(guestReservNameTf.getText(), guestReservPurposeTf.getText(), guestReservDateDp.getValue().toString()));
+            alert.setContentText("Reservation added. Guest reservation number is: " + gModel.addGuestRes(guestReservNameTf.getText(), guestReservPurposeTf.getText(), guestReservDateDp.getValue().toString()));
             alert.getButtonTypes();
             alert.show();
 
