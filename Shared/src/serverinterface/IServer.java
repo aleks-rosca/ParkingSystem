@@ -20,5 +20,9 @@ public interface IServer extends Remote, Serializable {
 
     String empCheckOut(String empNo) throws RemoteException;
 
-    String addGusetRes(GuestRes guestRes) throws RemoteException;
+    String addGuestRes(GuestRes guestRes) throws RemoteException;
+
+    String guestCheckIn(String resNo) throws RemoteException;
+
+    String guestCheckOut(String resNo) throws RemoteException;
 }

@@ -27,4 +27,14 @@ public class GClient implements IGClient {
         }
         return "Error";
     }
+
+    @Override
+    public String guestCheckin(String resNo) {
+        try {
+            return serverinterface.guestCheckIn(resNo);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return "Error";
+    }
 }

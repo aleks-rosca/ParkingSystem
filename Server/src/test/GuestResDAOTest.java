@@ -1,5 +1,7 @@
-package DB;
+package test;
 
+import DB.GuestResDAO;
+import DB.IGuestResDAO;
 import model.GuestRes;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

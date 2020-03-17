@@ -2,7 +2,10 @@ package DB;
 
 import model.EmployeeRes;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EmpResDAO implements IEmpResDAO {
     private Conn conn;
@@ -32,5 +35,41 @@ public class EmpResDAO implements IEmpResDAO {
         }
 
         return "Reservation is created";
+    }
+
+    @Override
+    public String cancelReservation(EmployeeRes employeeRes) {
+        String sql ="DELETE FROM empres where empNo='"+employeeRes.getEmpNo()+"' AND Date='"+employeeRes.getDateFromPicker()+ "'";
+        try {
+            int numberOfDeletion= conn.delete(sql);
+            if(numberOfDeletion ==0){
+
+                return "cancellation failed";
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+        return "cancellation succeeded";
+    }
+
+    @Override
+    public List<EmployeeRes> reservationsByEmpNo(String empNo) {
+      String sql = "SELECT * FROM empres WHERE empno='"+empNo+"';";
+        ArrayList<EmployeeRes>listOfReservations = new ArrayList<>();
+        try {
+            ResultSet rs = conn.query(sql);
+            while(rs.next()){
+                String date = rs.getDate("date").toString();
+                String empNumber = rs.getString("empno");
+                EmployeeRes employeeRes = new EmployeeRes(date,empNumber);
+                listOfReservations.add(employeeRes);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listOfReservations;
     }
 }

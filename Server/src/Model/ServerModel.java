@@ -7,12 +7,13 @@ import model.GuestRes;
 
 import java.util.Random;
 
-public class ServerModel implements IServerModel{
+public class ServerModel implements IServerModel {
     private Random random;
     private IEmpDAO empdb;
     private IEmpResDAO empResDAO;
     private IEmpCheckDAO empcheck;
     private IGuestResDAO guestResDAO;
+    private IGuestCheckDAO guestCheckDAO;
 
 
     public ServerModel() {
@@ -20,6 +21,7 @@ public class ServerModel implements IServerModel{
         empResDAO = new EmpResDAO();
         empcheck = new EmpCheckDAO();
         guestResDAO = new GuestResDAO();
+        guestCheckDAO = new GuestCheckDAO();
         random = new Random();
     }
 
@@ -43,8 +45,18 @@ public class ServerModel implements IServerModel{
 
     @Override
     public String addGuestRes(GuestRes guestRes) {
-        guestRes.setResNo("G"+Integer.toString(random.nextInt((9999-100)+1)+10));
-        return guestResDAO.addGuestRes(guestRes)+" "+guestRes.getResNo() ;
+        guestRes.setResNo("G" + Integer.toString(random.nextInt((9999 - 1000) + 1) + 10));
+        return guestResDAO.addGuestRes(guestRes) + " " + guestRes.getResNo();
+    }
+
+    @Override
+    public String guestCheckIn(String resNo) {
+        return guestCheckDAO.guestCheckIn(resNo);
+    }
+
+    @Override
+    public String guestCheckOut(String resNo) {
+        return guestCheckDAO.guestCheckOut(resNo);
     }
 
 }

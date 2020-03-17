@@ -26,7 +26,7 @@ public class GuestResDAO implements IGuestResDAO{
                 return "Reservation for guest is not created";
             }else if(e.getSQLState().equals("23514")){
 
-                return "You can not create reservation for same day or more than 7 days ahead";
+                return "You can not create reservation";
             }
             e.printStackTrace();
         }

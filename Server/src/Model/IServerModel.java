@@ -14,4 +14,8 @@ public interface IServerModel {
     String empCheckOut(String empNo);
 
     String addGuestRes(GuestRes guestRes);
+
+    String guestCheckIn(String resNo);
+
+    String guestCheckOut(String resNo);
 }
