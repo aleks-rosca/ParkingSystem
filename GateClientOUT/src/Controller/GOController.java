@@ -2,14 +2,13 @@ package Controller;
 
 import Model.IGCModel;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 
-import java.util.Optional;
-
 public class GOController {
-    public TextField checkInTf;
+    public TextField checkOutTf;
     public IGCModel model;
     public Button checkOutBtn;
 
@@ -19,12 +18,6 @@ public class GOController {
         dialog.setHeaderText("Enter Employee Number to proceed");
         dialog.setContentText("Employee Number:");
 
-        Optional<String> result = dialog.showAndWait();
-        if (result.isPresent()) {
-            System.out.println("Employee Number: " + result.get());
-        }
-
-        result.ifPresent(name -> System.out.println("Your name: " + name));
     }
 
     public void init(IGCModel model) {
@@ -32,7 +25,22 @@ public class GOController {
     }
 
     public void checkOut(ActionEvent actionEvent) {
-        model.empCheckOut(checkInTf.getText());
 
+        String temp = model.empCheckOut(checkOutTf.getText());
+        if (checkOutTf.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Please fill in the fields");
+            alert.show();
+        } else if (temp.equals("checked out")) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Checked Out");
+            alert.show();
+
+        } else if (temp.equals("something went wront with check out")) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Something went wrong, try again");
+            alert.show();
+
+        }
     }
 }

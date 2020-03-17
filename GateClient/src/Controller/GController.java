@@ -21,7 +21,6 @@ public class GController {
         dialog.setHeaderText("Enter Employee Number to proceed");
         dialog.setContentText("Employee Number:");
 
-
     }
 
     public void init(IGCModel model) {

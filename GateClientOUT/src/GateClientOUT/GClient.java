@@ -19,7 +19,6 @@ public class GClient implements IGClient {
     @Override
     public String empCheckOut(String empNo) {
         try {
-            System.out.println(serverinterface.empCheckOut(empNo));
             return serverinterface.empCheckOut(empNo);
 
         } catch (RemoteException e) {

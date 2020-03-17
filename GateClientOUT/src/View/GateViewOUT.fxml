@@ -16,7 +16,7 @@
                         prefHeight="67.0" prefWidth="91.0" text="Check Out"/>
                 <Label layoutX="14.0" layoutY="28.0" prefHeight="78.0" prefWidth="155.0"
                        text="Enter your &#10;Employee Number or&#10;Reservation Number or&#10;Licence plate"/>
-                <TextField fx:id="checkInTf" layoutX="195.0" layoutY="33.0" prefHeight="67.0" prefWidth="155.0">
+                <TextField fx:id="checkOutTf" layoutX="195.0" layoutY="33.0" prefHeight="67.0" prefWidth="155.0">
                     <font>
                         <Font size="30.0"/>
                     </font>
