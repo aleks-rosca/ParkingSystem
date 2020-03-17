@@ -10,8 +10,9 @@
       <DatePicker fx:id="choosedate" layoutX="213.0" layoutY="35.0" />
       <TableView layoutX="113.0" layoutY="157.0" prefHeight="200.0" prefWidth="403.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn prefWidth="114.0" text="Name" />
+          <TableColumn minWidth="0.0" prefWidth="122.0" text="Date" />
+            <TableColumn prefWidth="75.0" text="Column X" />
         </columns>
       </TableView>
     </children>
