@@ -67,4 +67,21 @@ public class EmpDAO implements IEmpDAO {
         return null;
     }
 
+    @Override
+    public String getEmployeeNameByEmpNo(String empNo) {
+        String sql = "Select * from employee where empno='" + empNo + "';";
+        String firstName=null;
+        String lastName=null;
+        try {
+            ResultSet rs=conn.query(sql);
+            while(rs.next()){
+                firstName=rs.getString("firstName");
+                lastName=rs.getString("lastName");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return firstName+" "+lastName;
+    }
+
 }

@@ -72,4 +72,23 @@ public class EmpResDAO implements IEmpResDAO {
 
         return listOfReservations;
     }
+
+    @Override
+    public List<EmployeeRes> allEmployeeReservations() {
+        String sql = "SELECT * FROM empres;";
+        ArrayList<EmployeeRes>listOfReservations = new ArrayList<>();
+        try {
+            ResultSet rs = conn.query(sql);
+            while(rs.next()){
+                String date = rs.getDate("date").toString();
+                String empNumber = rs.getString("empno");
+                EmployeeRes employeeRes = new EmployeeRes(date,empNumber);
+                listOfReservations.add(employeeRes);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listOfReservations;
+    }
 }
