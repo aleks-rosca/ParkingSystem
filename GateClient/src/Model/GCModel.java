@@ -23,5 +23,16 @@ public class GCModel implements IGCModel {
         return gClient.guestCheckin(resNo);
     }
 
+    @Override
+    public String checkClient(String res) {
+        if(res.charAt(0)=='G'){
+            return "guest";
+        }else if(res.charAt(0)=='E'){
+            return "employee";
+        }else{
+            return "dunno who are you";
+        }
+    }
+
 
 }
