@@ -1,5 +1,6 @@
 package DB;
 
+import model.Employee;
 import model.EmployeeRes;
 
 import java.sql.ResultSet;
@@ -75,14 +76,17 @@ public class EmpResDAO implements IEmpResDAO {
 
     @Override
     public List<EmployeeRes> allEmployeeReservations() {
-        String sql = "SELECT * FROM empres;";
+        String sql = "SELECT * FROM empres natural join employee;";
         ArrayList<EmployeeRes>listOfReservations = new ArrayList<>();
         try {
             ResultSet rs = conn.query(sql);
             while(rs.next()){
                 String date = rs.getDate("date").toString();
                 String empNumber = rs.getString("empno");
-                EmployeeRes employeeRes = new EmployeeRes(date,empNumber);
+                String firstName = rs.getString("empfirstname");
+                String lastName = rs.getString("emplastname");
+                Employee emp = new Employee(firstName,lastName,empNumber);
+                EmployeeRes employeeRes = new EmployeeRes(date,empNumber,emp);
                 listOfReservations.add(employeeRes);
             }
         } catch (SQLException e) {
