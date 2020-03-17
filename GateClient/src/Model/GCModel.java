@@ -20,7 +20,7 @@ public class GCModel implements IGCModel {
 
     @Override
     public String guestCheckIn(String resNo) {
-        return gClient.empCheckIn(resNo);
+        return gClient.guestCheckin(resNo);
     }
 
 
