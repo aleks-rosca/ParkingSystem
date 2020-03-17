@@ -28,6 +28,11 @@ public class EmployeeRes implements Serializable {
         return empNo;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "EmployeeRes{" +
+                "dateFromPicker='" + dateFromPicker + '\'' +
+                ", empNo='" + empNo + '\'' +
+                '}';
+    }
 }
