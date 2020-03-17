@@ -49,6 +49,7 @@ public class GController {
                 alert.show();
 
             }
+
         } else if (check.equals("guest")) {
             String temp = model.guestCheckIn(checkInTf.getText().trim());
 
@@ -74,6 +75,7 @@ public class GController {
             alert.setContentText("Please fill in the fields with valid information");
             alert.show();
         }
+        checkInTf.clear();
 
 
 

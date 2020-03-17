@@ -42,5 +42,6 @@ public class GOController {
             alert.show();
 
         }
+        checkOutTf.clear();
     }
 }
