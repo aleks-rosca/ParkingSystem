@@ -8,7 +8,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.shape.Circle;
 
-import java.util.Optional;
 
 public class GController {
     public Button checkinBtn;
@@ -30,17 +29,18 @@ public class GController {
     }
 
     public void checkIn(ActionEvent actionEvent) {
-        model.empCheckIn(checkInTf.getText());
-        if (checkInTf.getText().isEmpty()) {
+
+        if (checkInTf.getText().trim().isEmpty()) {
             // create a alert
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Please fill in the fields");
-
+        }
+        model.empCheckIn(checkInTf.getText());
+        if(model.empCheckIn(checkInTf.getText()).equals("checked in to parking lot")){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Checked In");
 
         }
-//        if(model.empCheckIn(checkInTf.getText().trim().equals("checked in to parking lot"))){
-//
-//        }
 
     }
 }
