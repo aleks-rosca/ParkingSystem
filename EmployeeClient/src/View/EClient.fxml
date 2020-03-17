@@ -10,12 +10,11 @@
       <DatePicker fx:id="choosedate" layoutX="213.0" layoutY="35.0" />
       <TableView layoutX="10.0" layoutY="122.0" prefHeight="200.0" prefWidth="403.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="120.0">
         <columns>
-          <TableColumn prefWidth="126.0" text="Name" />
           <TableColumn minWidth="0.0" prefWidth="128.0" text="Date" />
-            <TableColumn prefWidth="168.0" text="Employee Num" />
             <TableColumn prefWidth="157.0" text="Reservation Num" />
         </columns>
       </TableView>
-      <Button layoutX="513.0" layoutY="352.0" mnemonicParsing="false" text="Show All" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="25.0" />
+      <Button layoutX="513.0" layoutY="352.0" mnemonicParsing="false" text="Show All Reservations" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="100.0" />
+      <Button layoutX="440.0" layoutY="360.0" mnemonicParsing="false" text="Delete" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="25.0" />
     </children>
 </AnchorPane>

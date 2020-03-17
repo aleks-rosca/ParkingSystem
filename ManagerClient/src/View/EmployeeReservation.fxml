@@ -14,6 +14,7 @@
                 <Button fx:id="empReservBtn" layoutX="513.0" layoutY="58.0" mnemonicParsing="false" onAction="#reservBtnClick" text="Reserve" />
                 <DatePicker fx:id="empReservDateDp" layoutX="396.0" layoutY="24.0" />
                 <Label layoutX="357.0" layoutY="28.0" text="Date:" />
+            <Button layoutX="14.0" layoutY="58.0" mnemonicParsing="false" text="Show my Reservations" />
             </children>
         </Pane>
         <TableView fx:id="empReservTableTv" layoutX="5.0" layoutY="102.0" prefHeight="212.0" prefWidth="590.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
