@@ -14,9 +14,13 @@ public class GCModel implements IGCModel {
     @Override
 
     public String empCheckIn(String empNo) {
-        System.out.println(gClient.empCheckIn(empNo));
         return gClient.empCheckIn(empNo);
 
+    }
+
+    @Override
+    public String guestCheckIn(String resNo) {
+        return gClient.empCheckIn(resNo);
     }
 
 

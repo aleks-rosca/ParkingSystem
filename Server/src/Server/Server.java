@@ -49,8 +49,18 @@ public class Server extends UnicastRemoteObject implements IServer {
     }
 
     @Override
-    public String addGusetRes(GuestRes guestRes) throws RemoteException {
+    public String addGuestRes(GuestRes guestRes) throws RemoteException {
         return model.addGuestRes(guestRes);
+    }
+
+    @Override
+    public String guestCheckIn(String resNo) throws RemoteException {
+        return model.guestCheckIn(resNo);
+    }
+
+    @Override
+    public String guestCheckOut(String resNo) throws RemoteException {
+        return model.guestCheckOut(resNo);
     }
 
 

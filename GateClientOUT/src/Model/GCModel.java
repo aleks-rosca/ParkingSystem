@@ -18,5 +18,10 @@ public class GCModel implements IGCModel {
         return gClient.empCheckOut(empNo);
     }
 
+    @Override
+    public String guestCheckOut(String resNo) {
+        return gClient.guestCheckOut(resNo);
+    }
+
 
 }

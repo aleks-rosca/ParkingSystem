@@ -19,9 +19,18 @@ public class GClient implements IGClient {
     @Override
     public String empCheckOut(String empNo) {
         try {
-            System.out.println(serverinterface.empCheckOut(empNo));
             return serverinterface.empCheckOut(empNo);
 
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return "Error";
+    }
+
+    @Override
+    public String guestCheckOut(String resNo) {
+        try {
+            return serverinterface.guestCheckOut(resNo);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
