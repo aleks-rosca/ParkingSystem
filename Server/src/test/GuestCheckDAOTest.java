@@ -1,6 +1,7 @@
-package DB;
+package test;
 
 
+import DB.*;
 import model.GuestRes;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
