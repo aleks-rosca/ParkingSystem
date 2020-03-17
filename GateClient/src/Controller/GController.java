@@ -29,27 +29,26 @@ public class GController {
     }
 
     public void checkIn(ActionEvent actionEvent) {
+        String temp = model.empCheckIn(checkInTf.getText());
 
-        if (checkInTf.getText().trim().isEmpty()) {
-            // create a alert
+        if (temp.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Please fill in the fields");
             alert.show();
         }
-        //model.empCheckIn(checkInTf.getText());
-        else if(model.empCheckIn(checkInTf.getText()).equals("checked in to parking lot")){
+        else if(temp.equals("checked in to parking lot")){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Checked In");
             alert.show();
 
         }
-        else if(model.empCheckIn(checkInTf.getText()).equals("No such employee number")){
+        else if(temp.equals("No such employee number")){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("No such Employee");
             alert.show();
 
         }
-        else if(model.empCheckIn(checkInTf.getText()).equals("Already checked in")) {
+        else if(temp.equals("Already checked in")) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Already Checked In");
             alert.show();
