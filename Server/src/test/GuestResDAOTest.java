@@ -28,4 +28,10 @@ class GuestResDAOTest {
          String test =guestResDAO.addGuestRes(newGuest);
         assertEquals("Reservation for guest is created",test);
     }
+    @Test
+    void cancelGuestRes(){
+        System.out.println(guestResDAO.addGuestRes(newGuest));
+        String test=guestResDAO.cancelGuestRes(newGuest.getResNo());
+        assertEquals("Reservation canceled",test);
+    }
 }
