@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -16,6 +17,7 @@ class GuestResDAOTest {
     GuestRes newGuest;
     private LocalDate dt;
     private LocalDate tomorrow ;
+    private ArrayList<GuestRes> testArray=new ArrayList<>();
     @BeforeEach
     void setUp() {
         dt =  LocalDate.now();
@@ -39,5 +41,17 @@ class GuestResDAOTest {
         System.out.println(guestResDAO.addGuestRes(newGuest));
         String test=guestResDAO.cancelGuestRes(newGuest.getResNo());
         assertEquals("cancellation succeeded",test);
+    }
+    @Test
+    void getAllGuestReservations(){
+        System.out.println(guestResDAO.addGuestRes(newGuest));
+        testArray.add(newGuest);
+        newGuest = new GuestRes("testGuest","testing",tomorrow.toString(),"G0001");
+        System.out.println(guestResDAO.addGuestRes(newGuest));
+        testArray.add(newGuest);
+        newGuest = new GuestRes("testGuest","testing",tomorrow.toString(),"G0002");
+        System.out.println(guestResDAO.addGuestRes(newGuest));
+        testArray.add(newGuest);
+            assertEquals(testArray.size(),guestResDAO.getAllGuestReserevation().size());
     }
 }
