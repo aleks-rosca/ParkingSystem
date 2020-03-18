@@ -3,7 +3,10 @@ package DB;
 
 import model.GuestRes;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GuestResDAO implements IGuestResDAO{
     private Conn conn;
@@ -34,6 +37,43 @@ public class GuestResDAO implements IGuestResDAO{
         return "Reservation for guest is created";
     }
 
+    @Override
+    public String cancelGuestRes(String resNo) {
+        String sql= "DELETE FROM guestres WHERE resNo='"+resNo+"';";
+        try {
+            int numberOfDeletion= conn.delete(sql);
+            if(numberOfDeletion ==0){
+
+                return "cancellation failed";
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+        return "cancellation succeeded";
+    }
+
+    @Override
+    public List<GuestRes> getAllGuestReserevation() {
+        String sql = "SELECT * FROM guestres;";
+        ArrayList<GuestRes> listOfReservations = new ArrayList<>();
+        try {
+            ResultSet rs = conn.query(sql);
+            while(rs.next()){
+                String name = rs.getString("guestname");
+                String date = rs.getDate("date").toString();
+                String resNumber = rs.getString("resno");
+                String purpose = rs.getString("guestpurpose");
+                GuestRes guestRes = new GuestRes(name,purpose,date,resNumber);
+                listOfReservations.add(guestRes);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listOfReservations;
+    }
 
 
 }

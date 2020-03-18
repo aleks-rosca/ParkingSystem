@@ -15,6 +15,12 @@ public class GuestRes implements Serializable {
         this.date = date;
         resNo = null;
     }
+    public GuestRes(String name, String purpose, String date,String resNo) {
+        this.name = name;
+        this.purpose = purpose;
+        this.date = date;
+        this.resNo = resNo;
+    }
     public GuestRes(){
 
     }
