@@ -1,12 +1,15 @@
 package Controller;
 
 import Model.IGCModel;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.*;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.util.Duration;
+
+import java.util.concurrent.TimeUnit;
 
 
 public class GController {
@@ -14,6 +17,7 @@ public class GController {
     public TextField checkInTf;
     public IGCModel model;
     public Circle circle;
+    public Circle gateStatus;
 
     public void employeeBtn(ActionEvent actionEvent) {
         TextInputDialog dialog = new TextInputDialog();
@@ -31,9 +35,10 @@ public class GController {
         String check = model.checkClient(checkInTf.getText());
         if (check.equals("employee")) {
             String temp = model.empCheckIn(checkInTf.getText().trim());
-
+            gateStatus.setFill(Color.RED);
 
             if (temp.equals("checked in to parking lot")) {
+                gateStatus.setFill(Color.GREEN);
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setContentText("Checked In");
                 alert.show();
@@ -70,13 +75,12 @@ public class GController {
 
             }
 
-        }else {
+        } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Please fill in the fields with valid information");
             alert.show();
         }
         checkInTf.clear();
-
 
 
     }
