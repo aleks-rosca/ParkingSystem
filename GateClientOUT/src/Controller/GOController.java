@@ -6,11 +6,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 
 public class GOController {
     public TextField checkOutTf;
     public IGCModel model;
     public Button checkOutBtn;
+    public Circle gateStatus;
 
     public void employeeBtn(ActionEvent actionEvent) {
         TextInputDialog dialog = new TextInputDialog();
@@ -26,47 +29,28 @@ public class GOController {
 
     public void checkOut(ActionEvent actionEvent) {
 
+        String temp = model.empCheckOut(checkOutTf.getText());
+        if (checkOutTf.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Please fill in the fields");
+            alert.show();
+        } else if (temp.equals("checked out")) {
+            gateStatus.setFill(Color.GREEN);
+            new java.util.Timer().schedule(
+                    new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            gateStatus.setFill(Color.RED);
+                        }
+                    },
+                    5000);
 
-        String check = model.checkClient(checkOutTf.getText());
-        if(check.equals("employee")){
-            String temp = model.empCheckOut(checkOutTf.getText());
-            if (checkOutTf.getText().isEmpty()) {
+        } else if (temp.equals("something went wront with check out")) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Something went wrong, try again");
+            alert.show();
 
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Please fill in the fields");
-                alert.show();
-            } else if (temp.equals("checked out")) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setContentText("Checked Out");
-                alert.show();
-
-            } else if (temp.equals("something went wront with check out")) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setContentText("Something went wrong, try again");
-                alert.show();
-
-            }
-        }else if(check.equals("guest")){
-            String temp = model.guestCheckOut(checkOutTf.getText());
-            if (checkOutTf.getText().isEmpty()) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Please fill in the fields");
-                alert.show();
-            } else if (temp.equals("checked out")) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setContentText("Checked Out");
-                alert.show();
-
-            } else if (temp.equals("something went wront with check out")) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setContentText("Something went wrong, try again");
-                alert.show();
-
-            }
         }
-
-
-
         checkOutTf.clear();
     }
 }
