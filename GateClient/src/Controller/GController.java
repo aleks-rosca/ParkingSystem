@@ -1,15 +1,13 @@
 package Controller;
 
 import Model.IGCModel;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.util.Duration;
-
-import java.util.concurrent.TimeUnit;
 
 
 public class GController {
@@ -35,13 +33,17 @@ public class GController {
         String check = model.checkClient(checkInTf.getText());
         if (check.equals("employee")) {
             String temp = model.empCheckIn(checkInTf.getText().trim());
-            gateStatus.setFill(Color.RED);
 
             if (temp.equals("checked in to parking lot")) {
                 gateStatus.setFill(Color.GREEN);
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setContentText("Checked In");
-                alert.show();
+                new java.util.Timer().schedule(
+                        new java.util.TimerTask() {
+                            @Override
+                            public void run() {
+                                gateStatus.setFill(Color.RED);
+                            }
+                        },
+                        5000);
 
             } else if (temp.equals("No such employee number")) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
