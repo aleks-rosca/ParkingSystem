@@ -2,6 +2,9 @@ package EmployeeClient;
 
 import model.EmployeeRes;
 
+import java.util.List;
+
 public interface IEmployeeClient {
-    public String addReservationByEmp(EmployeeRes employeeRes);
+    String addReservationByEmp(EmployeeRes employeeRes);
+    List<EmployeeRes> getEmpRes(String empNo);
 }

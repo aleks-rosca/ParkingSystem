@@ -5,6 +5,7 @@ import model.Employee;
 import model.EmployeeRes;
 import model.GuestRes;
 
+import java.util.List;
 import java.util.Random;
 
 public class ServerModel implements IServerModel {
@@ -57,6 +58,11 @@ public class ServerModel implements IServerModel {
     @Override
     public String guestCheckOut(String resNo) {
         return guestCheckDAO.guestCheckOut(resNo);
+    }
+
+    @Override
+    public List<EmployeeRes> getEmpRes(String empNo) {
+        return empResDAO.reservationsByEmpNo(empNo);
     }
 
 }

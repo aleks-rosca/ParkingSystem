@@ -1,10 +1,9 @@
 package Controller;
 
 import Model.IECModel;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.rmi.RemoteException;
@@ -14,6 +13,9 @@ public class EReservationController {
     public IECModel ecModel;
     public TextField empNoTF;
     public DatePicker choosedate;
+    public TableView empTw;
+    public TableColumn c1;
+    public TableColumn c2;
 
     public void init(IECModel ecModel) {
         this.ecModel = ecModel;
@@ -41,5 +43,8 @@ public class EReservationController {
 
             alert1.show();
         }
+
+
+
     }
 }

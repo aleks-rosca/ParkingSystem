@@ -1,8 +1,12 @@
 package Model;
 
+import model.EmployeeRes;
+
 import java.rmi.RemoteException;
+import java.util.List;
 
 public interface IECModel {
-   public String addEmpRes(String dateFromPicker, String empNo) throws RemoteException;
+   String addEmpRes(String dateFromPicker, String empNo);
+   List<EmployeeRes> getEmpRes(String empNo);
 
 }
