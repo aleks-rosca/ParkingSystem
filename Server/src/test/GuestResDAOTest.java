@@ -38,6 +38,6 @@ class GuestResDAOTest {
     void cancelGuestRes(){
         System.out.println(guestResDAO.addGuestRes(newGuest));
         String test=guestResDAO.cancelGuestRes(newGuest.getResNo());
-        assertEquals("Reservation canceled",test);
+        assertEquals("cancellation succeeded",test);
     }
 }
