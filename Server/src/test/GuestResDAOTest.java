@@ -7,15 +7,21 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class GuestResDAOTest {
     IGuestResDAO guestResDAO;
     GuestRes newGuest;
+    private LocalDate dt;
+    private LocalDate tomorrow ;
     @BeforeEach
     void setUp() {
+        dt =  LocalDate.now();
+        tomorrow = dt.plusDays(1);
         guestResDAO = new GuestResDAO();
-        newGuest = new GuestRes("testGuest","testing","2020-03-14");
+        newGuest = new GuestRes("testGuest","testing",tomorrow.toString());
         newGuest.setResNo("G1234");
     }
 
