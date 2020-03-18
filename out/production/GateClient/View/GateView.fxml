@@ -18,7 +18,7 @@
                 </TextField>
             </children>
         </Pane>
-      <TextFlow fx:id="warningField" layoutX="174.0" layoutY="343.0" prefHeight="34.0" prefWidth="266.0" textAlignment="CENTER" />
+      <TextFlow fx:id="warningField" layoutX="174.0" layoutY="343.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="34.0" prefWidth="266.0" />
         <Circle fx:id="gateStatus" fill="#ff1f1f" layoutX="461.0" layoutY="124.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
         <Label layoutX="71.0" layoutY="77.0" text="40">
             <font>
