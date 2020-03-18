@@ -6,11 +6,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 
 public class GOController {
     public TextField checkOutTf;
     public IGCModel model;
     public Button checkOutBtn;
+    public Circle gateStatus;
 
     public void employeeBtn(ActionEvent actionEvent) {
         TextInputDialog dialog = new TextInputDialog();
@@ -32,9 +35,15 @@ public class GOController {
             alert.setContentText("Please fill in the fields");
             alert.show();
         } else if (temp.equals("checked out")) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Checked Out");
-            alert.show();
+            gateStatus.setFill(Color.GREEN);
+            new java.util.Timer().schedule(
+                    new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            gateStatus.setFill(Color.RED);
+                        }
+                    },
+                    5000);
 
         } else if (temp.equals("something went wront with check out")) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
