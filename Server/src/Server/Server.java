@@ -68,7 +68,20 @@ public class Server extends UnicastRemoteObject implements IServer {
     public List<EmployeeRes> getEmpRes(String empNo) throws RemoteException {
         return model.getEmpRes(empNo);
     }
+    @Override
+    public String deleteEmpRes(EmployeeRes employeeRes) throws RemoteException {
+        return model.deleteEmpRes(employeeRes);
+    }
 
+    @Override
+    public String cancelGuestRes(String resNo) throws RemoteException {
+        return model.cancelGuestRes(resNo);
+    }
+
+    @Override
+    public List<GuestRes> getAllGuestReserevation() throws RemoteException {
+        return model.getAllGuestReserevation();
+    }
 
 }
 
