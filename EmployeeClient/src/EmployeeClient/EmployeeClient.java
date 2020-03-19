@@ -27,6 +27,16 @@ public class EmployeeClient implements IEmployeeClient {
     }
 
     @Override
+    public String deleteEmpRes(EmployeeRes employeeRes) {
+        try {
+            return serverinterface.deleteEmpRes(employeeRes);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            return "Error";
+        }
+    }
+
+    @Override
     public List<EmployeeRes> getEmpRes(String empNo) {
         try {
             return serverinterface.getEmpRes(empNo);

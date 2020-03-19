@@ -32,6 +32,6 @@ public class ECModel implements IECModel {
 
     @Override
     public String deleteEmpRes(EmployeeRes employeeRes) {
-        return null;
+        return client.deleteEmpRes(employeeRes);
     }
 }
