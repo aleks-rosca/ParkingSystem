@@ -9,8 +9,9 @@ import org.junit.jupiter.api.Test;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.*;
 
 class EmpResDAOTest {
     IEmpResDAO test;
@@ -62,4 +63,32 @@ class EmpResDAOTest {
 
 
     }
+    @Test
+    void cancelRervation(){
+        test.addReservetion(testReservation);
+        String str= test.cancelReservation(testReservation);
+
+        assertSame("cancellation succeeded",str);
+
+    }
+
+    @Test
+    void listOfReservationByEmpNo(){
+        assertTrue(test.reservationsByEmpNo("E1289").isEmpty());
+        test.addReservetion(testReservation);
+        ArrayList<EmployeeRes>testList= new ArrayList<>();
+        testList.add(testReservation);
+        int size=  testList.size();
+        int size2= test.reservationsByEmpNo("E1289").size();
+        assertEquals(size,size2);
+
+
+    }
+    @Test
+    void allEmployeeReservations(){
+
+    }
+
+
+
 }

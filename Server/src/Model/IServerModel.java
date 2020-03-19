@@ -4,6 +4,8 @@ import model.Employee;
 import model.EmployeeRes;
 import model.GuestRes;
 
+import java.util.List;
+
 public interface IServerModel {
     String addEmployee(Employee employee);
 
@@ -18,4 +20,6 @@ public interface IServerModel {
     String guestCheckIn(String resNo);
 
     String guestCheckOut(String resNo);
+
+    List<EmployeeRes> getEmpRes(String empNo);
 }

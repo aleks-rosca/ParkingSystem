@@ -56,4 +56,14 @@ public class GuestRes implements Serializable {
     public void setResNo(String resNo) {
         this.resNo = resNo;
     }
+
+    @Override
+    public String toString() {
+        return "GuestRes{" +
+                "name='" + name + '\'' +
+                ", purpose='" + purpose + '\'' +
+                ", date='" + date + '\'' +
+                ", resNo='" + resNo + '\'' +
+                '}';
+    }
 }

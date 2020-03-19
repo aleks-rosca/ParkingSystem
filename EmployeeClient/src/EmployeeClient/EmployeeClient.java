@@ -7,6 +7,7 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.util.List;
 
 public class EmployeeClient implements IEmployeeClient {
     private IServer serverinterface;
@@ -22,6 +23,17 @@ public class EmployeeClient implements IEmployeeClient {
            e.printStackTrace();
            return "Error";
        }
+
+    }
+
+    @Override
+    public List<EmployeeRes> getEmpRes(String empNo) {
+        try {
+            return serverinterface.getEmpRes(empNo);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            return null;
+        }
 
     }
 }

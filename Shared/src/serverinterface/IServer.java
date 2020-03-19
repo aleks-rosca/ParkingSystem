@@ -8,6 +8,7 @@ import model.GuestRes;
 import java.io.Serializable;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.List;
 
 public interface IServer extends Remote, Serializable {
     void message(String msg) throws RemoteException;
@@ -25,4 +26,6 @@ public interface IServer extends Remote, Serializable {
     String guestCheckIn(String resNo) throws RemoteException;
 
     String guestCheckOut(String resNo) throws RemoteException;
+
+    List<EmployeeRes> getEmpRes(String empNo) throws RemoteException;
 }

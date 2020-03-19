@@ -9,6 +9,7 @@ import serverinterface.IServer;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.List;
 
 public class Server extends UnicastRemoteObject implements IServer {
     private IServerModel model;
@@ -61,6 +62,11 @@ public class Server extends UnicastRemoteObject implements IServer {
     @Override
     public String guestCheckOut(String resNo) throws RemoteException {
         return model.guestCheckOut(resNo);
+    }
+
+    @Override
+    public List<EmployeeRes> getEmpRes(String empNo) throws RemoteException {
+        return model.getEmpRes(empNo);
     }
 
 
