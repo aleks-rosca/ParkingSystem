@@ -24,4 +24,8 @@ public interface IServerModel {
     List<EmployeeRes> getEmpRes(String empNo);
 
     String deleteEmpRes(EmployeeRes employeeRes);
+
+    String cancelGuestRes(String resNo);
+
+    List<GuestRes> getAllGuestReserevation();
 }

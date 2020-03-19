@@ -69,5 +69,15 @@ public class ServerModel implements IServerModel {
     public String deleteEmpRes(EmployeeRes employeeRes) {
         return empResDAO.cancelReservation(employeeRes);
     }
+
+    @Override
+    public String cancelGuestRes(String resNo) {
+        return guestResDAO.cancelGuestRes(resNo);
+    }
+
+    @Override
+    public List<GuestRes> getAllGuestReserevation() {
+        return guestResDAO.getAllGuestReserevation();
+    }
 }
 

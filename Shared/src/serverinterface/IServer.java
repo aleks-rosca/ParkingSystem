@@ -30,4 +30,8 @@ public interface IServer extends Remote, Serializable {
     List<EmployeeRes> getEmpRes(String empNo) throws RemoteException;
 
     String deleteEmpRes(EmployeeRes employeeRes) throws RemoteException;
+
+    String cancelGuestRes(String resNo) throws RemoteException;
+
+    List<GuestRes> getAllGuestReserevation() throws RemoteException;
 }
