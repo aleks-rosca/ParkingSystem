@@ -9,6 +9,7 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.util.List;
 
 public class ManagerClient implements IManagerClient {
     private IServer serverinterface;
@@ -46,5 +47,25 @@ public class ManagerClient implements IManagerClient {
             e.printStackTrace();
         }
         return "Error";
+    }
+
+    @Override
+    public String cancelGuestRes(String resNo) {
+        try {
+            return serverinterface.cancelGuestRes(resNo);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public List<GuestRes> getAllGuestReserevation() {
+        try {
+            return serverinterface.getAllGuestReserevation();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

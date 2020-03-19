@@ -20,14 +20,14 @@
         </Pane>
         <TableView fx:id="guestReservTableTv" layoutX="5.0" layoutY="111.0" prefHeight="200.0" prefWidth="579.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
             <columns>
-                <TableColumn prefWidth="134" text="Name" />
-                <TableColumn prefWidth="98" text="Date" />
-                <TableColumn prefWidth="140" text="Reservation Number" />
-                <TableColumn prefWidth="215" text="Purpose" />
+                <TableColumn prefWidth="134" text="Name" fx:id="guestName" />
+                <TableColumn prefWidth="98" text="Date"  fx:id="guestDate"/>
+                <TableColumn prefWidth="140" text="Reservation Number" fx:id="guestResNo"/>
+                <TableColumn prefWidth="215" text="Purpose" fx:id="guestPurpose"/>
             </columns>
         </TableView>
-        <Button fx:id="guestReservDeleteBtn" layoutX="522.0" layoutY="360.0" mnemonicParsing="false" text="Delete" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="25.0" />
-      <Button fx:id="guestReservShowAllBtn" layoutX="453.0" layoutY="360.0" mnemonicParsing="false" text="Show All" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="100.0" />
+        <Button fx:id="guestReservDeleteBtn" layoutX="522.0" layoutY="360.0" mnemonicParsing="false" onAction="#deleteGuestReservation" text="Delete" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="25.0" />
+      <Button fx:id="guestReservShowAllBtn" layoutX="453.0" layoutY="360.0" mnemonicParsing="false" onAction="#getAllGuestReservations" text="Show All" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="100.0" />
     </children>
 
 

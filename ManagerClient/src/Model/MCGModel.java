@@ -1,6 +1,8 @@
 package Model;
 
 import ManagerClient.IManagerClient;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import model.GuestRes;
 
 public class MCGModel implements IMCGModel{
@@ -18,5 +20,16 @@ public class MCGModel implements IMCGModel{
         String guestNo = client.addGuestRes(guestRes).substring(32,38);
 
         return guestNo;
+    }
+
+    @Override
+    public ObservableList<GuestRes> allGuestReservations() {
+        ObservableList listOfGuests= FXCollections.observableArrayList(client.getAllGuestReserevation());
+        return listOfGuests ;
+    }
+
+    @Override
+    public String cancelGuestReservation(String resNo) {
+        return client.cancelGuestRes(resNo);
     }
 }

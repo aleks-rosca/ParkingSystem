@@ -2,10 +2,10 @@ package Controller;
 
 import Model.IMCGModel;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import model.GuestRes;
 
 import java.rmi.RemoteException;
 
@@ -14,6 +14,16 @@ public class GuestReservationController {
     public TextArea guestReservPurposeTf;
     public DatePicker guestReservDateDp;
     public IMCGModel gModel;
+    @FXML
+    TableView<GuestRes> guestReservTableTv;
+    @FXML
+    TableColumn<GuestRes, String> guestName;
+    @FXML
+    TableColumn<GuestRes, String> guestResNo;
+    @FXML
+    TableColumn<GuestRes, String> guestDate;
+    @FXML
+    TableColumn<GuestRes, String> guestPurpose;
 
     public void init(IMCGModel gModel) {
         this.gModel = gModel;
@@ -61,5 +71,21 @@ public class GuestReservationController {
         }
         guestReservNameTf.clear();
         guestReservPurposeTf.clear();
+        getAllGuestReservations(actionEvent);
+    }
+
+    public void deleteGuestReservation(ActionEvent actionEvent) {
+        String resNo= guestReservTableTv.getSelectionModel().getSelectedItem().getResNo();
+        gModel.cancelGuestReservation(resNo);
+        getAllGuestReservations(actionEvent);
+    }
+
+    public void getAllGuestReservations(ActionEvent actionEvent) {
+        guestName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        guestDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+        guestResNo.setCellValueFactory(new PropertyValueFactory<>("resNo"));
+        guestPurpose.setCellValueFactory(new PropertyValueFactory<>("purpose"));
+        guestReservTableTv.setItems(gModel.allGuestReservations());
+
     }
 }
