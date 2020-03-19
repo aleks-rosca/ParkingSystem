@@ -11,3 +11,5 @@ out/production/Server/DB/testDB.class
 
 .idea/misc.xml
 
+ManagerClient/src/Test/testClient.java
+EmployeeClient/src/EmployeeClient/testClient.java

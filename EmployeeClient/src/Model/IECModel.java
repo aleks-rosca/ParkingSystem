@@ -1,12 +1,12 @@
 package Model;
 
+import javafx.collections.ObservableList;
 import model.EmployeeRes;
 
-import java.rmi.RemoteException;
-import java.util.List;
-
 public interface IECModel {
-   String addEmpRes(String dateFromPicker, String empNo);
-   List<EmployeeRes> getEmpRes(String empNo);
+    String addEmpRes(String dateFromPicker, String empNo);
 
+    ObservableList<EmployeeRes> getEmpRes(String empNo);
+
+    String deleteEmpRes(EmployeeRes employeeRes);
 }

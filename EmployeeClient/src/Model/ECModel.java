@@ -1,6 +1,8 @@
 package Model;
 
 import EmployeeClient.IEmployeeClient;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import model.EmployeeRes;
 
 import java.util.*;
@@ -20,9 +22,16 @@ public class ECModel implements IECModel {
     }
 
     @Override
-    public List<EmployeeRes> getEmpRes(String empNo) {
-        resList = new ArrayList<>();
+    public ObservableList<EmployeeRes> getEmpRes(String empNo) {
+      ObservableList<EmployeeRes> empreslist;
 
-        return client.getEmpRes(empNo);
+        empreslist = FXCollections.observableArrayList( client.getEmpRes(empNo));
+
+        return empreslist;
+    }
+
+    @Override
+    public String deleteEmpRes(EmployeeRes employeeRes) {
+        return null;
     }
 }

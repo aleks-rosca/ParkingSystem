@@ -1,21 +1,22 @@
 package Controller;
 
 import Model.IECModel;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import model.EmployeeRes;
 
 import java.io.IOException;
-import java.rmi.RemoteException;
 
 public class EReservationController {
 
     public IECModel ecModel;
     public TextField empNoTF;
     public DatePicker choosedate;
-    public TableView empTw;
-    public TableColumn c1;
-    public TableColumn c2;
+    @FXML  TableView<EmployeeRes> empTw;
+    @FXML TableColumn<EmployeeRes,String> c1;
+    @FXML  TableColumn<EmployeeRes,String> c2;
 
     public void init(IECModel ecModel) {
         this.ecModel = ecModel;
@@ -46,5 +47,23 @@ public class EReservationController {
 
 
 
+//        public void deleteReservation(ActionEvent actionEvent) {
+//
+//        }
+
+    }
+
+    public void getReservation(ActionEvent actionEvent) {
+        c1.setCellValueFactory(new PropertyValueFactory<EmployeeRes, String>("DateFromPicker"));
+        c2.setCellValueFactory(new PropertyValueFactory<>("empNo"));
+
+        empTw.setItems(ecModel.getEmpRes(empNoTF.getText()));
+    }
+
+    public void deleteReservation(ActionEvent actionEvent) {
+        EmployeeRes employeeRes = empTw.getSelectionModel().getSelectedItem();
+
+          ecModel.deleteEmpRes(employeeRes);
+           getReservation(actionEvent);
     }
 }

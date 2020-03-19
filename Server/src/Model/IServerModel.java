@@ -22,4 +22,6 @@ public interface IServerModel {
     String guestCheckOut(String resNo);
 
     List<EmployeeRes> getEmpRes(String empNo);
+
+    String deleteEmpRes(EmployeeRes employeeRes);
 }

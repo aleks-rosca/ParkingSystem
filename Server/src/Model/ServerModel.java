@@ -65,4 +65,9 @@ public class ServerModel implements IServerModel {
         return empResDAO.reservationsByEmpNo(empNo);
     }
 
+    @Override
+    public String deleteEmpRes(EmployeeRes employeeRes) {
+        return empResDAO.cancelReservation(employeeRes);
+    }
 }
+
