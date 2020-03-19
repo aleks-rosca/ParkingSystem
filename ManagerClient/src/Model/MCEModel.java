@@ -30,9 +30,9 @@ public class MCEModel implements IMCEModel {
     }
 
     public boolean checkFirstChar(String empNo) {
-
-        return 'E' == empNo.charAt(0);
-
+        if('E' == empNo.charAt(0)) {
+            return true;
+        }else return false;
     }
 
     public String rearrangeChars(String empName){

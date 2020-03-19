@@ -24,25 +24,30 @@ public class ManageEmployeeController {
 
     public void AddEmp(ActionEvent actionEvent) throws IOException {
         //TODO add a try catch to see if the name and number exist already\
-
-        if (mceModel.checkFirstChar(empNumberAddTf.getText())) {
-
-            if (mceModel.createEmp(mceModel.rearrangeChars(empFirstNameAddTf.getText()), empLastNameAddTf.getText(), empNumberAddTf.getText()).equals("Employee added")) {
-                Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee " + empFirstNameAddTf.getText() + " has been added!", ButtonType.OK);
-                a1.show();
-                empFirstNameAddTf.clear();
-                empNumberAddTf.clear();
-            } else if (mceModel.createEmp(empFirstNameAddTf.getText(), empLastNameAddTf.getText(), empNumberAddTf.getText()).equals("Duplicate key")) {
-                Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee " + empFirstNameAddTf.getText() + " already exists!", ButtonType.OK);
-                a1.show();
+        if(!(empFirstNameAddTf.getText().isEmpty())&!(empLastNameAddTf.getText().isEmpty())&!(empNumberAddTf.getText().isEmpty())){
+            if (mceModel.checkFirstChar(empNumberAddTf.getText())) {
+                String temp = mceModel.createEmp(mceModel.rearrangeChars(empFirstNameAddTf.getText()), empLastNameAddTf.getText(), empNumberAddTf.getText());
+                if (temp.equals("Employee added")) {
+                    Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee " + empFirstNameAddTf.getText() + " has been added!", ButtonType.OK);
+                    a1.show();
+                    empFirstNameAddTf.clear();
+                    empNumberAddTf.clear();
+                } else if (temp.equals("Duplicate key")) {
+                    Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee " + empFirstNameAddTf.getText() + " already exists!", ButtonType.OK);
+                    a1.show();
+                } else {
+                    Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Error 404", ButtonType.OK);
+                    a1.show();
+                }
             } else {
-                Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Error 404", ButtonType.OK);
+                Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee number should start from E", ButtonType.OK);
                 a1.show();
             }
-        } else {
-            Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee number should start from E ", ButtonType.OK);
+        }else{
+            Alert a1 = new Alert(Alert.AlertType.INFORMATION, "All of the fields should be filled" , ButtonType.OK);
             a1.show();
         }
+
 
 
 //        if (model.createEmp()) {
