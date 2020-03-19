@@ -33,12 +33,17 @@ class GuestResDAOTest {
 
     @Test
     void addGuestRes() {
+        guestResDAO.cancelGuestRes(newGuest.getResNo());
          String test =guestResDAO.addGuestRes(newGuest);
         assertEquals("Reservation for guest is created",test);
+
+        //to clear db
+
+
     }
     @Test
     void cancelGuestRes(){
-        System.out.println(guestResDAO.addGuestRes(newGuest));
+       // System.out.println(guestResDAO.addGuestRes(newGuest));
         String test=guestResDAO.cancelGuestRes(newGuest.getResNo());
         assertEquals("cancellation succeeded",test);
     }
