@@ -56,6 +56,20 @@ public class MCEModel implements IMCEModel {
     }
 
     @Override
+    public ObservableList<Employee> getAllEmployee() {
+        ObservableList<Employee> employeeList = FXCollections.observableArrayList(client.getAllEmployee());
+
+        return employeeList;
+
+
+    }
+
+    @Override
+    public String getEmployeeNameByEmpNo(String empNo) {
+        return client.getEmployeeNameByEmpNo(empNo);
+    }
+
+    @Override
     public String deleteEmpRes(EmployeeRes employeeRes) {
         return client.deleteEmpRes(employeeRes);
     }

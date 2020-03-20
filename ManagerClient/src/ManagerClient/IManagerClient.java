@@ -9,6 +9,10 @@ import java.util.List;
 public interface IManagerClient {
     String addEmployee(Employee employee);
 
+    List<Employee> getAllEmployee();
+
+    String getEmployeeNameByEmpNo(String empNo);
+
     String addEmployeeRes(EmployeeRes employeeRes);
 
     List<EmployeeRes> getAllReservationByEmpNo(String empNo);
@@ -17,9 +21,13 @@ public interface IManagerClient {
 
     String deleteEmpRes(EmployeeRes employeeRes);
 
+
+
     // for managing Guests Reservations
     String addGuestRes(GuestRes guestRes);
     String cancelGuestRes(String resNo);
 
     List<GuestRes> getAllGuestReserevation();
+
+
 }

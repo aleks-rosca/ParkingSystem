@@ -1,6 +1,7 @@
 package Model;
 
 import javafx.collections.ObservableList;
+import model.Employee;
 import model.EmployeeRes;
 
 import java.rmi.RemoteException;
@@ -14,6 +15,10 @@ public interface IMCEModel {
 
     ObservableList<EmployeeRes> getAllEmpReservation();
     ObservableList<EmployeeRes> getAllEmpReservationByEmpNo(String empNo);
+    ObservableList<Employee> getAllEmployee();
+
+    String getEmployeeNameByEmpNo(String empNo);
+
     String deleteEmpRes(EmployeeRes employeeRes);
 
     String rearrangeChars(String empName);

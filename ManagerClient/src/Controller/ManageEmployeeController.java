@@ -2,9 +2,10 @@ package Controller;
 
 import Model.IMCEModel;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import model.Employee;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -15,7 +16,14 @@ public class ManageEmployeeController {
     public TextField empNameSearchTf;
     public TextField empNumberAddTf;
     public IMCEModel mceModel;
-
+    @FXML
+    TableView<Employee> manageEmpTableTv;
+    @FXML
+    TableColumn<Employee,String> manageEmpTable;
+    @FXML
+    TableColumn<Employee,String> manageEmpNo;
+    @FXML
+    TableColumn<Employee,String> empLast;
 
     public void init(IMCEModel mceModel) {
         this.mceModel = mceModel;
@@ -96,6 +104,15 @@ public class ManageEmployeeController {
             }
 
         }
+
+    }
+
+    public void showAllEmployee(ActionEvent actionEvent) {
+        manageEmpTable.setCellValueFactory(new PropertyValueFactory<>("empFirstName"));
+        empLast.setCellValueFactory(new PropertyValueFactory< >("empLastName"));
+        manageEmpNo.setCellValueFactory(new PropertyValueFactory< >("empNumber"));
+
+        manageEmpTableTv.setItems(mceModel.getAllEmployee());
 
     }
 }
