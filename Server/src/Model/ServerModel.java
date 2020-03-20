@@ -84,5 +84,15 @@ public class ServerModel implements IServerModel {
     public List<GuestRes> getAllGuestReserevation() {
         return guestResDAO.getAllGuestReserevation();
     }
+
+    @Override
+    public List<Employee> getAllEmployee() {
+        return empdb.getAllEmployees();
+    }
+
+    @Override
+    public String getEmployeeNameByEmpNo(String empNo) {
+        return empdb.getEmployeeNameByEmpNo(empNo);
+    }
 }
 

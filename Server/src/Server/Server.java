@@ -89,6 +89,16 @@ public class Server extends UnicastRemoteObject implements IServer {
         return model.getAllGuestReserevation();
     }
 
+    @Override
+    public String getEmployeeNameByEmpNo(String empNo) throws RemoteException {
+        return model.getEmployeeNameByEmpNo(empNo);
+    }
+
+    @Override
+    public List<Employee> getAllEmployees() throws RemoteException {
+        return model.getAllEmployee();
+    }
+
 
 }
 

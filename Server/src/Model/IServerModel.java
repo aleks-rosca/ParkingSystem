@@ -30,4 +30,8 @@ public interface IServerModel {
     String cancelGuestRes(String resNo);
 
     List<GuestRes> getAllGuestReserevation();
+
+    List<Employee> getAllEmployee();
+
+    String getEmployeeNameByEmpNo(String empNo);
 }

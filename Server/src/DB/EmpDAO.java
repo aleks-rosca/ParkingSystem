@@ -4,6 +4,8 @@ import model.Employee;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EmpDAO implements IEmpDAO {
     private  Conn conn;
@@ -94,6 +96,26 @@ public class EmpDAO implements IEmpDAO {
             e.printStackTrace();
         }
         return firstName+" "+lastName;
+    }
+
+    @Override
+    public List<Employee> getAllEmployees() {
+        String sql = "SELECT * FROM  employee;";
+        ArrayList<Employee> listOfEmployees = new ArrayList<>();
+        try {
+            ResultSet rs = conn.query(sql);
+            while(rs.next()){
+                String empNumber = rs.getString("empno");
+                String firstName = rs.getString("empfirstname");
+                String lastName = rs.getString("emplastname");
+                Employee emp = new Employee(firstName,lastName,empNumber);
+
+                listOfEmployees.add(emp);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return  listOfEmployees;
     }
 
 }
