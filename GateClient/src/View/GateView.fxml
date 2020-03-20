@@ -20,10 +20,14 @@
         </Pane>
       <TextFlow fx:id="warningField" layoutX="76.0" layoutY="343.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="34.0" prefWidth="471.0" textAlignment="CENTER" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="345.0" />
         <Circle fx:id="gateStatus" fill="#ff1f1f" layoutX="461.0" layoutY="124.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
-        <Label layoutX="71.0" layoutY="77.0" text="40">
+        <Label layoutX="71.0" layoutY="77.0" text="40" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="70.0">
             <font>
                 <Font size="64.0" />
             </font>
         </Label>
+      <Label layoutX="72.0" layoutY="108.0" text="The available spots " AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="100.0">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
     </children>
 </AnchorPane>

@@ -21,7 +21,7 @@
               <Label layoutX="63.0" layoutY="14.0" text="Search for Employees" />
          </children>
       </Pane>
-      <Button fx:id="manageEmpEditBtn" layoutX="500.0" layoutY="50.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Edit" AnchorPane.topAnchor="40.0" />
+      <Button fx:id="manageEmpEditBtn" layoutX="500.0" layoutY="50.0" mnemonicParsing="false" onAction="#editEmp" prefHeight="25.0" prefWidth="60.0" text="Edit" AnchorPane.topAnchor="40.0" />
       <Pane layoutX="20.0" layoutY="20.0" prefHeight="193.0" prefWidth="250.0">
          <children>
               <Label layoutX="84.0" layoutY="14.0" text="Add Employees" />
