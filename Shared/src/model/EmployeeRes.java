@@ -36,6 +36,9 @@ public class EmployeeRes implements Serializable {
         return empNo;
     }
 
+    public Employee getEmployee() {
+        return employee;
+    }
 //    @Override
 //    public String toString() {
 //        return "EmployeeRes{" +
