@@ -11,6 +11,11 @@ public interface IManagerClient {
 
     String addEmployeeRes(EmployeeRes employeeRes);
 
+    List<EmployeeRes> getAllReservationByEmpNo(String empNo);
+
+    List<EmployeeRes> getAllEmpReservations();
+
+    String deleteEmpRes(EmployeeRes employeeRes);
 
     // for managing Guests Reservations
     String addGuestRes(GuestRes guestRes);

@@ -65,9 +65,15 @@ public class Server extends UnicastRemoteObject implements IServer {
     }
 
     @Override
-    public List<EmployeeRes> getEmpRes(String empNo) throws RemoteException {
-        return model.getEmpRes(empNo);
+    public List<EmployeeRes> getEmpResByEmpNo(String empNo) throws RemoteException {
+        return model.getEmpResByEmpNo(empNo);
     }
+
+    @Override
+    public List<EmployeeRes> getAllEmpReservations() throws RemoteException {
+        return model.getAllEmpReservation();
+    }
+
     @Override
     public String deleteEmpRes(EmployeeRes employeeRes) throws RemoteException {
         return model.deleteEmpRes(employeeRes);
@@ -82,6 +88,7 @@ public class Server extends UnicastRemoteObject implements IServer {
     public List<GuestRes> getAllGuestReserevation() throws RemoteException {
         return model.getAllGuestReserevation();
     }
+
 
 }
 

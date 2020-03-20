@@ -64,6 +64,6 @@ public class EReservationController {
         EmployeeRes employeeRes = empTw.getSelectionModel().getSelectedItem();
 
           ecModel.deleteEmpRes(employeeRes);
-           getReservation(actionEvent);
+        empTw.getItems().removeAll(employeeRes);
     }
 }

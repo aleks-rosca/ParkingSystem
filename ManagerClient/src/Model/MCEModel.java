@@ -1,6 +1,8 @@
 package Model;
 
 import ManagerClient.IManagerClient;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import model.Employee;
 import model.EmployeeRes;
 
@@ -33,6 +35,29 @@ public class MCEModel implements IMCEModel {
         if('E' == empNo.charAt(0)) {
             return true;
         }else return false;
+    }
+
+    @Override
+    public ObservableList<EmployeeRes> getAllEmpReservation() {
+        ObservableList<EmployeeRes> empreslist;
+
+        empreslist = FXCollections.observableArrayList( client.getAllEmpReservations());
+
+        return empreslist;
+    }
+
+    @Override
+    public ObservableList<EmployeeRes> getAllEmpReservationByEmpNo(String empNo) {
+        ObservableList<EmployeeRes> empreslist;
+
+        empreslist = FXCollections.observableArrayList( client.getAllReservationByEmpNo(empNo));
+
+        return empreslist;
+    }
+
+    @Override
+    public String deleteEmpRes(EmployeeRes employeeRes) {
+        return client.deleteEmpRes(employeeRes);
     }
 
     public String rearrangeChars(String empName){

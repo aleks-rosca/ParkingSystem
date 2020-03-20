@@ -21,9 +21,11 @@ public interface IServerModel {
 
     String guestCheckOut(String resNo);
 
-    List<EmployeeRes> getEmpRes(String empNo);
+    List<EmployeeRes> getEmpResByEmpNo(String empNo);
 
     String deleteEmpRes(EmployeeRes employeeRes);
+
+    List<EmployeeRes> getAllEmpReservation();
 
     String cancelGuestRes(String resNo);
 

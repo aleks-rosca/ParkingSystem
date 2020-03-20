@@ -13,3 +13,4 @@ out/production/Server/DB/testDB.class
 
 ManagerClient/src/Test/testClient.java
 EmployeeClient/src/EmployeeClient/testClient.java
+/ManagerClient/src/Test/TestDoNotshare.java

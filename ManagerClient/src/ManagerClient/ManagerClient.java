@@ -68,4 +68,34 @@ public class ManagerClient implements IManagerClient {
             return null;
         }
     }
+
+    @Override
+    public List<EmployeeRes> getAllReservationByEmpNo(String empNo) {
+        try {
+
+            return serverinterface.getEmpResByEmpNo(empNo);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    @Override
+    public List<EmployeeRes> getAllEmpReservations() {
+        try {
+            return serverinterface.getAllEmpReservations();
+        } catch (RemoteException e) {
+
+            e.printStackTrace();
+            return null;
+        }
+    }
+    @Override
+    public String deleteEmpRes(EmployeeRes employeeRes) {
+        try {
+            return serverinterface.deleteEmpRes(employeeRes);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            return "Error";
+        }
+    }
 }

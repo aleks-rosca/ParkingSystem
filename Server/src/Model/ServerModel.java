@@ -61,13 +61,18 @@ public class ServerModel implements IServerModel {
     }
 
     @Override
-    public List<EmployeeRes> getEmpRes(String empNo) {
+    public List<EmployeeRes> getEmpResByEmpNo(String empNo) {
         return empResDAO.reservationsByEmpNo(empNo);
     }
 
     @Override
     public String deleteEmpRes(EmployeeRes employeeRes) {
         return empResDAO.cancelReservation(employeeRes);
+    }
+
+    @Override
+    public List<EmployeeRes> getAllEmpReservation() {
+        return empResDAO.allEmployeeReservations();
     }
 
     @Override

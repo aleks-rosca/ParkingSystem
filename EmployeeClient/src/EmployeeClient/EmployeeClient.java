@@ -39,7 +39,7 @@ public class EmployeeClient implements IEmployeeClient {
     @Override
     public List<EmployeeRes> getEmpRes(String empNo) {
         try {
-            return serverinterface.getEmpRes(empNo);
+            return serverinterface.getEmpResByEmpNo(empNo);
         } catch (RemoteException e) {
             e.printStackTrace();
             return null;
