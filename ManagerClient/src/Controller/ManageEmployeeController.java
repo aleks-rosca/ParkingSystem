@@ -164,9 +164,11 @@ public class ManageEmployeeController
                 } else
                 {
                     Alert a1 = new Alert(Alert.AlertType.INFORMATION, "All of the fields should be filled", ButtonType.OK);
-                    a1.show();
+                    a1.showAndWait();
+                    alert.show();
 
                 }
+
 
                 System.out.println("Updated");
             } else if (type == deleteButton)
@@ -191,7 +193,7 @@ public class ManageEmployeeController
                 } else
                 {
                     Alert a1 = new Alert(Alert.AlertType.INFORMATION, "All of the fields should be filled", ButtonType.OK);
-                    a1.show();
+                    a1.showAndWait();
                 }
             }
         });
