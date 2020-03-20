@@ -49,7 +49,7 @@ public class GuestRes implements Serializable {
         this.date = date;
     }
 
-    public String getResNo() {
+    public java.lang.String getResNo() {
         return resNo;
     }
 

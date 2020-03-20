@@ -75,7 +75,7 @@ public class GuestReservationController {
     }
 
     public void deleteGuestReservation(ActionEvent actionEvent) {
-        String resNo= guestReservTableTv.getSelectionModel().getSelectedItem().getResNo();
+        String resNo = guestReservTableTv.getSelectionModel().getSelectedItem().getResNo();
         gModel.cancelGuestReservation(resNo);
         guestReservTableTv.getItems().removeAll(guestReservTableTv.getSelectionModel().getSelectedItem());
     }
