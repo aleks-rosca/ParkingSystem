@@ -29,6 +29,28 @@ public class ManagerClient implements IManagerClient {
     }
 
     @Override
+    public List<Employee> getAllEmployee() {
+        try {
+            return serverinterface.getAllEmployees();
+        } catch (RemoteException e) {
+
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public String getEmployeeNameByEmpNo(String empNo) {
+        try {
+            return serverinterface.getEmployeeNameByEmpNo(empNo);
+        } catch (RemoteException e) {
+
+            e.printStackTrace();
+            return "error";
+        }
+    }
+
+    @Override
     public String addEmployeeRes(EmployeeRes employeeRes) {
         try {
             return serverinterface.addEmpRes(employeeRes);
