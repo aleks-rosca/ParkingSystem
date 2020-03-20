@@ -2,6 +2,9 @@ package Model;
 
 import GateClientOUT.IGClient;
 
+
+
+
 public class GCModel implements IGCModel {
     private IGClient gClient;
 
@@ -10,6 +13,7 @@ public class GCModel implements IGCModel {
         gClient = gc;
 
     }
+
 
     @Override
 
