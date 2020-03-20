@@ -2,10 +2,9 @@ package Model;
 
 import GateClient.IGClient;
 
+
 public class GCModel implements IGCModel {
     private IGClient gClient;
-
-
     public GCModel(IGClient gc) {
         gClient = gc;
 
@@ -15,7 +14,6 @@ public class GCModel implements IGCModel {
 
     public String empCheckIn(String empNo) {
         return gClient.empCheckIn(empNo);
-
     }
 
     @Override
@@ -33,6 +31,7 @@ public class GCModel implements IGCModel {
             return "dunno who are you";
         }
     }
+
 
 
 }
