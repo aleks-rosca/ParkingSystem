@@ -111,15 +111,11 @@ public class ManageEmployeeController
                 String change = empNameSearchTf.getText();
                 empFirstNameAddTf.setText(change);
                 empNameSearchTf.clear();
-
-
             } else
             {
                 System.out.println("No pressed");
             }
-
         }
-
     }
 
     public void showAllEmployee(ActionEvent actionEvent)
@@ -129,15 +125,11 @@ public class ManageEmployeeController
         manageEmpNo.setCellValueFactory(new PropertyValueFactory<>("empNumber"));
 
         manageEmpTableTv.setItems(mceModel.getAllEmployee());
-
-
     }
 
     public void editEmp(ActionEvent actionEvent)
     {
-
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-
         alert.setTitle("Editing Employee");
         alert.setHeaderText("Chose the edits you want to do");
 
@@ -157,17 +149,11 @@ public class ManageEmployeeController
         grid.add(text3, 2, 3);
         alert.getDialogPane().setContent(grid);
 
-
-// Traditional way to get the response value.
-
-        alert.getButtonTypes().clear();
         ButtonType updateButton = new ButtonType("Confirm");
         ButtonType deleteButton = new ButtonType("Delete");
-        alert.getButtonTypes().setAll(updateButton, deleteButton);
+        ButtonType dontsave = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().setAll(updateButton, deleteButton, dontsave);
 
-
-        alert.getButtonTypes().clear();
-        alert.getButtonTypes().setAll(updateButton, deleteButton);
         alert.showAndWait().ifPresent(type ->
         {
             if (type == updateButton)
@@ -178,32 +164,38 @@ public class ManageEmployeeController
                 } else
                 {
                     Alert a1 = new Alert(Alert.AlertType.INFORMATION, "All of the fields should be filled", ButtonType.OK);
-                    a1.showAndWait();
-                    alert.show();
+                    a1.show();
+
                 }
 
                 System.out.println("Updated");
-            }
-            else if (type == deleteButton)
+            } else if (type == deleteButton)
             {
-                System.out.println("Deleting....");
-                Alert alert2 = new Alert(Alert.AlertType.CONFIRMATION);
-                alert2.setTitle("Current project is modified");
-                alert2.setContentText("Save?");
-                ButtonType okButton = new ButtonType("Yes", ButtonBar.ButtonData.YES);
-                ButtonType cancelButton = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
-                alert2.getButtonTypes().setAll(okButton, cancelButton);
-                alert2.showAndWait().ifPresent(type2 ->
+                if (!(text1.getText().isEmpty()) & !(text2.getText().isEmpty()) & !(text3.getText().isEmpty()))
                 {
-                    if (type2 == okButton)
+                    System.out.println("Deleting....");
+
+                    Alert alert2 = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert2.setTitle("Confirmation Dialog");
+                    alert2.setHeaderText("Look, a Confirmation Dialog");
+                    alert2.setContentText("Are you ok with this?");
+
+                    Optional<ButtonType> result = alert2.showAndWait();
+                    if (result.get() == ButtonType.YES)
                     {
                         System.out.println("Deleted");
-                    } else
+                    } else if (result.get() == ButtonType.NO)
                     {
                         System.out.println("Not Deleted");
                     }
-                });
+                } else
+                {
+                    Alert a1 = new Alert(Alert.AlertType.INFORMATION, "All of the fields should be filled", ButtonType.OK);
+                    a1.show();
+                }
             }
         });
+
+
     }
 }
