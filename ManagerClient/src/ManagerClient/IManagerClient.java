@@ -12,7 +12,7 @@ public interface IManagerClient {
     List<Employee> getAllEmployee();
 
     String getEmployeeNameByEmpNo(String empNo);
-
+     String deleteEmployee(Employee employee);
     String addEmployeeRes(EmployeeRes employeeRes);
 
     List<EmployeeRes> getAllReservationByEmpNo(String empNo);
@@ -20,6 +20,7 @@ public interface IManagerClient {
     List<EmployeeRes> getAllEmpReservations();
 
     String deleteEmpRes(EmployeeRes employeeRes);
+    String updateEmployee(Employee newEmployee , String empNo);
 
 
 

@@ -40,4 +40,8 @@ public interface IServer extends Remote, Serializable {
     String getEmployeeNameByEmpNo(String empNo) throws RemoteException;
 
     List<Employee> getAllEmployees() throws RemoteException;
+
+    String deleteEmployee(Employee employee) throws RemoteException;
+
+    String updateEmployee(Employee newEmployee, String empNo) throws RemoteException;
 }

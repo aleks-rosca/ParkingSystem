@@ -14,10 +14,15 @@ public interface IMCEModel {
     boolean checkFirstChar(String empNo);
 
     ObservableList<EmployeeRes> getAllEmpReservation();
+
     ObservableList<EmployeeRes> getAllEmpReservationByEmpNo(String empNo);
+
     ObservableList<Employee> getAllEmployee();
 
     String getEmployeeNameByEmpNo(String empNo);
+
+    String updateEmployee(Employee newEmployee, String empNo);
+    String deleteEmployee(Employee employee);
 
     String deleteEmpRes(EmployeeRes employeeRes);
 

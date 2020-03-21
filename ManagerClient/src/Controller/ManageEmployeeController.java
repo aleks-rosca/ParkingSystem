@@ -129,6 +129,7 @@ public class ManageEmployeeController
 
     public void editEmp(ActionEvent actionEvent)
     {
+        Employee employee = manageEmpTableTv.getSelectionModel().getSelectedItem();
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Editing Employee");
         alert.setHeaderText("Chose the edits you want to do");
@@ -139,6 +140,10 @@ public class ManageEmployeeController
         TextField text1 = new TextField();
         TextField text2 = new TextField();
         TextField text3 = new TextField();
+
+        text1.setText(employee.getEmpFirstName());
+        text2.setText(employee.getEmpLastName());
+        text3.setText(employee.getEmpNumber());
 
         GridPane grid = new GridPane();
         grid.add(label1, 1, 1);
@@ -160,7 +165,9 @@ public class ManageEmployeeController
             {
                 if (!(text1.getText().isEmpty()) & !(text2.getText().isEmpty()) & !(text3.getText().isEmpty()))
                 {
-
+                        Employee newEmployee = new Employee(text1.getText(),text2.getText(),text3.getText());
+                        String empNo= employee.getEmpNumber();
+                    System.out.println(mceModel.updateEmployee(newEmployee,empNo));
                 } else
                 {
                     Alert a1 = new Alert(Alert.AlertType.INFORMATION, "All of the fields should be filled", ButtonType.OK);
@@ -183,10 +190,12 @@ public class ManageEmployeeController
                     alert2.setContentText("Are you ok with this?");
 
                     Optional<ButtonType> result = alert2.showAndWait();
-                    if (result.get() == ButtonType.YES)
+                    if (result.get() == ButtonType.OK)
                     {
                         System.out.println("Deleted");
-                    } else if (result.get() == ButtonType.NO)
+                        mceModel.deleteEmployee(employee);
+
+                    } else if (result.get() == ButtonType.CANCEL)
                     {
                         System.out.println("Not Deleted");
                     }

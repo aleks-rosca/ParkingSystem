@@ -70,6 +70,16 @@ public class MCEModel implements IMCEModel {
     }
 
     @Override
+    public String updateEmployee(Employee newEmployee, String empNo) {
+        return client.updateEmployee(newEmployee,empNo);
+    }
+
+    @Override
+    public String deleteEmployee(Employee employee) {
+        return client.deleteEmployee(employee);
+    }
+
+    @Override
     public String deleteEmpRes(EmployeeRes employeeRes) {
         return client.deleteEmpRes(employeeRes);
     }

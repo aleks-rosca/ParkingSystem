@@ -17,17 +17,6 @@ public class EmpDAO implements IEmpDAO {
 
     }
 
-  /*  public EmpDAO(Conn conn) {
-        if (conn == null) {
-            try {
-                conn = new Conn();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-            //this.conn = conn;
-        }
-    }
-*/
 
 
 
@@ -116,6 +105,42 @@ public class EmpDAO implements IEmpDAO {
             e.printStackTrace();
         }
         return  listOfEmployees;
+    }
+
+    @Override
+    public String deleteEmployee(Employee employee) {
+
+        String sql = "Delete from employee where empno='"+employee.getEmpNumber()+ "';";
+
+        try {
+            int numberOfDeletion=  conn.delete(sql);
+            if(numberOfDeletion ==0){
+
+                return "deletion failed";
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "deletion success";
+
+    }
+
+    @Override
+    public String updateEmployee(Employee newEmployee, String empNo) {
+
+        String sql = "update employee set empfirstname ='"+newEmployee.getEmpFirstName()+"', emplastname='"+newEmployee.getEmpLastName()+
+                "', empno='"+newEmployee.getEmpNumber()+"' where  empno='"+empNo+"'";
+        try {
+            conn.update(sql);
+            return "success";
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return "failed to update";
+
+        }
+
+
     }
 
 }
