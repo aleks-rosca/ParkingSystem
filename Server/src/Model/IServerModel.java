@@ -34,8 +34,4 @@ public interface IServerModel {
     List<Employee> getAllEmployee();
 
     String getEmployeeNameByEmpNo(String empNo);
-
-    String deleteEmployee(Employee employee);
-
-    String updateEmployee(Employee newEmployee, String empNo);
 }

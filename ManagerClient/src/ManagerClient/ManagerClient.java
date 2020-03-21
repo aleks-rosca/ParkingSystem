@@ -51,17 +51,6 @@ public class ManagerClient implements IManagerClient {
     }
 
     @Override
-    public String deleteEmployee(Employee employee) {
-        try {
-            return serverinterface.deleteEmployee(employee);
-        } catch (RemoteException e) {
-
-            e.printStackTrace();
-            return "Error";
-        }
-    }
-
-    @Override
     public String addEmployeeRes(EmployeeRes employeeRes) {
         try {
             return serverinterface.addEmpRes(employeeRes);
@@ -112,7 +101,6 @@ public class ManagerClient implements IManagerClient {
             return null;
         }
     }
-
     @Override
     public List<EmployeeRes> getAllEmpReservations() {
         try {
@@ -123,23 +111,11 @@ public class ManagerClient implements IManagerClient {
             return null;
         }
     }
-
     @Override
     public String deleteEmpRes(EmployeeRes employeeRes) {
         try {
             return serverinterface.deleteEmpRes(employeeRes);
         } catch (RemoteException e) {
-            e.printStackTrace();
-            return "Error";
-        }
-    }
-
-    @Override
-    public String updateEmployee(Employee newEmployee, String empNo) {
-        try {
-            return serverinterface.updateEmployee(newEmployee, empNo);
-        } catch (RemoteException e) {
-
             e.printStackTrace();
             return "Error";
         }
