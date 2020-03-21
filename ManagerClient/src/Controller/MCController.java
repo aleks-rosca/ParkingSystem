@@ -24,7 +24,6 @@ public class MCController {
         manageEmployeeController.init(model);
         employeeReservationController.init(model);
         guestReservationController.init(gModel);
-
     }
 
 

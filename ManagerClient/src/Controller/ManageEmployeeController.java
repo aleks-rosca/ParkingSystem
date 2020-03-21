@@ -5,15 +5,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.TextFieldListCell;
-import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.GridPane;
 import model.Employee;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.Optional;
-import java.util.ResourceBundle;
 
 public class ManageEmployeeController
 {
@@ -25,21 +21,15 @@ public class ManageEmployeeController
     @FXML
     TableView<Employee> manageEmpTableTv;
     @FXML
-    TableColumn<Employee, String> manageEmpFirstName;
-    @FXML
-    TableColumn<Employee, String> manageEmpLastName;
+    TableColumn<Employee, String> manageEmpTable;
     @FXML
     TableColumn<Employee, String> manageEmpNo;
-
+    @FXML
+    TableColumn<Employee, String> empLast;
 
     public void init(IMCEModel mceModel)
     {
         this.mceModel = mceModel;
-        manageEmpTableTv.setEditable(true);
-        manageEmpFirstName.setCellFactory(TextFieldTableCell.forTableColumn());
-        manageEmpLastName.setCellFactory(TextFieldTableCell.forTableColumn());
-        manageEmpNo.setCellFactory(TextFieldTableCell.forTableColumn());
-
     }
 
 
@@ -130,8 +120,8 @@ public class ManageEmployeeController
 
     public void showAllEmployee(ActionEvent actionEvent)
     {
-        manageEmpFirstName.setCellValueFactory(new PropertyValueFactory<>("empFirstName"));
-        manageEmpLastName.setCellValueFactory(new PropertyValueFactory<>("empLastName"));
+        manageEmpTable.setCellValueFactory(new PropertyValueFactory<>("empFirstName"));
+        empLast.setCellValueFactory(new PropertyValueFactory<>("empLastName"));
         manageEmpNo.setCellValueFactory(new PropertyValueFactory<>("empNumber"));
 
         manageEmpTableTv.setItems(mceModel.getAllEmployee());
@@ -218,19 +208,5 @@ public class ManageEmployeeController
         });
 
 
-    }
-
-    public void onEditFirstName(TableColumn.CellEditEvent<Employee, String> employeeStringCellEditEvent)
-    {
-        Employee employee = manageEmpTableTv.getSelectionModel().getSelectedItem();
-        employee.setEmpFirstName(employeeStringCellEditEvent.getNewValue());
-    }
-
-    public void onEditLastName(TableColumn.CellEditEvent<Employee, String> employeeStringCellEditEvent)
-    {
-    }
-
-    public void onEditEmpNum(TableColumn.CellEditEvent<Employee, String> employeeStringCellEditEvent)
-    {
     }
 }
