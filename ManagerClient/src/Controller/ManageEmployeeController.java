@@ -132,78 +132,6 @@ public class ManageEmployeeController
         manageEmpTableTv.setItems(mceModel.getAllEmployee());
     }
 
-    public void editEmp(ActionEvent actionEvent)
-    {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Editing Employee");
-        alert.setHeaderText("Chose the edits you want to do");
-
-        Label label1 = new Label("Employee First Name: ");
-        Label label2 = new Label("Employee Last Name: ");
-        Label label3 = new Label("Employee Number: ");
-        TextField text1 = new TextField();
-        TextField text2 = new TextField();
-        TextField text3 = new TextField();
-
-        GridPane grid = new GridPane();
-        grid.add(label1, 1, 1);
-        grid.add(text1, 2, 1);
-        grid.add(label2, 1, 2);
-        grid.add(text2, 2, 2);
-        grid.add(label3, 1, 3);
-        grid.add(text3, 2, 3);
-        alert.getDialogPane().setContent(grid);
-
-        ButtonType updateButton = new ButtonType("Confirm");
-        ButtonType deleteButton = new ButtonType("Delete");
-        ButtonType dontsave = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
-        alert.getButtonTypes().setAll(updateButton, deleteButton, dontsave);
-
-        alert.showAndWait().ifPresent(type ->
-        {
-            if (type == updateButton)
-            {
-                if (!(text1.getText().isEmpty()) & !(text2.getText().isEmpty()) & !(text3.getText().isEmpty()))
-                {
-
-                } else
-                {
-                    Alert a1 = new Alert(Alert.AlertType.INFORMATION, "All of the fields should be filled", ButtonType.OK);
-                    a1.show();
-
-                }
-
-                System.out.println("Updated");
-            } else if (type == deleteButton)
-            {
-                if (!(text1.getText().isEmpty()) & !(text2.getText().isEmpty()) & !(text3.getText().isEmpty()))
-                {
-                    System.out.println("Deleting....");
-
-                    Alert alert2 = new Alert(Alert.AlertType.CONFIRMATION);
-                    alert2.setTitle("Confirmation Dialog");
-                    alert2.setHeaderText("Look, a Confirmation Dialog");
-                    alert2.setContentText("Are you ok with this?");
-
-                    Optional<ButtonType> result = alert2.showAndWait();
-                    if (result.get() == ButtonType.YES)
-                    {
-                        System.out.println("Deleted");
-                    } else if (result.get() == ButtonType.NO)
-                    {
-                        System.out.println("Not Deleted");
-                    }
-                } else
-                {
-                    Alert a1 = new Alert(Alert.AlertType.INFORMATION, "All of the fields should be filled", ButtonType.OK);
-                    a1.show();
-                }
-            }
-        });
-
-
-    }
-
     public void onEditFirstname(TableColumn.CellEditEvent<Employee, String> employeeStringCellEditEvent)
     {
         Employee employee = manageEmpTableTv.getSelectionModel().getSelectedItem();
@@ -220,5 +148,10 @@ public class ManageEmployeeController
     {
         Employee employee = manageEmpTableTv.getSelectionModel().getSelectedItem();
         employee.setEmpNumber(employeeStringCellEditEvent.getNewValue());
+    }
+
+    public void deleteEmp(ActionEvent actionEvent)
+    {
+
     }
 }

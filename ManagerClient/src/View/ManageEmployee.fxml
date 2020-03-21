@@ -7,7 +7,7 @@
 
 
     <children>
-        <TableView fx:id="manageEmpTableTv" layoutX="335.0" layoutY="103.0" prefHeight="250.0" prefWidth="250.0" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="100.0">
+        <TableView fx:id="manageEmpTableTv" layoutX="336.0" layoutY="14.0" prefHeight="250.0" prefWidth="250.0" AnchorPane.bottomAnchor="101.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
             <columns>
                 <TableColumn fx:id="manageEmpFirstName" onEditCommit="#onEditFirstname" prefWidth="93.19995272159576" text="First Name" />
             <TableColumn fx:id="manageEmpLastName" onEditCommit="#onEditLastName" prefWidth="85.39995574951172" text="Last Name" />
@@ -22,7 +22,7 @@
               <Label layoutX="63.0" layoutY="14.0" text="Search for Employees" />
          </children>
       </Pane>
-      <Button fx:id="manageEmpEditBtn" layoutX="500.0" layoutY="50.0" mnemonicParsing="false" onAction="#editEmp" prefHeight="25.0" prefWidth="60.0" text="Edit" AnchorPane.topAnchor="40.0" />
+      <Button fx:id="manageEmpDeleteBtn" layoutX="512.0" layoutY="335.0" mnemonicParsing="false" onAction="#deleteEmp" prefHeight="25.0" prefWidth="60.0" text="Delete" AnchorPane.topAnchor="335.0" />
       <Pane layoutX="20.0" layoutY="20.0" prefHeight="193.0" prefWidth="250.0">
          <children>
               <Label layoutX="84.0" layoutY="14.0" text="Add Employees" />
@@ -35,7 +35,7 @@
             <TextField fx:id="empLastNameAddTf" layoutX="85.0" layoutY="76.0" prefHeight="25.0" prefWidth="138.0" />
          </children>
       </Pane>
-        <Button fx:id="empShowAllBtn" layoutX="360.0" layoutY="50.0" mnemonicParsing="false" onAction="#showAllEmployee" prefHeight="25.0" prefWidth="75.0" text="Show All" textAlignment="CENTER" AnchorPane.topAnchor="40.0" />
+        <Button fx:id="empShowAllBtn" layoutX="336.0" layoutY="335.0" mnemonicParsing="false" onAction="#showAllEmployee" prefHeight="25.0" prefWidth="75.0" text="Show All" textAlignment="CENTER" AnchorPane.topAnchor="335.0" />
     </children>
 
 
