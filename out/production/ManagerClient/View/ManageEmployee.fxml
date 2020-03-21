@@ -9,9 +9,9 @@
     <children>
         <TableView fx:id="manageEmpTableTv" editable="true" layoutX="335.0" layoutY="103.0" prefHeight="250.0" prefWidth="250.0" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="100.0">
             <columns>
-                <TableColumn fx:id="manageEmpTable" prefWidth="93.19995272159576" text="First Name" />
-            <TableColumn fx:id="empLast" prefWidth="85.39995574951172" text="Last Name" />
-                <TableColumn fx:id="manageEmpNo" prefWidth="70.60003662109375" text="Emp Num" />
+                <TableColumn fx:id="manageEmpFirstName" onEditCommit="#onEditFirstName" prefWidth="93.19995272159576" text="First Name" />
+            <TableColumn fx:id="manageEmpLastName" onEditCommit="#onEditLastName" prefWidth="85.39995574951172" text="Last Name" />
+                <TableColumn fx:id="manageEmpNo" onEditCommit="#onEditEmpNum" prefWidth="70.60003662109375" text="Emp Num" />
             </columns>
         </TableView>
       <Pane layoutX="32.0" layoutY="186.0" prefHeight="162.0" prefWidth="240.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="20.0">

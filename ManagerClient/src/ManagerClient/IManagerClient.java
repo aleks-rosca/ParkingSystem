@@ -6,13 +6,16 @@ import model.GuestRes;
 
 import java.util.List;
 
-public interface IManagerClient {
+public interface IManagerClient
+{
     String addEmployee(Employee employee);
 
     List<Employee> getAllEmployee();
 
     String getEmployeeNameByEmpNo(String empNo);
-     String deleteEmployee(Employee employee);
+
+    String deleteEmployee(Employee employee);
+
     String addEmployeeRes(EmployeeRes employeeRes);
 
     List<EmployeeRes> getAllReservationByEmpNo(String empNo);
@@ -20,12 +23,13 @@ public interface IManagerClient {
     List<EmployeeRes> getAllEmpReservations();
 
     String deleteEmpRes(EmployeeRes employeeRes);
-    String updateEmployee(Employee newEmployee , String empNo);
 
+    String updateEmployee(Employee newEmployee, String empNo);
 
 
     // for managing Guests Reservations
     String addGuestRes(GuestRes guestRes);
+
     String cancelGuestRes(String resNo);
 
     List<GuestRes> getAllGuestReserevation();
