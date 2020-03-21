@@ -7,7 +7,7 @@
 
 
     <children>
-        <TableView fx:id="manageEmpTableTv" editable="true" layoutX="335.0" layoutY="103.0" prefHeight="250.0" prefWidth="250.0" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="100.0">
+        <TableView fx:id="manageEmpTableTv" layoutX="335.0" layoutY="103.0" prefHeight="250.0" prefWidth="250.0" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="100.0">
             <columns>
                 <TableColumn fx:id="manageEmpTable" prefWidth="93.19995272159576" text="First Name" />
             <TableColumn fx:id="empLast" prefWidth="85.39995574951172" text="Last Name" />
