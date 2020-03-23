@@ -13,11 +13,12 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
+import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 
-public class GController implements PropertyChangeSubject {
+public class GController {
     public Button checkinBtn;
     public TextField checkInTf;
     public IGCModel model;
@@ -26,7 +27,7 @@ public class GController implements PropertyChangeSubject {
     public TextFlow warningField = new TextFlow();
     public Label spotsLeft;
     private int spotsDB;
-    private PropertyChangeSupport support;
+
 
     Text t1 = new Text("Welcome");
     Text t2 = new Text("Already Checked In!");
@@ -44,7 +45,14 @@ public class GController implements PropertyChangeSubject {
 
     public void init(IGCModel model) {
         this.model = model;
-        support = new PropertyChangeSupport(this);
+        PropertyChangeListener listener = evt -> {
+            reactToChange(evt);
+        };
+    }
+
+    private void reactToChange(PropertyChangeEvent evt) {
+        spotsDB = model.getParkingStatus();
+        spotsLeft.setText(String.valueOf(spotsDB));
     }
 
     public void checkIn(ActionEvent actionEvent) {
@@ -66,7 +74,7 @@ public class GController implements PropertyChangeSubject {
                 warningField.getChildren().clear();
                 gateStatus.setFill(Color.GREEN);
 
-                support.firePropertyChange("CheckIn",spotsLeft.getText(),spotsDB-1);
+
 
                 new java.util.Timer().schedule(
                         new java.util.TimerTask() {
@@ -114,31 +122,5 @@ public class GController implements PropertyChangeSubject {
 
     }
 
-    @Override
-    public void addPropertyChangeListener(String eventName, PropertyChangeListener listener) {
-        if(eventName == null || "".equals(eventName)){
-            addPropertyChangeListener(listener);
-        }else {
-            support.addPropertyChangeListener(eventName,listener);
-        }
-    }
 
-    @Override
-    public void addPropertyChangeListener(PropertyChangeListener listener) {
-        support.addPropertyChangeListener(listener);
-    }
-
-    @Override
-    public void removePropertyChangeListener(String eventName, PropertyChangeListener listener) {
-        if(eventName == null || "".equals(eventName)){
-            removePropertyChangeListener(listener);
-        }else {
-            support.removePropertyChangeListener(eventName,listener);
-        }
-    }
-
-    @Override
-    public void removePropertyChangeListener(PropertyChangeListener listener) {
-        support.removePropertyChangeListener(listener);
-    }
 }

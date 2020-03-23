@@ -36,4 +36,14 @@ public class GClient implements IGClient {
         }
         return "Error";
     }
+
+    @Override
+    public int getParkingStatus() {
+        try {
+            return serverinterface.getParkingStatus();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
 }

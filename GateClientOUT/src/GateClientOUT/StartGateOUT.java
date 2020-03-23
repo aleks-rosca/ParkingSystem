@@ -3,6 +3,7 @@ package GateClientOUT;
 import Controller.GOController;
 import Model.GCModel;
 import Model.IGCModel;
+import Observer.PropertyChangeSubject;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

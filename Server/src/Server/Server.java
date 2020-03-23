@@ -99,6 +99,11 @@ public class Server extends UnicastRemoteObject implements IServer {
         return model.getAllEmployee();
     }
 
+    @Override
+    public int getParkingStatus() throws RemoteException {
+        return model.getParkingStatus();
+    }
+
 
 }
 

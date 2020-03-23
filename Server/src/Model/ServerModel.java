@@ -15,6 +15,7 @@ public class ServerModel implements IServerModel {
     private IEmpCheckDAO empcheck;
     private IGuestResDAO guestResDAO;
     private IGuestCheckDAO guestCheckDAO;
+    private IStatus status;
 
 
     public ServerModel() {
@@ -93,6 +94,11 @@ public class ServerModel implements IServerModel {
     @Override
     public String getEmployeeNameByEmpNo(String empNo) {
         return empdb.getEmployeeNameByEmpNo(empNo);
+    }
+
+    @Override
+    public int getParkingStatus() {
+        return status.getCurrentStatus();
     }
 }
 

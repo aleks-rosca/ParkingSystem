@@ -32,6 +32,10 @@ public class GCModel implements IGCModel {
         }
     }
 
+    @Override
+    public int getParkingStatus() {
+        return gClient.getParkingStatus();
+    }
 
 
 }
