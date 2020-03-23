@@ -62,8 +62,11 @@ public class EReservationController {
 
     public void deleteReservation(ActionEvent actionEvent) {
         EmployeeRes employeeRes = empTw.getSelectionModel().getSelectedItem();
-
-          ecModel.deleteEmpRes(employeeRes);
-        empTw.getItems().removeAll(employeeRes);
+        Alert a = new Alert(Alert.AlertType.CONFIRMATION, "Delete " + empTw.getSelectionModel().getSelectedItem().getDateFromPicker() + " ?", ButtonType.YES, ButtonType.NO);
+        a.showAndWait();
+        if (a.getResult() == ButtonType.YES) {
+            ecModel.deleteEmpRes(employeeRes);
+            empTw.getItems().removeAll(employeeRes);
+        }
     }
 }
