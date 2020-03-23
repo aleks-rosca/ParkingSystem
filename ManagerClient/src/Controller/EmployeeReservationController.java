@@ -59,15 +59,14 @@ public class EmployeeReservationController {
             alert.getButtonTypes();
             alert.show();
         }
+        onlyManagerReservation(actionEvent);
 
     }
 
     public void onlyManagerReservation(ActionEvent actionEvent) {
         dateTc.setCellValueFactory(new PropertyValueFactory<EmployeeRes, String>("DateFromPicker"));
         empNoTc.setCellValueFactory(new PropertyValueFactory<>("empNo"));
-
         empReservTableTv.setItems(mceModel.getAllEmpReservationByEmpNo(empReservNumTf.getText()));
-
 
     }
 
