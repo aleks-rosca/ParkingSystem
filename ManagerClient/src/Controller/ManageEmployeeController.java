@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.scene.layout.GridPane;
 import model.Employee;
 
 import java.io.IOException;
@@ -152,6 +151,9 @@ public class ManageEmployeeController
 
     public void deleteEmp(ActionEvent actionEvent)
     {
-
+     Employee employee =  manageEmpTableTv.getSelectionModel().getSelectedItem();
+        System.out.println("need Alert and confirmation");
+        mceModel.deleteEmployee(employee);
+        manageEmpTableTv.getItems().removeAll(employee);
     }
 }

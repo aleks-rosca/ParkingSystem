@@ -94,5 +94,9 @@ public class ServerModel implements IServerModel {
     public String getEmployeeNameByEmpNo(String empNo) {
         return empdb.getEmployeeNameByEmpNo(empNo);
     }
+
+
+    @Override
+    public  String deleteEmployee(Employee employee){return empdb.deleteEmployee(employee);}
 }
 

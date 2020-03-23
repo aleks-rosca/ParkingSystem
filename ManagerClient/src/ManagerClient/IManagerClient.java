@@ -20,7 +20,7 @@ public interface IManagerClient {
     List<EmployeeRes> getAllEmpReservations();
 
     String deleteEmpRes(EmployeeRes employeeRes);
-
+    String deleteEmployee(Employee employee);
 
 
     // for managing Guests Reservations

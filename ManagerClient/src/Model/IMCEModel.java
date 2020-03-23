@@ -22,4 +22,5 @@ public interface IMCEModel {
     String deleteEmpRes(EmployeeRes employeeRes);
 
     String rearrangeChars(String empName);
+    String deleteEmployee(Employee employee);
 }

@@ -118,4 +118,23 @@ public class EmpDAO implements IEmpDAO {
         return  listOfEmployees;
     }
 
+    @Override
+    public String deleteEmployee(Employee employee) {
+
+        String sql = "Delete from employee where empno='"+employee.getEmpNumber()+ "';";
+
+        try {
+            int numberOfDeletion=  conn.delete(sql);
+            if(numberOfDeletion ==0){
+
+                return "deletion failed";
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "deletion success";
+
+    }
+
 }

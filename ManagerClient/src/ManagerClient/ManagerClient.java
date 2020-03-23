@@ -120,4 +120,15 @@ public class ManagerClient implements IManagerClient {
             return "Error";
         }
     }
+
+    @Override
+    public String deleteEmployee(Employee employee) {
+        try {
+            return serverinterface.deleteEmployee(employee);
+        } catch (RemoteException e) {
+
+            e.printStackTrace();
+            return "Error";
+        }
+    }
 }
