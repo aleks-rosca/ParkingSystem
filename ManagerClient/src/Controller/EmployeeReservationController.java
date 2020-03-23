@@ -59,15 +59,14 @@ public class EmployeeReservationController {
             alert.getButtonTypes();
             alert.show();
         }
+        onlyManagerReservation(actionEvent);
 
     }
 
     public void onlyManagerReservation(ActionEvent actionEvent) {
         dateTc.setCellValueFactory(new PropertyValueFactory<EmployeeRes, String>("DateFromPicker"));
         empNoTc.setCellValueFactory(new PropertyValueFactory<>("empNo"));
-
         empReservTableTv.setItems(mceModel.getAllEmpReservationByEmpNo(empReservNumTf.getText()));
-
 
     }
 
@@ -83,8 +82,12 @@ public class EmployeeReservationController {
 
     public void deleteEmployeeReservation(ActionEvent actionEvent) {
         EmployeeRes employeeRes = empReservTableTv.getSelectionModel().getSelectedItem();
+        Alert a = new Alert(Alert.AlertType.CONFIRMATION, "Delete " + empReservTableTv.getSelectionModel().getSelectedItem().getEmployee() + " on " + empReservTableTv.getSelectionModel().getSelectedItem().getDateFromPicker() + " ?", ButtonType.YES, ButtonType.NO);
+        a.showAndWait();
+        if (a.getResult() == ButtonType.YES) {
+            mceModel.deleteEmpRes(employeeRes);
+            empReservTableTv.getItems().removeAll(employeeRes);
+        }
 
-        mceModel.deleteEmpRes(employeeRes);
-        empReservTableTv.getItems().removeAll(employeeRes);
     }
 }

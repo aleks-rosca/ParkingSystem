@@ -100,10 +100,13 @@ public class Server extends UnicastRemoteObject implements IServer {
     }
 
     @Override
-    public int getParkingStatus() throws RemoteException {
-        return model.getParkingStatus();
+    public String deleteEmployee(Employee employee) throws RemoteException {
+        return model.deleteEmployee(employee);
     }
 
-
+    @Override
+    public String updateEmployee(Employee newEmployee, String empNo) throws RemoteException {
+        return model.updateEmployee(newEmployee,empNo);
+    }
 }
 

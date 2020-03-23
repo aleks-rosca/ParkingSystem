@@ -15,7 +15,6 @@ public class ServerModel implements IServerModel {
     private IEmpCheckDAO empcheck;
     private IGuestResDAO guestResDAO;
     private IGuestCheckDAO guestCheckDAO;
-    private IStatus status;
 
 
     public ServerModel() {
@@ -47,7 +46,7 @@ public class ServerModel implements IServerModel {
 
     @Override
     public String addGuestRes(GuestRes guestRes) {
-        guestRes.setResNo("G" + Integer.toString(random.nextInt((9999 - 1000) + 1) + 10));
+        guestRes.setResNo("G" + Integer.toString(random.nextInt((9999 - 1001) + 1) + 99));
         return guestResDAO.addGuestRes(guestRes) + " " + guestRes.getResNo();
     }
 
@@ -96,9 +95,15 @@ public class ServerModel implements IServerModel {
         return empdb.getEmployeeNameByEmpNo(empNo);
     }
 
+
     @Override
-    public int getParkingStatus() {
-        return status.getCurrentStatus();
+    public  String deleteEmployee(Employee employee){return empdb.deleteEmployee(employee);}
+
+    @Override
+    public String updateEmployee(Employee newEmployee, String empNo) {
+        return empdb.updateEmployee(newEmployee,empNo);
     }
+
+
 }
 

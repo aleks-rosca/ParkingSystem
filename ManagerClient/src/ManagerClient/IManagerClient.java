@@ -21,10 +21,13 @@ public interface IManagerClient {
 
     String deleteEmpRes(EmployeeRes employeeRes);
 
+    String deleteEmployee(Employee employee);
 
+    String updateEmployee(Employee newEmployee, String empNo);
 
     // for managing Guests Reservations
     String addGuestRes(GuestRes guestRes);
+
     String cancelGuestRes(String resNo);
 
     List<GuestRes> getAllGuestReserevation();

@@ -14,6 +14,7 @@ public class GuestReservationController {
     public TextArea guestReservPurposeTf;
     public DatePicker guestReservDateDp;
     public IMCGModel gModel;
+    public Button reservGuestBtn;
     @FXML
     TableView<GuestRes> guestReservTableTv;
     @FXML
@@ -30,6 +31,7 @@ public class GuestReservationController {
     }
 
     public void reservGuestBtn(ActionEvent actionEvent) {
+
         try {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Reservation");
@@ -41,6 +43,7 @@ public class GuestReservationController {
         } catch (RemoteException e) {
             e.printStackTrace();
         }
+
 
         if (guestReservNameTf.getText().trim().isEmpty()) {
             // create a alert
@@ -72,12 +75,19 @@ public class GuestReservationController {
         guestReservNameTf.clear();
         guestReservPurposeTf.clear();
         getAllGuestReservations(actionEvent);
+
+
     }
 
     public void deleteGuestReservation(ActionEvent actionEvent) {
         String resNo = guestReservTableTv.getSelectionModel().getSelectedItem().getResNo();
-        gModel.cancelGuestReservation(resNo);
-        guestReservTableTv.getItems().removeAll(guestReservTableTv.getSelectionModel().getSelectedItem());
+        Alert a = new Alert(Alert.AlertType.CONFIRMATION, "Delete " + guestReservTableTv.getSelectionModel().getSelectedItem().getName() + " ?", ButtonType.YES, ButtonType.NO);
+        a.showAndWait();
+        if (a.getResult() == ButtonType.YES) {
+            gModel.cancelGuestReservation(resNo);
+            guestReservTableTv.getItems().removeAll(guestReservTableTv.getSelectionModel().getSelectedItem());
+        }
+
     }
 
     public void getAllGuestReservations(ActionEvent actionEvent) {

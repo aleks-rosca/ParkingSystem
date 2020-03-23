@@ -44,13 +44,7 @@ public class EReservationController {
 
             alert1.show();
         }
-
-
-
-//        public void deleteReservation(ActionEvent actionEvent) {
-//
-//        }
-
+        getReservation(actionEvent);
     }
 
     public void getReservation(ActionEvent actionEvent) {
@@ -58,12 +52,16 @@ public class EReservationController {
         c2.setCellValueFactory(new PropertyValueFactory<>("empNo"));
 
         empTw.setItems(ecModel.getEmpRes(empNoTF.getText()));
+
     }
 
     public void deleteReservation(ActionEvent actionEvent) {
         EmployeeRes employeeRes = empTw.getSelectionModel().getSelectedItem();
-
-          ecModel.deleteEmpRes(employeeRes);
-        empTw.getItems().removeAll(employeeRes);
+        Alert a = new Alert(Alert.AlertType.CONFIRMATION, "Delete " + empTw.getSelectionModel().getSelectedItem().getDateFromPicker() + " ?", ButtonType.YES, ButtonType.NO);
+        a.showAndWait();
+        if (a.getResult() == ButtonType.YES) {
+            ecModel.deleteEmpRes(employeeRes);
+            empTw.getItems().removeAll(employeeRes);
+        }
     }
 }

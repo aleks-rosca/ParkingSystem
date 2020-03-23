@@ -35,5 +35,7 @@ public interface IServerModel {
 
     String getEmployeeNameByEmpNo(String empNo);
 
-    int getParkingStatus();
+    String deleteEmployee(Employee employee);
+
+    String updateEmployee(Employee newEmployee, String empNo);
 }

@@ -1,0 +1,159 @@
+create schema parking
+set search_path = 'parking';
+
+
+CREATE TABLE employee (
+empNo varchar(5) not null,
+empFirstName varchar(50) not null,
+empLastName varchar(50) not null,
+primary key(empNo) 	
+);
+
+CREATE TABLE empRes (
+date date not null constraint DATECHECK check ( date  >=CURRENT_DATE+1 and date <= CURRENT_DATE+7),
+empNo varchar(5) not null,
+foreign key (empNo) references EMPLOYEE(empNo) on UPDATE CASCADE ON DELETE cascade,
+primary key(date,empNo)
+);
+
+CREATE TABLE parkingLot (
+id varchar(10) not null,
+type varchar(1) not null,
+date date not null,
+primary key (id),
+ CONSTRAINT type_CHK CHECK(type='E' OR type='G' OR type='P')
+);
+
+CREATE TABLE status (
+date date not null,
+occupiedSpots int not null,
+primary key (date),
+CONSTRAINT Spot_CHK CHECK(occupiedSpots<=40)
+);
+
+
+CREATE TABLE guestRes (
+date date not null constraint DATECHECK check ( date  >=CURRENT_DATE+1 and date <= CURRENT_DATE+7),
+resNo varchar(5) not null,
+guestName varchar(50) not null,
+guestPurpose varchar(50),
+primary key(date,resNo)
+); 
+
+CREATE OR REPLACE FUNCTION function_Reservation() RETURNS TRIGGER AS $function_Reservation$
+BEGIN
+IF (EXISTS(SELECT * FROM status WHERE date=NEW.date)) THEN
+UPDATE status SET occupiedSpots=occupiedSpots+1 WHERE status.date = NEW.date;
+RETURN NEW;
+ELSE 
+INSERT INTO status VALUES (NEW.date,1);
+RETURN NEW;
+END IF;
+END;
+$function_Reservation$
+LANGUAGE plpgsql;
+
+CREATE TRIGGER trig_empRes
+BEFORE INSERT
+ON parking.empRes
+FOR EACH ROW
+EXECUTE PROCEDURE function_Reservation();
+
+
+
+CREATE TRIGGER trigger_guestRes
+BEFORE INSERT
+ON parking.guestRes
+FOR EACH ROW
+EXECUTE PROCEDURE function_Reservation();
+
+
+
+
+CREATE OR REPLACE FUNCTION function_DeleteReservation() RETURNS TRIGGER AS $function_DeleteReservation$
+BEGIN
+IF (EXISTS(SELECT * FROM status WHERE status.date=OLD.date)) THEN
+UPDATE status SET occupiedSpots=occupiedSpots-1 WHERE status.date =OLD.date;
+DELETE FROM status WHERE (status.occupiedSpots=0);
+RETURN NEW;
+END IF;
+END;
+$function_DeleteReservation$
+LANGUAGE plpgsql;
+
+CREATE TRIGGER trigger_empResDel
+AFTER DELETE
+ON parking.empRes
+FOR EACH ROW
+EXECUTE PROCEDURE function_DeleteReservation();
+
+
+
+CREATE TRIGGER trigger_guestResDel
+AFTER DELETE
+ON parking.guestRes
+FOR EACH ROW
+EXECUTE PROCEDURE function_DeleteReservation();
+
+
+CREATE TRIGGER trigger_parkinglotDel
+AFTER DELETE
+ON parking.parkinglot
+FOR EACH ROW
+EXECUTE PROCEDURE function_DeleteReservation();
+
+CREATE OR REPLACE FUNCTION function_parkinglotIns() RETURNS TRIGGER AS $function_parkinglotIns$
+BEGIN
+IF(NEW.type='E') THEN
+IF (NOT EXISTS(SELECT * FROM employee WHERE empNo=NEW.ID)) THEN
+RAISE EXCEPTION 'Incorrect employee number';
+END IF;
+IF (EXISTS(SELECT * FROM empRes WHERE empRes.date=NEW.date AND empRes.empNo=NEW.ID)) THEN
+DELETE FROM empRes WHERE (empRes.date=NEW.date AND empRes.empNo=NEW.ID);
+END IF;
+IF (EXISTS(SELECT * FROM status WHERE date=NEW.date)) THEN
+UPDATE status SET occupiedSpots=occupiedSpots+1 WHERE status.date = NEW.date;
+RETURN NEW;
+ELSE 
+INSERT INTO status VALUES (NEW.date,1);
+RETURN NEW;
+END IF;
+RETURN NEW;
+END IF;
+IF (NEW.type='P') THEN
+IF (EXISTS(SELECT * FROM status WHERE date=NEW.date)) THEN
+UPDATE status SET occupiedSpots=occupiedSpots+1 WHERE status.date = NEW.date;
+RETURN NEW;
+ELSE 
+INSERT INTO status VALUES (NEW.date,1);
+RETURN NEW;
+END IF;
+RETURN NEW;
+END IF;
+IF(NEW.type='G') THEN
+IF (EXISTS(SELECT * FROM guestRes WHERE guestRes.date=NEW.date AND guestRes.resNo=NEW.ID)) THEN
+DELETE FROM guestRes WHERE (guestRes.date=NEW.date AND guestRes.resNo=NEW.ID);
+IF (EXISTS(SELECT * FROM status WHERE date=NEW.date)) THEN
+UPDATE status SET occupiedSpots=occupiedSpots+1 WHERE status.date = NEW.date;
+RETURN NEW;
+ELSE 
+INSERT INTO status VALUES (NEW.date,1);
+RETURN NEW;
+END IF;
+RETURN NEW;
+END IF;
+RAISE EXCEPTION 'Reservation does not exsits';
+END IF;
+END;
+$function_parkinglotIns$
+LANGUAGE plpgsql;
+
+
+
+CREATE TRIGGER trigger_parkinglotIns
+BEFORE INSERT
+ON parking.parkinglot
+FOR EACH ROW
+EXECUTE PROCEDURE function_parkinglotIns();
+
+
