@@ -36,4 +36,6 @@ public interface IServerModel {
     String getEmployeeNameByEmpNo(String empNo);
 
     String deleteEmployee(Employee employee);
+
+    String updateEmployee(Employee newEmployee, String empNo);
 }

@@ -131,4 +131,14 @@ public class ManagerClient implements IManagerClient {
             return "Error";
         }
     }
+
+    @Override
+    public String updateEmployee(Employee newEmployee, String empNo) {
+        try {
+            return serverinterface.updateEmployee(newEmployee,empNo);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            return "Error";
+        }
+    }
 }

@@ -98,5 +98,12 @@ public class ServerModel implements IServerModel {
 
     @Override
     public  String deleteEmployee(Employee employee){return empdb.deleteEmployee(employee);}
+
+    @Override
+    public String updateEmployee(Employee newEmployee, String empNo) {
+        return empdb.updateEmployee(newEmployee,empNo);
+    }
+
+
 }
 

@@ -4,17 +4,17 @@ import javafx.collections.ObservableList;
 import model.Employee;
 import model.EmployeeRes;
 
-import java.rmi.RemoteException;
-
 public interface IMCEModel {
-    String createEmp(String empFName, String empLName, String empNum) throws RemoteException;
+    String createEmp(String empFName, String empLName, String empNum);
 
-    String addEmpRes(String dateFromPicker, String empNum) throws RemoteException;
+    String addEmpRes(String dateFromPicker, String empNum);
 
     boolean checkFirstChar(String empNo);
 
     ObservableList<EmployeeRes> getAllEmpReservation();
+
     ObservableList<EmployeeRes> getAllEmpReservationByEmpNo(String empNo);
+
     ObservableList<Employee> getAllEmployee();
 
     String getEmployeeNameByEmpNo(String empNo);
@@ -22,5 +22,8 @@ public interface IMCEModel {
     String deleteEmpRes(EmployeeRes employeeRes);
 
     String rearrangeChars(String empName);
+
     String deleteEmployee(Employee employee);
+
+    String updateEmployee(Employee newEmployee, String empNo);
 }
