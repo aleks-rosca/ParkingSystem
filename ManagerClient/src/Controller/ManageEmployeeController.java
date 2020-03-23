@@ -44,6 +44,7 @@ public class ManageEmployeeController {
                     Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee " + empFirstNameAddTf.getText() + " has been added!", ButtonType.OK);
                     a1.show();
                     empFirstNameAddTf.clear();
+                    empLastNameAddTf.clear();
                     empNumberAddTf.clear();
                 } else if (temp.equals("Duplicate key")) {
                     Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Employee " + empFirstNameAddTf.getText() + " already exists!", ButtonType.OK);
