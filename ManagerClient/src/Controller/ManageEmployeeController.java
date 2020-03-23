@@ -123,8 +123,12 @@ public class ManageEmployeeController {
 
     public void deleteEmp(ActionEvent actionEvent) {
         Employee employee = manageEmpTableTv.getSelectionModel().getSelectedItem();
-        System.out.println("need Alert and confirmation");
-        mceModel.deleteEmployee(employee);
-        manageEmpTableTv.getItems().removeAll(employee);
+        Alert a = new Alert(Alert.AlertType.CONFIRMATION, "Delete " + manageEmpTableTv.getSelectionModel().getSelectedItem().getEmpFirstName() + " ?", ButtonType.YES, ButtonType.NO);
+        a.showAndWait();
+        if (a.getResult() == ButtonType.YES) {
+            mceModel.deleteEmployee(employee);
+            manageEmpTableTv.getItems().removeAll(employee);
+        }
+
     }
 }

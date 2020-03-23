@@ -83,8 +83,12 @@ public class EmployeeReservationController {
 
     public void deleteEmployeeReservation(ActionEvent actionEvent) {
         EmployeeRes employeeRes = empReservTableTv.getSelectionModel().getSelectedItem();
+        Alert a = new Alert(Alert.AlertType.CONFIRMATION, "Delete " + empReservTableTv.getSelectionModel().getSelectedItem().getEmployee() + " ?", ButtonType.YES, ButtonType.NO);
+        a.showAndWait();
+        if (a.getResult() == ButtonType.YES) {
+            mceModel.deleteEmpRes(employeeRes);
+            empReservTableTv.getItems().removeAll(employeeRes);
+        }
 
-        mceModel.deleteEmpRes(employeeRes);
-        empReservTableTv.getItems().removeAll(employeeRes);
     }
 }

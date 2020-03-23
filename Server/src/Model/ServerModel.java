@@ -46,7 +46,7 @@ public class ServerModel implements IServerModel {
 
     @Override
     public String addGuestRes(GuestRes guestRes) {
-        guestRes.setResNo("G" + Integer.toString(random.nextInt((9999 - 1000) + 1) + 10));
+        guestRes.setResNo("G" + Integer.toString(random.nextInt((9999 - 1001) + 1) + 99));
         return guestResDAO.addGuestRes(guestRes) + " " + guestRes.getResNo();
     }
 
