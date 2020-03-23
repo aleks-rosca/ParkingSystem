@@ -64,36 +64,7 @@ public class ManageEmployeeController {
 
         showAllEmployee(actionEvent);
     }
-
-    public void empSearchBtn(ActionEvent actionEvent) {
-         /*   try
-        {
-            //TODO display empNameSearchTf.getText() in the ListView
-        }
-        catch (Exception e)
-        { */
-        if (empNameSearchTf.getText().trim().isEmpty()) {
-            // create a alert
-            Alert a1 = new Alert(Alert.AlertType.ERROR, "Employee Search field is empty ", ButtonType.OK);
-            a1.show();
-
-        } else {
-            // create a alert
-            Alert a1 = new Alert(Alert.AlertType.ERROR, "Employee " + empNameSearchTf.getText() + " does not exist in the system" + " \n\nAdd Employee to the system? ", ButtonType.YES, ButtonType.NO);
-
-            Optional<ButtonType> result = a1.showAndWait();
-            ButtonType button = result.orElse(ButtonType.NO);
-            if (button == ButtonType.YES) {
-
-                String change = empNameSearchTf.getText();
-                empFirstNameAddTf.setText(change);
-                empNameSearchTf.clear();
-            } else {
-                System.out.println("No pressed");
-            }
-        }
-    }
-
+    
     public void showAllEmployee(ActionEvent actionEvent) {
         manageEmpFirstName.setCellValueFactory(new PropertyValueFactory<>("empFirstName"));
         manageEmpLastName.setCellValueFactory(new PropertyValueFactory<>("empLastName"));
