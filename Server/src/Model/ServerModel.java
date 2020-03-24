@@ -15,6 +15,7 @@ public class ServerModel implements IServerModel {
     private IEmpCheckDAO empcheck;
     private IGuestResDAO guestResDAO;
     private IGuestCheckDAO guestCheckDAO;
+    private IStatusDAO statusDAO;
 
 
     public ServerModel() {
@@ -24,6 +25,7 @@ public class ServerModel implements IServerModel {
         guestResDAO = new GuestResDAO();
         guestCheckDAO = new GuestCheckDAO();
         random = new Random();
+        statusDAO = new StatusDAO();
     }
 
     public String addEmployee(Employee employee) {
@@ -102,6 +104,11 @@ public class ServerModel implements IServerModel {
     @Override
     public String updateEmployee(Employee newEmployee, String empNo) {
         return empdb.updateEmployee(newEmployee,empNo);
+    }
+
+    @Override
+    public int getParkingStatus() {
+        return statusDAO.getCurrentStatus();
     }
 
 

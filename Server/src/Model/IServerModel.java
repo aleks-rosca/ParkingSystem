@@ -38,4 +38,6 @@ public interface IServerModel {
     String deleteEmployee(Employee employee);
 
     String updateEmployee(Employee newEmployee, String empNo);
+
+    int getParkingStatus();
 }
