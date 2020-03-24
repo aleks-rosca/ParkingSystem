@@ -8,5 +8,9 @@ public interface IStatusDAO {
 
     int getCurrentStatus();
     List<Status> getAllStatues();
+    int getNumberOfGuestsInParkingLot();
+    int getNumberOfEmployeesInParkingLot();
+    int getNumberOfPublicUsersInParkingLot();
+
 
 }

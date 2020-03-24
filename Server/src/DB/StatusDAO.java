@@ -59,4 +59,65 @@ public class StatusDAO implements IStatusDAO {
 
         return allStatues;
     }
+
+    @Override
+    public int getNumberOfGuestsInParkingLot() {
+        int occupiedSpots = 0;
+        String sql = "SELECT COUNT(*) guest from parkinglot where type = 'G'";
+
+        try {
+            ResultSet rs = conn.query(sql);
+            while(rs.next()){
+
+                occupiedSpots = rs.getInt("guest");
+            }
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+        }
+
+
+        return occupiedSpots;
+
+    }
+
+    @Override
+    public int getNumberOfEmployeesInParkingLot() {
+        int occupiedSpots = 0;
+        String sql = "SELECT COUNT(*) employee from parkinglot where type = 'E'";
+
+        try {
+            ResultSet rs = conn.query(sql);
+            while(rs.next()){
+
+                occupiedSpots = rs.getInt("employee");
+            }
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+        }
+
+
+        return occupiedSpots;
+    }
+
+    @Override
+    public int getNumberOfPublicUsersInParkingLot() {
+        int publicusers = 0;
+        String sql = "SELECT COUNT(*) public from parkinglot where type = 'P'";
+
+        try {
+            ResultSet rs = conn.query(sql);
+            while(rs.next()){
+
+                publicusers = rs.getInt("public");
+            }
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+        }
+
+
+        return publicusers;
+    }
 }
