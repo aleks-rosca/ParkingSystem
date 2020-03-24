@@ -5,4 +5,5 @@ public interface IGCModel {
     String guestCheckIn(String resNo);
     String checkClient(String res);
     int getParkingStatus();
+    String publicUserIn(String licencePlate);
 }

@@ -23,7 +23,11 @@ public class GCModel implements IGCModel {
 
     @Override
     public String checkClient(String res) {
-        if(res.charAt(0)=='G'){
+        System.out.println(res.length());
+        if(res.length() == 7){
+            return "public";
+        }
+        else if(res.charAt(0)=='G'){
             return "guest";
         }else if(res.charAt(0)=='E'){
             return "employee";
@@ -35,6 +39,11 @@ public class GCModel implements IGCModel {
     @Override
     public int getParkingStatus() {
         return gClient.getParkingStatus();
+    }
+
+    @Override
+    public String publicUserIn(String licencePlate) {
+        return gClient.publicUserIn(licencePlate);
     }
 
 

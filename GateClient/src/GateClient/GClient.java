@@ -46,4 +46,15 @@ public class GClient implements IGClient {
         }
         return -1;
     }
+
+    @Override
+    public String publicUserIn(String licencePlate) {
+        try {
+            return serverinterface.publicUserIn(licencePlate);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return "Error";
+    }
+
 }

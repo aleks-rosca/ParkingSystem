@@ -113,5 +113,16 @@ public class Server extends UnicastRemoteObject implements IServer {
     public int getParkingStatus() throws RemoteException {
         return model.getParkingStatus();
     }
+
+    @Override
+    public String publicUserIn(String licencePlate) throws RemoteException {
+        return model.publicUserIn(licencePlate);
+    }
+
+    @Override
+    public String publicUserOut(String licencePlate) throws RemoteException {
+        return model.publicUserOut(licencePlate);
+    }
+
 }
 

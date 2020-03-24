@@ -43,7 +43,11 @@ public interface IServer extends Remote, Serializable {
 
     String deleteEmployee(Employee employee) throws RemoteException;
 
-    String updateEmployee(Employee newEmployee, String empNo) throws  RemoteException;
+    String updateEmployee(Employee newEmployee, String empNo) throws RemoteException;
 
     int getParkingStatus() throws RemoteException;
+
+    String publicUserIn(String licencePlate) throws RemoteException;
+
+    String publicUserOut(String licencePlate) throws RemoteException;
 }

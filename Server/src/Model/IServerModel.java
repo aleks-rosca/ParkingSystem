@@ -40,4 +40,8 @@ public interface IServerModel {
     String updateEmployee(Employee newEmployee, String empNo);
 
     int getParkingStatus();
+
+    String publicUserIn(String licencePlate);
+
+    String publicUserOut(String licencePlate);
 }

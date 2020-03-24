@@ -16,6 +16,7 @@ public class ServerModel implements IServerModel {
     private IGuestResDAO guestResDAO;
     private IGuestCheckDAO guestCheckDAO;
     private IStatusDAO statusDAO;
+    private IPublicDAO publicDAO;
 
 
     public ServerModel() {
@@ -26,6 +27,7 @@ public class ServerModel implements IServerModel {
         guestCheckDAO = new GuestCheckDAO();
         random = new Random();
         statusDAO = new StatusDAO();
+        publicDAO = new PublicDAO();
     }
 
     public String addEmployee(Employee employee) {
@@ -109,6 +111,16 @@ public class ServerModel implements IServerModel {
     @Override
     public int getParkingStatus() {
         return statusDAO.getCurrentStatus();
+    }
+
+    @Override
+    public String publicUserIn(String licencePlate) {
+        return publicDAO.PublicCheckIn(licencePlate);
+    }
+
+    @Override
+    public String publicUserOut(String licencePlate) {
+        return publicDAO.PublicCheckOut(licencePlate);
     }
 
 

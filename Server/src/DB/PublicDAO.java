@@ -2,10 +2,10 @@ package DB;
 
 import java.sql.SQLException;
 
-public class Public implements IPublic {
+public class PublicDAO implements IPublicDAO {
     private Conn conn;
 
-    public Public() {
+    public PublicDAO() {
 
         conn = Conn.getInstance();
     }

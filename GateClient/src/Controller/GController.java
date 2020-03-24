@@ -37,7 +37,6 @@ public class GController {
     }
 
     private void reactToChange() {
-        System.out.println(model.getParkingStatus());
         Platform.runLater(() -> spotsLeft.setText(String.valueOf(40 - model.getParkingStatus())));
     }
 
@@ -107,15 +106,31 @@ public class GController {
 
             }
 
-        } else {
-            warningField.getChildren().clear();
-            warningField.getChildren().add(t3);
+
+        } else if (check.equals("public")) {
+            String temp = model.publicUserIn(checkInTf.getText().trim());
+            if (temp.equals("checked in to parking lot")) {
+                gateStatus.setFill(Color.GREEN);
+                new java.util.Timer().schedule(
+                        new java.util.TimerTask() {
+                            @Override
+                            public void run() {
+                                Platform.runLater(() -> gateStatus.setFill(Color.RED));
+                            }
+                        },
+                        5000);
+
+                warningField.getChildren().clear();
+            } else {
+                warningField.getChildren().clear();
+                warningField.getChildren().add(t3);
+
+            }
+            checkInTf.clear();
+            reactToChange();
+
 
         }
-        checkInTf.clear();
-        reactToChange();
-
-
     }
 
     public void recheck() {

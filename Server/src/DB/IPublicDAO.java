@@ -1,6 +1,6 @@
 package DB;
 
-public interface IPublic {
+public interface IPublicDAO {
 
     String PublicCheckOut(String licensePlateNo);
     String PublicCheckIn(String licensePlateNo);
