@@ -1,46 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ParkingStatusController">
    <children>
-      <Label layoutX="70.0" layoutY="31.0" text="Available Parking Spots in Total:" textAlignment="CENTER">
+      <Label layoutX="41.0" layoutY="31.0" text="Available Spots :" textAlignment="CENTER">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="totalSpotsLabel" layoutX="360.0" layoutY="27.0" text="40">
+      <Label fx:id="totalSpotsLabel" layoutX="155.0" layoutY="26.0" text="40">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="61.0" layoutY="80.0" text="Available Parking Spots for Guests:">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label fx:id="guestSpotsLabel" layoutX="360.0" layoutY="76.0" text="20">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="53.0" layoutY="131.0" text="Available Parking Spots for Emloyees:">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label fx:id="empSpotLabel" layoutX="360.0" layoutY="127.0" text="20">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <PieChart fx:id="statusPieChart" layoutX="363.0" layoutY="191.0" legendSide="LEFT" prefHeight="191.0" prefWidth="540.0" titleSide="LEFT" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="150.0" />
-      <Label fx:id="pieChartLabel" layoutX="348.0" layoutY="334.0">
-         <font>
-            <Font size="20.0" />
-         </font></Label>
+      <TableView layoutX="347.0" layoutY="79.0" prefHeight="292.0" prefWidth="208.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <Button fx:id="statusBtn" layoutX="347.0" layoutY="29.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="101.0" text="Show Status" />
    </children>
 </AnchorPane>
