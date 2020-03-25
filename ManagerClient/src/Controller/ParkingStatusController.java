@@ -35,6 +35,7 @@ public class ParkingStatusController implements Initializable {
         statusDate.setCellValueFactory(new PropertyValueFactory<>("date"));
         statusSpots.setCellValueFactory(new PropertyValueFactory<>("occupiedSpots"));
         statusTable.setItems(model.getAllStatues());
+        updatePie();
     }
 
     public void updatePie() {
@@ -54,6 +55,7 @@ public class ParkingStatusController implements Initializable {
                 public void handle(MouseEvent event) {
 
                     updatePie();
+                    showAllStatues();
                 }
             });
         }
