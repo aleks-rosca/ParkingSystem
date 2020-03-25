@@ -28,9 +28,6 @@ public class ParkingStatusController implements Initializable {
     public TableColumn<Status, String> statusDate;
     public TableColumn<Status, Integer> statusSpots;
     public TableView<Status> statusTable;
-    public int e;
-    public int g;
-    public int p;
     private IMCPModel model;
 
     public void init(IMCPModel model) {
@@ -38,9 +35,9 @@ public class ParkingStatusController implements Initializable {
         getCurrentStatus();
         showAllStatues();
         updatePie();
-        e = model.getNumberOfEmployeesInParkingLot();
-        g = model.getNumberOfGuestsInParkingLot();
-        p = model.getNumberOfPublicUsersInParkingLot();
+        System.out.println(model.getNumberOfEmployeesInParkingLot());
+        System.out.println(model.getNumberOfGuestsInParkingLot());
+        System.out.println(model.getNumberOfPublicUsersInParkingLot());
 
     }
 
@@ -54,17 +51,16 @@ public class ParkingStatusController implements Initializable {
     }
 
     public void updatePie() {
-        System.out.println(e + " e");
-        System.out.println(g + " g");
-        System.out.println(p + " p");
+
         ObservableList<PieChart.Data> pieChartData =
                 FXCollections.observableArrayList(
-                        new PieChart.Data("Employees", e),
-                        new PieChart.Data("Guests", g),
-                        new PieChart.Data("Public Users", p));
+                        new PieChart.Data("Employees - " + model.getNumberOfEmployeesInParkingLot(), model.getNumberOfEmployeesInParkingLot()),
+                        new PieChart.Data("Guests - " + model.getNumberOfGuestsInParkingLot(), model.getNumberOfGuestsInParkingLot()),
+                        new PieChart.Data("Public Users - " + model.getNumberOfPublicUsersInParkingLot(), model.getNumberOfPublicUsersInParkingLot()));
 
 
         pieChart.setData(pieChartData);
+        pieChart.setLabelsVisible(false);
 
         for (PieChart.Data data : pieChart.getData()) {
             data.getNode().addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {

@@ -12,7 +12,7 @@
                 <Font size="15.0" />
             </font>
         </Label>
-        <Label fx:id="totalSpotsLabel" layoutX="155.0" layoutY="26.0" text="40">
+        <Label fx:id="totalSpotsLabel" layoutX="155.0" layoutY="26.0">
             <font>
                 <Font size="20.0" />
             </font>
@@ -24,6 +24,6 @@
             </columns>
         </TableView>
         <Button fx:id="statusBtn" layoutX="347.0" layoutY="29.0" mnemonicParsing="false" onAction="#showAllStatues" prefHeight="26.0" prefWidth="101.0" text="Show Status" />
-        <PieChart fx:id="pieChart" layoutX="37.0" layoutY="80.0" prefHeight="288.0" prefWidth="287.0" />
+        <PieChart fx:id="pieChart" layoutX="37.0" layoutY="80.0" prefHeight="258.0" prefWidth="287.0" />
     </children>
 </AnchorPane>

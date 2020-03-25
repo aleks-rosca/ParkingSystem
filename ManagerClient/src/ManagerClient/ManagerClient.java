@@ -105,6 +105,7 @@ public class ManagerClient implements IManagerClient {
     @Override
     public int getCurrentStatus() {
         try {
+
             return serverinterface.getParkingStatus();
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -115,7 +116,7 @@ public class ManagerClient implements IManagerClient {
     @Override
     public int getNumberOfGuestsInParkingLot() {
         try {
-            return  serverinterface.getNumberOfGuestsInParkingLot();
+            return serverinterface.getNumberOfGuestsInParkingLot();
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -125,7 +126,7 @@ public class ManagerClient implements IManagerClient {
     @Override
     public int getNumberOfEmployeesInParkingLot() {
         try {
-         return   serverinterface.getNumberOfEmployeesInParkingLot();
+            return serverinterface.getNumberOfEmployeesInParkingLot();
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -135,7 +136,7 @@ public class ManagerClient implements IManagerClient {
     @Override
     public int getNumberOfPublicUsersInParkingLot() {
         try {
-          return  serverinterface.getNumberOfPublicUsersInParkingLot();
+            return serverinterface.getNumberOfPublicUsersInParkingLot();
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -152,6 +153,7 @@ public class ManagerClient implements IManagerClient {
             return null;
         }
     }
+
     @Override
     public List<EmployeeRes> getAllEmpReservations() {
         try {
@@ -162,6 +164,7 @@ public class ManagerClient implements IManagerClient {
             return null;
         }
     }
+
     @Override
     public String deleteEmpRes(EmployeeRes employeeRes) {
         try {
@@ -186,7 +189,7 @@ public class ManagerClient implements IManagerClient {
     @Override
     public String updateEmployee(Employee newEmployee, String empNo) {
         try {
-            return serverinterface.updateEmployee(newEmployee,empNo);
+            return serverinterface.updateEmployee(newEmployee, empNo);
         } catch (RemoteException e) {
             e.printStackTrace();
             return "Error";
