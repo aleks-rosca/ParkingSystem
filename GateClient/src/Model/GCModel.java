@@ -5,6 +5,7 @@ import GateClient.IGClient;
 
 public class GCModel implements IGCModel {
     private IGClient gClient;
+
     public GCModel(IGClient gc) {
         gClient = gc;
 
@@ -23,15 +24,15 @@ public class GCModel implements IGCModel {
 
     @Override
     public String checkClient(String res) {
-        System.out.println(res.length());
-        if(res.length() == 7){
+        if (res.length() == 7) {
             return "public";
-        }
-        else if(res.charAt(0)=='G'){
+        } else if (res.isEmpty()) {
+            return "empty";
+        } else if (res.charAt(0) == 'G') {
             return "guest";
-        }else if(res.charAt(0)=='E'){
+        } else if (res.charAt(0) == 'E') {
             return "employee";
-        }else{
+        } else {
             return "dunno who are you";
         }
     }

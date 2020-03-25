@@ -11,19 +11,22 @@
             <children>
                 <Button fx:id="checkinBtn" layoutX="389.0" layoutY="33.0" mnemonicParsing="false" onAction="#checkIn" prefHeight="67.0" prefWidth="91.0" text="Check In" />
                 <Label layoutX="14.0" layoutY="28.0" prefHeight="78.0" prefWidth="155.0" text="Enter your &#10;Employee Number or&#10;Reservation Number or&#10;Licence plate" />
-                <TextField fx:id="checkInTf" layoutX="195.0" layoutY="33.0" prefHeight="67.0" prefWidth="155.0">
+                <TextField fx:id="checkInTf" layoutX="181.0" layoutY="33.0" prefHeight="67.0" prefWidth="169.0">
                     <font>
                         <Font size="30.0" />
                     </font>
                 </TextField>
             </children>
         </Pane>
-      <TextFlow fx:id="warningField" layoutX="76.0" layoutY="343.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="34.0" prefWidth="471.0" textAlignment="CENTER" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="345.0" />
         <Circle fx:id="gateStatus" fill="#ff1f1f" layoutX="461.0" layoutY="124.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
         <Label fx:id="spotsLeft" layoutX="71.0" layoutY="77.0">
             <font>
                 <Font size="64.0" />
             </font>
         </Label>
+      <Label fx:id="warningField" alignment="CENTER" contentDisplay="CENTER" layoutX="184.0" layoutY="343.0" prefHeight="38.0" prefWidth="242.0" textAlignment="CENTER" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="180.0">
+         <font>
+            <Font name="Verdana Bold" size="16.0" />
+         </font></Label>
     </children>
 </AnchorPane>
