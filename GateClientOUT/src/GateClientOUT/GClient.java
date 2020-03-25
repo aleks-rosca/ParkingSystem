@@ -36,4 +36,14 @@ public class GClient implements IGClient {
         }
         return "Error";
     }
+
+    @Override
+    public String publicCheckOut(String plate) {
+        try {
+            return serverinterface.publicUserOut(plate);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return "Error";
+    }
 }

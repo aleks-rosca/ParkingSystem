@@ -25,11 +25,19 @@ public class GCModel implements IGCModel {
     @Override
     public String guestCheckOut(String resNo) {
         return gClient.guestCheckOut(resNo);
+    } @Override
+
+    public String publicCheckOut(String plate) {
+        return gClient.publicCheckOut(plate);
     }
+
 
     @Override
     public String checkClient(String check) {
-        if(check.charAt(0)=='G'){
+        if(check.length() == 7){
+            return "public";
+        }
+        else if(check.charAt(0)=='G'){
             return "guest";
         }else if(check.charAt(0)=='E'){
             return "employee";
@@ -37,6 +45,8 @@ public class GCModel implements IGCModel {
             return "dunno who are you";
         }
     }
+
+
 
 
 }
