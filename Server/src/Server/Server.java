@@ -120,8 +120,8 @@ public class Server extends UnicastRemoteObject implements IServer {
     }
 
     @Override
-    public String publicUserOut(String licencePlate) throws RemoteException {
-        return model.publicUserOut(licencePlate);
+    public String publicUserOut(String plate) throws RemoteException {
+        return model.publicUserOut(plate);
     }
 
 }
