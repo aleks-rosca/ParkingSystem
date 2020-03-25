@@ -17,8 +17,8 @@ public class PublicDAO implements IPublicDAO {
         try {
             conn.update(sql);
         } catch (SQLException e) {
-            if(e.getSQLState().equals("P0001")){
-                return "No such reservation number";
+            if(e.getSQLState().equals("23514")){
+                return "No free spots";
             }
             e.printStackTrace();
         }

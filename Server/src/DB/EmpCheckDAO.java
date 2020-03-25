@@ -22,6 +22,8 @@ public class EmpCheckDAO implements IEmpCheckDAO {
                 return "Already checked in";
             }else if(e.getSQLState().equals("P0001")){
                 return "No such employee number";
+            }else if(e.getSQLState().equals(("23514"))){
+                return "no reservation or parkingspot";
             }
             e.printStackTrace();
         }
