@@ -30,6 +30,7 @@ public class StartGC extends Application
         ctrl.init(emodel);
         primaryStage.setTitle("Gate");
         primaryStage.setScene(new Scene(main, 600, 400));
+        primaryStage.setResizable(false);
         primaryStage.show();
 
     }
