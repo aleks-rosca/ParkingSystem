@@ -113,6 +113,36 @@ public class ManagerClient implements IManagerClient {
     }
 
     @Override
+    public int getNumberOfGuestsInParkingLot() {
+        try {
+            return  serverinterface.getNumberOfGuestsInParkingLot();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    @Override
+    public int getNumberOfEmployeesInParkingLot() {
+        try {
+            serverinterface.getNumberOfEmployeesInParkingLot();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    @Override
+    public int getNumberOfPublicUsersInParkingLot() {
+        try {
+            serverinterface.getNumberOfPublicUsersInParkingLot();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    @Override
     public List<EmployeeRes> getAllReservationByEmpNo(String empNo) {
         try {
 

@@ -53,4 +53,10 @@ public interface IServer extends Remote, Serializable {
     String publicUserIn(String licencePlate) throws RemoteException;
 
     String publicUserOut(String licencePlate) throws RemoteException;
+
+    int getNumberOfGuestsInParkingLot() throws RemoteException;
+
+    int getNumberOfEmployeesInParkingLot() throws RemoteException;
+
+    int getNumberOfPublicUsersInParkingLot() throws RemoteException;
 }

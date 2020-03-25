@@ -32,8 +32,16 @@ public interface IManagerClient {
     String cancelGuestRes(String resNo);
 
     List<GuestRes> getAllGuestReserevation();
+
     List<Status> getAllStatues();
+
     int getCurrentStatus();
+
+    int getNumberOfGuestsInParkingLot();
+
+    int getNumberOfEmployeesInParkingLot();
+
+    int getNumberOfPublicUsersInParkingLot();
 
 
 }
