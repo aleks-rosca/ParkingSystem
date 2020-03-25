@@ -4,6 +4,7 @@ import DB.*;
 import model.Employee;
 import model.EmployeeRes;
 import model.GuestRes;
+import model.Status;
 
 import java.util.List;
 import java.util.Random;
@@ -111,6 +112,11 @@ public class ServerModel implements IServerModel {
     @Override
     public int getParkingStatus() {
         return statusDAO.getCurrentStatus();
+    }
+
+    @Override
+    public List<Status> getAllStatuses() {
+        return statusDAO.getAllStatuses();
     }
 
     @Override

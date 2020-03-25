@@ -3,6 +3,7 @@ package Model;
 import model.Employee;
 import model.EmployeeRes;
 import model.GuestRes;
+import model.Status;
 
 import java.util.List;
 
@@ -41,7 +42,11 @@ public interface IServerModel {
 
     int getParkingStatus();
 
+    List<Status> getAllStatuses();
+
     String publicUserIn(String licencePlate);
 
     String publicUserOut(String licencePlate);
+
+
 }

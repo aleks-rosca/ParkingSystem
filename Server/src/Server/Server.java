@@ -5,6 +5,7 @@ import Model.ServerModel;
 import model.Employee;
 import model.EmployeeRes;
 import model.GuestRes;
+import model.Status;
 import serverinterface.IServer;
 
 import java.rmi.RemoteException;
@@ -112,6 +113,11 @@ public class Server extends UnicastRemoteObject implements IServer {
     @Override
     public int getParkingStatus() throws RemoteException {
         return model.getParkingStatus();
+    }
+
+    @Override
+    public List<Status> getAllStatuses() throws RemoteException {
+        return model.getAllStatuses();
     }
 
     @Override

@@ -16,9 +16,7 @@ public class ParkingStatusController implements Initializable
 {
     @FXML
     PieChart statusPieChart;
-    private Label totalSpotsLabel;
-    private Label guestSpotsLabel;
-    private Label empSpotLabel;
+
     public Label pieChartLabel;
 
     @Override

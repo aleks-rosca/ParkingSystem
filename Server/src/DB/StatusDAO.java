@@ -39,7 +39,7 @@ public class StatusDAO implements IStatusDAO {
     }
 
     @Override
-    public List<Status> getAllStatues() {
+    public List<Status> getAllStatuses() {
         ArrayList<Status> allStatues = new ArrayList<>();
 
         String sql = "SELECT * FROM status";

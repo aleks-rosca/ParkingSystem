@@ -7,7 +7,7 @@ import java.util.List;
 public interface IStatusDAO {
 
     int getCurrentStatus();
-    List<Status> getAllStatues();
+    List<Status> getAllStatuses();
     int getNumberOfGuestsInParkingLot();
     int getNumberOfEmployeesInParkingLot();
     int getNumberOfPublicUsersInParkingLot();

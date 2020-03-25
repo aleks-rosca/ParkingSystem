@@ -4,6 +4,7 @@ package serverinterface;
 import model.Employee;
 import model.EmployeeRes;
 import model.GuestRes;
+import model.Status;
 
 import java.io.Serializable;
 import java.rmi.Remote;
@@ -46,6 +47,8 @@ public interface IServer extends Remote, Serializable {
     String updateEmployee(Employee newEmployee, String empNo) throws RemoteException;
 
     int getParkingStatus() throws RemoteException;
+
+    List<Status> getAllStatuses() throws RemoteException;
 
     String publicUserIn(String licencePlate) throws RemoteException;
 
