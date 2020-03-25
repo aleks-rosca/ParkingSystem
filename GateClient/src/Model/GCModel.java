@@ -33,7 +33,7 @@ public class GCModel implements IGCModel {
         } else if (res.charAt(0) == 'E') {
             return "employee";
         } else {
-            return "dunno who are you";
+            return "error";
         }
     }
 

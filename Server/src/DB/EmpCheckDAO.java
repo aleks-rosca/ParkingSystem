@@ -45,7 +45,7 @@ public class EmpCheckDAO implements IEmpCheckDAO {
         if (delete==1){
             return "checked out";
         }else {
-            return "something went wront with check out";
+            return "something went wrong with check out";
         }
 
     }

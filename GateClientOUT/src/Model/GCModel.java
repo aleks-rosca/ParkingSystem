@@ -13,8 +13,6 @@ public class GCModel implements IGCModel {
         gClient = gc;
 
     }
-
-
     @Override
 
     public String empCheckOut(String empNo) {
@@ -31,18 +29,18 @@ public class GCModel implements IGCModel {
         return gClient.publicCheckOut(plate);
     }
 
-
     @Override
     public String checkClient(String check) {
-        if(check.length() == 7){
+        if (check.length() == 7) {
             return "public";
-        }
-        else if(check.charAt(0)=='G'){
+        } else if (check.isEmpty()) {
+            return "empty";
+        } else if (check.charAt(0) == 'G') {
             return "guest";
-        }else if(check.charAt(0)=='E'){
+        } else if (check.charAt(0) == 'E') {
             return "employee";
-        }else{
-            return "dunno who are you";
+        } else {
+            return "error";
         }
     }
 

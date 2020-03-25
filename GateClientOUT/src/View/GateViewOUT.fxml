@@ -7,11 +7,11 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GOController">
     <children>
-        <Pane layoutX="39.0" layoutY="237.0" prefHeight="133.0" prefWidth="502.0">
+        <Pane layoutX="39.0" layoutY="237.0" prefHeight="112.0" prefWidth="502.0">
             <children>
                 <Button fx:id="checkOutBtn" layoutX="389.0" layoutY="33.0" mnemonicParsing="false" onAction="#checkOut" prefHeight="67.0" prefWidth="91.0" text="Check Out" />
                 <Label layoutX="14.0" layoutY="28.0" prefHeight="78.0" prefWidth="155.0" text="Enter your &#10;Employee Number or&#10;Reservation Number or&#10;Licence plate" />
-                <TextField fx:id="checkOutTf" layoutX="195.0" layoutY="33.0" prefHeight="67.0" prefWidth="155.0">
+                <TextField fx:id="checkOutTf" layoutX="179.0" layoutY="33.0" prefHeight="67.0" prefWidth="171.0">
                     <font>
                         <Font size="30.0" />
                     </font>
@@ -19,5 +19,10 @@
             </children>
         </Pane>
         <Circle fx:id="gateStatus" fill="#ff1f1f" layoutX="461.0" layoutY="124.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+      <Label fx:id="warningField" alignment="CENTER" contentDisplay="CENTER" layoutX="216.0" layoutY="351.0" prefHeight="37.0" prefWidth="240.0" textAlignment="CENTER" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="180.0">
+         <font>
+            <Font name="Verdana Bold" size="16.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

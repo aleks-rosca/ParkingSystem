@@ -15,3 +15,5 @@ ManagerClient/src/Test/testClient.java
 EmployeeClient/src/EmployeeClient/testClient.java
 /ManagerClient/src/Test/TestDoNotshare.java
 Server/Server.iml
+out/production/GateClientOUT/Controller/GOController$2.class
+out/production/GateClientOUT/Controller/GOController$3.class
