@@ -59,28 +59,28 @@ public class EmployeeReservationController {
             alert.getButtonTypes();
             alert.show();
         }
-        onlyManagerReservation(actionEvent);
+        onlyManagerReservation();
 
     }
 
-    public void onlyManagerReservation(ActionEvent actionEvent) {
-        dateTc.setCellValueFactory(new PropertyValueFactory<EmployeeRes, String>("DateFromPicker"));
+    public void onlyManagerReservation() {
+        dateTc.setCellValueFactory(new PropertyValueFactory<>("DateFromPicker"));
         empNoTc.setCellValueFactory(new PropertyValueFactory<>("empNo"));
         empReservTableTv.setItems(mceModel.getAllEmpReservationByEmpNo(empReservNumTf.getText()));
 
     }
 
-    public void showAllEmployeeReservations(ActionEvent actionEvent) {
-        dateTc.setCellValueFactory(new PropertyValueFactory<EmployeeRes, String>("DateFromPicker"));
+    public void showAllEmployeeReservations() {
+        dateTc.setCellValueFactory(new PropertyValueFactory<>("DateFromPicker"));
         empNoTc.setCellValueFactory(new PropertyValueFactory<>("empNo"));
-        empNameTc.setCellValueFactory(new PropertyValueFactory<EmployeeRes, Employee>("employee"));
+        empNameTc.setCellValueFactory(new PropertyValueFactory<>("employee"));
 
         resNoTc.setCellValueFactory(new PropertyValueFactory<>("empNo"));
 
         empReservTableTv.setItems(mceModel.getAllEmpReservation());
     }
 
-    public void deleteEmployeeReservation(ActionEvent actionEvent) {
+    public void deleteEmployeeReservation() {
         EmployeeRes employeeRes = empReservTableTv.getSelectionModel().getSelectedItem();
         Alert a = new Alert(Alert.AlertType.CONFIRMATION, "Delete " + empReservTableTv.getSelectionModel().getSelectedItem().getEmployee() + " on " + empReservTableTv.getSelectionModel().getSelectedItem().getDateFromPicker() + " ?", ButtonType.YES, ButtonType.NO);
         a.showAndWait();

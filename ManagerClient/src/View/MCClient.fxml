@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.AnchorPane?>
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MCController">
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MCController">
     <children>
         <TabPane fx:id="MCClient" layoutY="-1.0" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
                 <Tab text="Parking Status">
-                    <fx:include fx:id="parkingStatus" source="ParkingStatus.fxml"/>
+                    <fx:include fx:id="parkingStatus" source="ParkingStatus.fxml" />
                 </Tab>
-                <Tab text="Manage Employee">
-                    <fx:include fx:id="manageEmployee" source="ManageEmployee.fxml"/>
+                <Tab onSelectionChanged="#updateEm" text="Manage Employee">
+                    <fx:include fx:id="manageEmployee" source="ManageEmployee.fxml" />
                 </Tab>
-                <Tab text="Employee Reservation">
-                    <fx:include fx:id="employeeReservation" source="EmployeeReservation.fxml"/>
+                <Tab onSelectionChanged="#updateEr" text="Employee Reservation">
+                    <fx:include fx:id="employeeReservation" source="EmployeeReservation.fxml" />
                 </Tab>
-                <Tab text="Guest Reservation">
-                    <fx:include fx:id="guestReservation" source="GuestReservation.fxml"/>
+                <Tab onSelectionChanged="#updateGr" text="Guest Reservation">
+                    <fx:include fx:id="guestReservation" source="GuestReservation.fxml" />
                 </Tab>
             </tabs>
         </TabPane>

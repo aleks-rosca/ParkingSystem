@@ -1,20 +1,15 @@
 package Controller;
 
 import Model.IMCEModel;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import model.Employee;
 
-import java.io.IOException;
-import java.util.Optional;
-
 public class ManageEmployeeController {
     public TextField empFirstNameAddTf;
     public TextField empLastNameAddTf;
-    public TextField empNameSearchTf;
     public TextField empNumberAddTf;
     public IMCEModel mceModel;
     @FXML
@@ -35,7 +30,7 @@ public class ManageEmployeeController {
     }
 
 
-    public void AddEmp(ActionEvent actionEvent) throws IOException {
+    public void AddEmp() {
         //TODO add a try catch to see if the name and number exist already\
         if (!(empFirstNameAddTf.getText().isEmpty()) & !(empLastNameAddTf.getText().isEmpty()) & !(empNumberAddTf.getText().isEmpty())) {
             if (mceModel.checkFirstChar(empNumberAddTf.getText())) {
@@ -63,10 +58,10 @@ public class ManageEmployeeController {
         }
 
 
-        showAllEmployee(actionEvent);
+        showAllEmployee();
     }
-    
-    public void showAllEmployee(ActionEvent actionEvent) {
+
+    public void showAllEmployee() {
         manageEmpFirstName.setCellValueFactory(new PropertyValueFactory<>("empFirstName"));
         manageEmpLastName.setCellValueFactory(new PropertyValueFactory<>("empLastName"));
         manageEmpNo.setCellValueFactory(new PropertyValueFactory<>("empNumber"));
@@ -93,7 +88,7 @@ public class ManageEmployeeController {
         mceModel.updateEmployee(employee, oldEmpNo);
     }
 
-    public void deleteEmp(ActionEvent actionEvent) {
+    public void deleteEmp() {
         Employee employee = manageEmpTableTv.getSelectionModel().getSelectedItem();
         Alert a = new Alert(Alert.AlertType.CONFIRMATION, "Delete " + manageEmpTableTv.getSelectionModel().getSelectedItem().getEmpFirstName() + " ?", ButtonType.YES, ButtonType.NO);
         a.showAndWait();

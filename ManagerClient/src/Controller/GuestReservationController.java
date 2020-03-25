@@ -1,7 +1,6 @@
 package Controller;
 
 import Model.IMCGModel;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -14,7 +13,7 @@ public class GuestReservationController {
     public TextArea guestReservPurposeTf;
     public DatePicker guestReservDateDp;
     public IMCGModel gModel;
-    public Button reservGuestBtn;
+
     @FXML
     TableView<GuestRes> guestReservTableTv;
     @FXML
@@ -30,7 +29,7 @@ public class GuestReservationController {
         this.gModel = gModel;
     }
 
-    public void reservGuestBtn(ActionEvent actionEvent) {
+    public void reservGuestBtn() {
 
         try {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -74,12 +73,12 @@ public class GuestReservationController {
         }
         guestReservNameTf.clear();
         guestReservPurposeTf.clear();
-        getAllGuestReservations(actionEvent);
+        getAllGuestReservations();
 
 
     }
 
-    public void deleteGuestReservation(ActionEvent actionEvent) {
+    public void deleteGuestReservation() {
         String resNo = guestReservTableTv.getSelectionModel().getSelectedItem().getResNo();
         Alert a = new Alert(Alert.AlertType.CONFIRMATION, "Delete " + guestReservTableTv.getSelectionModel().getSelectedItem().getName() + " ?", ButtonType.YES, ButtonType.NO);
         a.showAndWait();
@@ -90,7 +89,7 @@ public class GuestReservationController {
 
     }
 
-    public void getAllGuestReservations(ActionEvent actionEvent) {
+    public void getAllGuestReservations() {
         guestName.setCellValueFactory(new PropertyValueFactory<>("name"));
         guestDate.setCellValueFactory(new PropertyValueFactory<>("date"));
         guestResNo.setCellValueFactory(new PropertyValueFactory<>("resNo"));

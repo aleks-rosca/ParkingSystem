@@ -7,7 +7,6 @@
 
 
     <children>
-      <Button fx:id="guestReservShowAllBtn" layoutX="453.0" layoutY="360.0" mnemonicParsing="false" onAction="#getAllGuestReservations" text="Show All" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="100.0" />
         <TableView fx:id="guestReservTableTv" layoutX="5.0" layoutY="111.0" prefHeight="200.0" prefWidth="579.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
             <columns>
                 <TableColumn fx:id="guestName" prefWidth="134" text="Name" />

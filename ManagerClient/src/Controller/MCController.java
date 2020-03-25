@@ -29,4 +29,18 @@ public class MCController {
     }
 
 
+    public void updateGr() {
+        guestReservationController.getAllGuestReservations();
+
+    }
+
+    public void updateEr() {
+        employeeReservationController.showAllEmployeeReservations();
+    }
+
+    public void updateEm() {
+        manageEmployeeController.showAllEmployee();
+    }
+
+
 }

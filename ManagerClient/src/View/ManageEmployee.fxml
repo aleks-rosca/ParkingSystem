@@ -7,7 +7,6 @@
 
 
     <children>
-        <Button fx:id="empShowAllBtn" layoutX="350.0" layoutY="330.0" mnemonicParsing="false" onAction="#showAllEmployee" prefHeight="25.0" prefWidth="75.0" text="Show All" textAlignment="CENTER" AnchorPane.topAnchor="335.0" />
         <TableView fx:id="manageEmpTableTv" layoutX="336.0" layoutY="14.0" prefHeight="285.0" prefWidth="271.0" AnchorPane.bottomAnchor="101.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
             <columns>
                 <TableColumn fx:id="manageEmpFirstName" onEditCommit="#onEditFirstname" prefWidth="100.0" text="First Name" />
@@ -15,7 +14,7 @@
                 <TableColumn fx:id="manageEmpNo" onEditCommit="#onEditEmpNum" prefWidth="84.0" text="Emp Num" />
             </columns>
         </TableView>
-      <Button fx:id="manageEmpDeleteBtn" layoutX="510.0" layoutY="330.0" mnemonicParsing="false" onAction="#deleteEmp" prefHeight="25.0" prefWidth="60.0" text="Delete" AnchorPane.topAnchor="335.0" />
+      <Button fx:id="manageEmpDeleteBtn" layoutX="534.0" layoutY="331.0" mnemonicParsing="false" onAction="#deleteEmp" text="Delete" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="25.0" />
       <Pane layoutX="23.0" layoutY="29.0" prefHeight="343.0" prefWidth="250.0">
          <children>
               <Label layoutX="70.0" layoutY="35.0" text="Add Employees" />
