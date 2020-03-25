@@ -48,5 +48,11 @@ public interface IServerModel {
 
     String publicUserOut(String licencePlate);
 
+    int getNumberOfGuestsInParkingLot();
+
+    int getNumberOfEmployeesInParkingLot();
+
+    int getNumberOfPublicUsersInParkingLot();
+
 
 }

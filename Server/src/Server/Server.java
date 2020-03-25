@@ -130,5 +130,20 @@ public class Server extends UnicastRemoteObject implements IServer {
         return model.publicUserOut(plate);
     }
 
+    @Override
+    public int getNumberOfGuestsInParkingLot() throws RemoteException {
+        return model.getNumberOfGuestsInParkingLot();
+    }
+
+    @Override
+    public int getNumberOfEmployeesInParkingLot() throws RemoteException {
+        return model.getNumberOfEmployeesInParkingLot();
+    }
+
+    @Override
+    public int getNumberOfPublicUsersInParkingLot() throws RemoteException {
+        return model.getNumberOfPublicUsersInParkingLot();
+    }
+
 }
 

@@ -129,6 +129,21 @@ public class ServerModel implements IServerModel {
         return publicDAO.PublicCheckOut(licencePlate);
     }
 
+    @Override
+    public int getNumberOfGuestsInParkingLot() {
+        return statusDAO.getNumberOfGuestsInParkingLot();
+    }
+
+    @Override
+    public int getNumberOfEmployeesInParkingLot() {
+        return statusDAO.getNumberOfEmployeesInParkingLot();
+    }
+
+    @Override
+    public int getNumberOfPublicUsersInParkingLot() {
+        return statusDAO.getNumberOfPublicUsersInParkingLot();
+    }
+
 
 }
 

@@ -27,4 +27,19 @@ public class MCPModel implements IMCPModel {
     public int getOccupiedSpots() {
         return managerClient.getCurrentStatus();
     }
+
+    @Override
+    public int getNumberOfGuestsInParkingLot() {
+        return managerClient.getNumberOfGuestsInParkingLot();
+    }
+
+    @Override
+    public int getNumberOfEmployeesInParkingLot() {
+        return managerClient.getNumberOfEmployeesInParkingLot();
+    }
+
+    @Override
+    public int getNumberOfPublicUsersInParkingLot() {
+        return managerClient.getNumberOfPublicUsersInParkingLot();
+    }
 }
