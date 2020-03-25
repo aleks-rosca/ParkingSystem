@@ -25,7 +25,7 @@ public class MCPModel implements IMCPModel {
 
     @Override
     public int getOccupiedSpots() {
-        return managerClient.getCurrentStatus();
+        return (40 - managerClient.getCurrentStatus());
     }
 
     @Override
