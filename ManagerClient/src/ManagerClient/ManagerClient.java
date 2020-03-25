@@ -125,7 +125,7 @@ public class ManagerClient implements IManagerClient {
     @Override
     public int getNumberOfEmployeesInParkingLot() {
         try {
-            serverinterface.getNumberOfEmployeesInParkingLot();
+         return   serverinterface.getNumberOfEmployeesInParkingLot();
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -135,7 +135,7 @@ public class ManagerClient implements IManagerClient {
     @Override
     public int getNumberOfPublicUsersInParkingLot() {
         try {
-            serverinterface.getNumberOfPublicUsersInParkingLot();
+          return  serverinterface.getNumberOfPublicUsersInParkingLot();
         } catch (RemoteException e) {
             e.printStackTrace();
         }
