@@ -2,6 +2,7 @@ package Controller;
 
 import Model.IMCEModel;
 import Model.IMCGModel;
+import Model.IMCPModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.TabPane;
 
@@ -20,10 +21,11 @@ public class MCController {
     private TabPane parkingTabPane;
 
 
-    public void init(IMCEModel model, IMCGModel gModel) {
+    public void init(IMCEModel model, IMCGModel gModel, IMCPModel pModel) {
         manageEmployeeController.init(model);
         employeeReservationController.init(model);
         guestReservationController.init(gModel);
+        parkingStatusController.init(pModel);
     }
 
 

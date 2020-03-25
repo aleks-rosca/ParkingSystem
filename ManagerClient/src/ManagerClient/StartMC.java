@@ -1,10 +1,7 @@
 package ManagerClient;
 
 import Controller.MCController;
-import Model.IMCEModel;
-import Model.IMCGModel;
-import Model.MCEModel;
-import Model.MCGModel;
+import Model.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -26,7 +23,8 @@ public class StartMC extends Application {
         IManagerClient cl = new ManagerClient();
         IMCEModel model = new MCEModel(cl);
         IMCGModel gModel = new MCGModel(cl);
-        ctrl.init(model, gModel);
+        IMCPModel pModel = new MCPModel(cl);
+        ctrl.init(model, gModel,pModel);
         primaryStage.setTitle("IPMS");
         primaryStage.setScene(new Scene(main, 600, 400));
         primaryStage.show();

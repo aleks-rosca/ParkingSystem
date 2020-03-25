@@ -3,6 +3,7 @@ package ManagerClient;
 import model.Employee;
 import model.EmployeeRes;
 import model.GuestRes;
+import model.Status;
 
 import java.util.List;
 
@@ -31,6 +32,8 @@ public interface IManagerClient {
     String cancelGuestRes(String resNo);
 
     List<GuestRes> getAllGuestReserevation();
+    List<Status> getAllStatues();
+    int getCurrentStatus();
 
 
 }

@@ -16,12 +16,12 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <TableView layoutX="347.0" layoutY="79.0" prefHeight="292.0" prefWidth="208.0">
+      <TableView fx:id="statusTable" layoutX="347.0" layoutY="79.0" prefHeight="257.0" prefWidth="208.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="statusDate" prefWidth="75.0" text="Date" />
+          <TableColumn fx:id="statusSpots" prefWidth="75.0" text="Spots" />
         </columns>
       </TableView>
-      <Button fx:id="statusBtn" layoutX="347.0" layoutY="29.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="101.0" text="Show Status" />
+      <Button fx:id="statusBtn" layoutX="347.0" layoutY="29.0" mnemonicParsing="false" onAction="#showAllStatues" prefHeight="26.0" prefWidth="101.0" text="Show Status" />
    </children>
 </AnchorPane>

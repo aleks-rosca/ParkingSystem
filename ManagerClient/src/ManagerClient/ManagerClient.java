@@ -3,6 +3,7 @@ package ManagerClient;
 import model.Employee;
 import model.EmployeeRes;
 import model.GuestRes;
+import model.Status;
 import serverinterface.IServer;
 
 import java.net.MalformedURLException;
@@ -89,6 +90,26 @@ public class ManagerClient implements IManagerClient {
             e.printStackTrace();
             return null;
         }
+    }
+
+    @Override
+    public List<Status> getAllStatues() {
+        try {
+            return serverinterface.getAllStatuses();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public int getCurrentStatus() {
+        try {
+            return serverinterface.getParkingStatus();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return -1;
     }
 
     @Override
