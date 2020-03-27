@@ -19,6 +19,9 @@ public class PublicDAO implements IPublicDAO {
         } catch (SQLException e) {
             if(e.getSQLState().equals("23514")){
                 return "No free spots";
+            }else if(e.getSQLState().equals("23505")){
+
+               return "Already checked in";
             }
             e.printStackTrace();
         }
