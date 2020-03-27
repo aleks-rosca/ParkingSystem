@@ -121,6 +121,7 @@ public class GController {
             String temp = model.publicUserIn(checkInTf.getText().trim());
             if (temp.equals("checked in to parking lot")) {
                 openGate();
+
             } else if (temp.equals("Already checked in")) {
                 alreadyCheckedIn();
             }

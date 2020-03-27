@@ -12,8 +12,6 @@ public interface IManagerClient {
 
     List<Employee> getAllEmployee();
 
-
-
     String addEmployeeRes(EmployeeRes employeeRes);
 
     List<EmployeeRes> getAllReservationByEmpNo(String empNo);
@@ -26,7 +24,6 @@ public interface IManagerClient {
 
     String updateEmployee(Employee newEmployee, String empNo);
 
-    // for managing Guests Reservations
     String addGuestRes(GuestRes guestRes);
 
     String cancelGuestRes(String resNo);

@@ -17,7 +17,6 @@ public interface IMCEModel {
 
     ObservableList<Employee> getAllEmployee();
 
-
     String deleteEmpRes(EmployeeRes employeeRes);
 
     String rearrangeChars(String empName);
