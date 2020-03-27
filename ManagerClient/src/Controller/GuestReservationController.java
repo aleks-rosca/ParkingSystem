@@ -43,7 +43,6 @@ public class GuestReservationController {
             e.printStackTrace();
         }
 
-
         if (guestReservNameTf.getText().trim().isEmpty()) {
             // create a alert
             Alert alert = new Alert(Alert.AlertType.ERROR);
