@@ -164,7 +164,7 @@ public class GController {
     }
 
     public void reactToChange() {
-        Platform.runLater(() -> spotsLeft.setText(String.valueOf(40 - model.getParkingStatus())));
+        Platform.runLater(() -> spotsLeft.setText(String.valueOf(model.getParkingStatus())));
     }
 
 

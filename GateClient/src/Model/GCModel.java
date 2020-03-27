@@ -39,7 +39,7 @@ public class GCModel implements IGCModel {
 
     @Override
     public int getParkingStatus() {
-        return gClient.getParkingStatus();
+        return 40 - gClient.getParkingStatus();
     }
 
     @Override
