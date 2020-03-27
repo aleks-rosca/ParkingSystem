@@ -26,7 +26,7 @@ public class Conn {
      * @param pw the password to access the database
      * @throws ClassNotFoundException
      */
-    public Conn(String driver, String url, String user, String pw)
+   private Conn(String driver, String url, String user, String pw)
             throws ClassNotFoundException {
         this.url = url;
         this.user = user;
@@ -42,7 +42,7 @@ public class Conn {
      * @param pw the password to access the database
      * @throws ClassNotFoundException
      */
-    public Conn(String databaseName, String user, String pw)
+    private Conn(String databaseName, String user, String pw)
             throws ClassNotFoundException {
         this(DRIVER, URL + databaseName, user, pw);
     }
@@ -52,7 +52,7 @@ public class Conn {
      * @param databaseName database name
      * @throws ClassNotFoundException
      */
-    public Conn(String databaseName) throws ClassNotFoundException {
+    private Conn(String databaseName) throws ClassNotFoundException {
         this(DRIVER, URL + databaseName, USER, PASSWORD);
     }
 
@@ -60,7 +60,7 @@ public class Conn {
      * Constructor uses local variables
      * @throws ClassNotFoundException
      */
-    public Conn() throws ClassNotFoundException {
+    private Conn() throws ClassNotFoundException {
         this(DRIVER, URL, USER, PASSWORD);
     }
     /*Singleton  Lazy instantiation*/
