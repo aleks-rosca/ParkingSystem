@@ -9,9 +9,9 @@ public interface IEmpDAO {
 
     boolean checkEmployeeByEmpNumber(String empnumber);
 
-    Employee getEmployeeByName(String firstName, String lastName);
 
-    String getEmployeeNameByEmpNo(String empNo);
+
+
 
     List<Employee> getAllEmployees();
 

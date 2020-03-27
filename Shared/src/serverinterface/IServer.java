@@ -38,7 +38,6 @@ public interface IServer extends Remote, Serializable {
 
     List<GuestRes> getAllGuestReserevation() throws RemoteException;
 
-    String getEmployeeNameByEmpNo(String empNo) throws RemoteException;
 
     List<Employee> getAllEmployees() throws RemoteException;
 

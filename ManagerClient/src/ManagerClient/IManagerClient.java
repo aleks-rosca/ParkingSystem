@@ -12,7 +12,7 @@ public interface IManagerClient {
 
     List<Employee> getAllEmployee();
 
-    String getEmployeeNameByEmpNo(String empNo);
+
 
     String addEmployeeRes(EmployeeRes employeeRes);
 
