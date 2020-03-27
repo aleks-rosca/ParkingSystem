@@ -27,8 +27,66 @@ public class GController {
         recheck();
     }
 
-    private void reactToChange() {
-        Platform.runLater(() -> spotsLeft.setText(String.valueOf(40 - model.getParkingStatus())));
+
+    public void openGate() {
+        gateStatus.setFill(Color.GREEN);
+        warningField.setText("Welcome!");
+        warningField.setTextFill(Color.GREEN);
+        new java.util.Timer().schedule(
+                new java.util.TimerTask() {
+                    @Override
+                    public void run() {
+                        gateStatus.setFill(Color.RED);
+                    }
+                },
+                5000);
+        new java.util.Timer().schedule(
+                new java.util.TimerTask() {
+                    @Override
+                    public void run() {
+                        Platform.runLater(() -> warningField.setText(""));
+                    }
+                },
+                5000);
+    }
+
+    public void alreadyCheckedIn() {
+        warningField.setText("Already Checked In!");
+        warningField.setTextFill(Color.RED);
+        new java.util.Timer().schedule(
+                new java.util.TimerTask() {
+                    @Override
+                    public void run() {
+                        Platform.runLater(() -> warningField.setText(""));
+                    }
+                },
+                5000);
+    }
+
+    public void wrongEmployeeNo() {
+        warningField.setText("Wrong Employee Number!");
+        warningField.setTextFill(Color.RED);
+        new java.util.Timer().schedule(
+                new java.util.TimerTask() {
+                    @Override
+                    public void run() {
+                        Platform.runLater(() -> warningField.setText(""));
+                    }
+                },
+                5000);
+    }
+
+    public void wrongResNo() {
+        warningField.setText("Wrong Reservation Number!");
+        warningField.setTextFill(Color.RED);
+        new java.util.Timer().schedule(
+                new java.util.TimerTask() {
+                    @Override
+                    public void run() {
+                        Platform.runLater(() -> warningField.setText(""));
+                    }
+                },
+                5000);
     }
 
     public void checkIn(ActionEvent actionEvent) {
@@ -38,125 +96,48 @@ public class GController {
         if (check.equals("employee")) {
             String temp = model.empCheckIn(checkInTf.getText().trim());
             if (temp.equals("checked in to parking lot")) {
-                gateStatus.setFill(Color.GREEN);
-                warningField.setText("Welcome!");
-                warningField.setTextFill(Color.GREEN);
-                new java.util.Timer().schedule(
-                        new java.util.TimerTask() {
-                            @Override
-                            public void run() {
-                                gateStatus.setFill(Color.RED);
-                            }
-                        },
-                        5000);
-                new java.util.Timer().schedule(
-                        new java.util.TimerTask() {
-                            @Override
-                            public void run() {
-                                Platform.runLater(() -> warningField.setText(""));
-                            }
-                        },
-                        5000);
+                openGate();
 
             } else if (temp.equals("No such employee number")) {
-                warningField.setText("Wrong Employee Number!");
-                warningField.setTextFill(Color.RED);
-                new java.util.Timer().schedule(
-                        new java.util.TimerTask() {
-                            @Override
-                            public void run() {
-                                Platform.runLater(() -> warningField.setText(""));
-                            }
-                        },
-                        5000);
+                wrongEmployeeNo();
 
             } else if (temp.equals("Already checked in")) {
-                warningField.setText("Already Checked In!");
-                warningField.setTextFill(Color.RED);
-                new java.util.Timer().schedule(
-                        new java.util.TimerTask() {
-                            @Override
-                            public void run() {
-                                Platform.runLater(() -> warningField.setText(""));
-                            }
-                        },
-                        5000);
+                alreadyCheckedIn();
             }
 
         } else if (check.equals("guest")) {
             String temp = model.guestCheckIn(checkInTf.getText().trim());
             if (temp.equals("checked in to parking lot")) {
-                gateStatus.setFill(Color.GREEN);
-                new java.util.Timer().schedule(
-                        new java.util.TimerTask() {
-                            @Override
-                            public void run() {
-                                Platform.runLater(() -> gateStatus.setFill(Color.RED));
-                            }
-                        },
-                        5000);
-                warningField.setText("Welcome!");
-                warningField.setTextFill(Color.GREEN);
-                new java.util.Timer().schedule(
-                        new java.util.TimerTask() {
-                            @Override
-                            public void run() {
-                                Platform.runLater(() -> warningField.setText(""));
-                            }
-                        },
-                        5000);
+                openGate();
 
             } else if (temp.equals("No such reservation number")) {
-                warningField.setText("Wrong Reservation Number!");
-                warningField.setTextFill(Color.RED);
-                new java.util.Timer().schedule(
-                        new java.util.TimerTask() {
-                            @Override
-                            public void run() {
-                                Platform.runLater(() -> warningField.setText(""));
-                            }
-                        },
-                        5000);
+                wrongResNo();
 
             } else if (temp.equals("Already checked in")) {
-                warningField.setText("Already Checked In!");
-                warningField.setTextFill(Color.RED);
-                new java.util.Timer().schedule(
-                        new java.util.TimerTask() {
-                            @Override
-                            public void run() {
-                                Platform.runLater(() -> warningField.setText(""));
-                            }
-                        },
-                        5000);
+                alreadyCheckedIn();
             }
 
         } else if (check.equals("public")) {
             String temp = model.publicUserIn(checkInTf.getText().trim());
             if (temp.equals("checked in to parking lot")) {
-                gateStatus.setFill(Color.GREEN);
-                new java.util.Timer().schedule(
-                        new java.util.TimerTask() {
-                            @Override
-                            public void run() {
-                                Platform.runLater(() -> gateStatus.setFill(Color.RED));
-                            }
-                        },
-                        5000);
-                warningField.setText("Welcome!");
-                warningField.setTextFill(Color.GREEN);
-                new java.util.Timer().schedule(
-                        new java.util.TimerTask() {
-                            @Override
-                            public void run() {
-                                Platform.runLater(() -> warningField.setText(""));
-                            }
-                        },
-                        5000);
+                openGate();
+            } else if (temp.equals("Already checked in")) {
+                alreadyCheckedIn();
             }
 
         } else if (check.equals("empty")) {
-            warningField.setText("Please Fill in All the fields!");
+            warningField.setText("Please enter your Credentials");
+            warningField.setTextFill(Color.RED);
+            new java.util.Timer().schedule(
+                    new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            Platform.runLater(() -> warningField.setText(""));
+                        }
+                    },
+                    5000);
+        } else if (check.equals("error")) {
+            warningField.setText("Invalid input");
             warningField.setTextFill(Color.RED);
             new java.util.Timer().schedule(
                     new java.util.TimerTask() {
@@ -180,6 +161,10 @@ public class GController {
                 reactToChange();
             }
         }, 0, 1000 * 6 * MINUTES);
+    }
+
+    public void reactToChange() {
+        Platform.runLater(() -> spotsLeft.setText(String.valueOf(40 - model.getParkingStatus())));
     }
 
 
