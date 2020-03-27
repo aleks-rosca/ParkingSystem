@@ -34,7 +34,6 @@ public interface IServerModel {
 
     List<Employee> getAllEmployee();
 
-    String getEmployeeNameByEmpNo(String empNo);
 
     String deleteEmployee(Employee employee);
 

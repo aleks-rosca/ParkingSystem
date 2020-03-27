@@ -17,7 +17,6 @@ public interface IMCEModel {
 
     ObservableList<Employee> getAllEmployee();
 
-    String getEmployeeNameByEmpNo(String empNo);
 
     String deleteEmpRes(EmployeeRes employeeRes);
 

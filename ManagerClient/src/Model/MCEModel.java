@@ -66,10 +66,7 @@ public class MCEModel implements IMCEModel {
 
     }
 
-    @Override
-    public String getEmployeeNameByEmpNo(String empNo) {
-        return client.getEmployeeNameByEmpNo(empNo);
-    }
+
 
     @Override
     public String deleteEmpRes(EmployeeRes employeeRes) {
