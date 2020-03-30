@@ -1,145 +1,147 @@
 package Server;
 
-import Model.IServerModel;
-import Model.ServerModel;
+import Interface.IServerGC;
+import Interface.IServerMC;
+import Model.ISModelG;
+import Model.ISModelM;
+import Model.SModelG;
+import Model.SModelM;
 import model.Employee;
 import model.EmployeeRes;
 import model.GuestRes;
 import model.Status;
-import serverinterface.IServer;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 
-public class Server extends UnicastRemoteObject implements IServer {
-    private IServerModel model;
+public class Server extends UnicastRemoteObject implements IServerMC, IServerGC {
+    private ISModelM modelMc;
+    private ISModelG modelGc;
 
 
     public Server() throws RemoteException {
-        model = new ServerModel();
+        modelMc = new SModelM();
+        modelGc = new SModelG();
         // UnicastRemoteObject.exportObject(this, 0);
     }
 
     @Override
-    public void message(String msg) throws RemoteException {
+    public void message(String msg) {
         System.out.println(msg);
     }
 
     @Override
-    public String addEmployee(Employee employee) throws RemoteException {
-        return model.addEmployee(employee);
-
-
-    }
-
-    @Override
-    public String addEmpRes(EmployeeRes employeeRes) throws RemoteException {
-        return model.addEmpRes(employeeRes);
-
+    public String addEmployee(Employee employee) {
+        return modelMc.addEmployee(employee);
 
     }
 
     @Override
-    public String empCheckIn(String empNo) throws RemoteException {
-        return model.empCheckIn(empNo);
+    public String addEmpRes(EmployeeRes employeeRes) {
+        return modelMc.addEmpRes(employeeRes);
+
     }
 
     @Override
-    public String empCheckOut(String empNo) throws RemoteException {
-        return model.empCheckOut(empNo);
+    public String empCheckIn(String empNo) {
+        return modelGc.empCheckIn(empNo);
     }
 
     @Override
-    public String addGuestRes(GuestRes guestRes) throws RemoteException {
-        return model.addGuestRes(guestRes);
+    public String empCheckOut(String empNo) {
+        return modelGc.empCheckOut(empNo);
     }
 
     @Override
-    public String guestCheckIn(String resNo) throws RemoteException {
-        return model.guestCheckIn(resNo);
+    public String addGuestRes(GuestRes guestRes) {
+        return modelMc.addGuestRes(guestRes);
     }
 
     @Override
-    public String guestCheckOut(String resNo) throws RemoteException {
-        return model.guestCheckOut(resNo);
+    public String guestCheckIn(String resNo) {
+        return modelGc.guestCheckIn(resNo);
     }
 
     @Override
-    public List<EmployeeRes> getEmpResByEmpNo(String empNo) throws RemoteException {
-        return model.getEmpResByEmpNo(empNo);
+    public String guestCheckOut(String resNo) {
+        return modelGc.guestCheckOut(resNo);
     }
 
     @Override
-    public List<EmployeeRes> getAllEmpReservations() throws RemoteException {
-        return model.getAllEmpReservation();
+    public List<EmployeeRes> getEmpResByEmpNo(String empNo) {
+        return modelMc.getEmpResByEmpNo(empNo);
     }
 
     @Override
-    public String deleteEmpRes(EmployeeRes employeeRes) throws RemoteException {
-        return model.deleteEmpRes(employeeRes);
+    public List<EmployeeRes> getAllEmpReservations() {
+        return modelMc.getAllEmpReservation();
     }
 
     @Override
-    public String cancelGuestRes(String resNo) throws RemoteException {
-        return model.cancelGuestRes(resNo);
+    public String deleteEmpRes(EmployeeRes employeeRes) {
+        return modelMc.deleteEmpRes(employeeRes);
     }
 
     @Override
-    public List<GuestRes> getAllGuestReserevation() throws RemoteException {
-        return model.getAllGuestReserevation();
-    }
-
-   
-
-    @Override
-    public List<Employee> getAllEmployees() throws RemoteException {
-        return model.getAllEmployee();
+    public String cancelGuestRes(String resNo) {
+        return modelMc.cancelGuestRes(resNo);
     }
 
     @Override
-    public String deleteEmployee(Employee employee) throws RemoteException {
-        return model.deleteEmployee(employee);
+    public List<GuestRes> getAllGuestReservation() {
+        return modelMc.getAllGuestReserevation();
+    }
+
+
+    @Override
+    public List<Employee> getAllEmployees() {
+        return modelMc.getAllEmployee();
     }
 
     @Override
-    public String updateEmployee(Employee newEmployee, String empNo) throws RemoteException {
-        return model.updateEmployee(newEmployee,empNo);
+    public String deleteEmployee(Employee employee) {
+        return modelMc.deleteEmployee(employee);
     }
 
     @Override
-    public int getParkingStatus() throws RemoteException {
-        return model.getParkingStatus();
+    public String updateEmployee(Employee newEmployee, String empNo) {
+        return modelMc.updateEmployee(newEmployee, empNo);
     }
 
     @Override
-    public List<Status> getAllStatuses() throws RemoteException {
-        return model.getAllStatuses();
+    public int getParkingStatus() {
+        return modelGc.getParkingStatus();
     }
 
     @Override
-    public String publicUserIn(String licencePlate) throws RemoteException {
-        return model.publicUserIn(licencePlate);
+    public List<Status> getAllStatuses() {
+        return modelGc.getAllStatuses();
     }
 
     @Override
-    public String publicUserOut(String plate) throws RemoteException {
-        return model.publicUserOut(plate);
+    public String publicUserIn(String licencePlate) {
+        return modelGc.publicUserIn(licencePlate);
     }
 
     @Override
-    public int getNumberOfGuestsInParkingLot() throws RemoteException {
-        return model.getNumberOfGuestsInParkingLot();
+    public String publicUserOut(String plate) {
+        return modelGc.publicUserOut(plate);
     }
 
     @Override
-    public int getNumberOfEmployeesInParkingLot() throws RemoteException {
-        return model.getNumberOfEmployeesInParkingLot();
+    public int getNumberOfGuestsInParkingLot() {
+        return modelGc.getNumberOfGuestsInParkingLot();
     }
 
     @Override
-    public int getNumberOfPublicUsersInParkingLot() throws RemoteException {
-        return model.getNumberOfPublicUsersInParkingLot();
+    public int getNumberOfEmployeesInParkingLot() {
+        return modelGc.getNumberOfEmployeesInParkingLot();
+    }
+
+    @Override
+    public int getNumberOfPublicUsersInParkingLot() {
+        return modelGc.getNumberOfPublicUsersInParkingLot();
     }
 
 }

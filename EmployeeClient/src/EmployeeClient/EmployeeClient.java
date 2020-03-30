@@ -1,7 +1,7 @@
 package EmployeeClient;
 
 import model.EmployeeRes;
-import serverinterface.IServer;
+import Interface.IServerMC;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
@@ -10,15 +10,15 @@ import java.rmi.RemoteException;
 import java.util.List;
 
 public class EmployeeClient implements IEmployeeClient {
-    private IServer serverinterface;
+    private IServerMC sInterfaceM;
    public EmployeeClient() throws RemoteException, NotBoundException, MalformedURLException {
-       serverinterface = (IServer) Naming.lookup("rmi://localhost:1099/IPMS");
-       serverinterface.message("Employee Connected");
+       sInterfaceM = (IServerMC) Naming.lookup("rmi://localhost:1099/IPMS");
+       sInterfaceM.message("Employee Connected");
    }
     @Override
     public String addReservationByEmp(EmployeeRes employeeRes) {
        try {
-           return serverinterface.addEmpRes(employeeRes);
+           return sInterfaceM.addEmpRes(employeeRes);
        } catch (RemoteException e) {
            e.printStackTrace();
            return "Error";
@@ -29,7 +29,7 @@ public class EmployeeClient implements IEmployeeClient {
     @Override
     public String deleteEmpRes(EmployeeRes employeeRes) {
         try {
-            return serverinterface.deleteEmpRes(employeeRes);
+            return sInterfaceM.deleteEmpRes(employeeRes);
         } catch (RemoteException e) {
             e.printStackTrace();
             return "Error";
@@ -39,7 +39,7 @@ public class EmployeeClient implements IEmployeeClient {
     @Override
     public List<EmployeeRes> getEmpRes(String empNo) {
         try {
-            return serverinterface.getEmpResByEmpNo(empNo);
+            return sInterfaceM.getEmpResByEmpNo(empNo);
         } catch (RemoteException e) {
             e.printStackTrace();
             return null;

@@ -1,6 +1,6 @@
 package GateClientOUT;
 
-import serverinterface.IServer;
+import Interface.IServerGC;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
@@ -9,17 +9,17 @@ import java.rmi.RemoteException;
 
 
 public class GClient implements IGClient {
-    private IServer serverinterface;
+    private IServerGC sInterfaceG;
 
     public GClient() throws RemoteException, MalformedURLException, NotBoundException {
-        serverinterface = (IServer) Naming.lookup("rmi://localhost:1099/IPMS");
-        serverinterface.message("Gate OUT client connected");
+        sInterfaceG = (IServerGC) Naming.lookup("rmi://localhost:1099/IPMS");
+        sInterfaceG.message("Gate OUT client connected");
     }
 
     @Override
     public String empCheckOut(String empNo) {
         try {
-            return serverinterface.empCheckOut(empNo);
+            return sInterfaceG.empCheckOut(empNo);
 
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -30,7 +30,7 @@ public class GClient implements IGClient {
     @Override
     public String guestCheckOut(String resNo) {
         try {
-            return serverinterface.guestCheckOut(resNo);
+            return sInterfaceG.guestCheckOut(resNo);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -40,7 +40,7 @@ public class GClient implements IGClient {
     @Override
     public String publicCheckOut(String plate) {
         try {
-            return serverinterface.publicUserOut(plate);
+            return sInterfaceG.publicUserOut(plate);
         } catch (RemoteException e) {
             e.printStackTrace();
         }

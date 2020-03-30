@@ -2,9 +2,6 @@ package Model;
 
 import GateClientOUT.IGClient;
 
-
-
-
 public class GCModel implements IGCModel {
     private IGClient gClient;
 
