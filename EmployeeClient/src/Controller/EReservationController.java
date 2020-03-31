@@ -1,31 +1,30 @@
 package Controller;
 
 import Model.IECModel;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.EmployeeRes;
-
-import java.io.IOException;
 
 public class EReservationController {
 
     public IECModel ecModel;
     public TextField empNoTF;
     public DatePicker choosedate;
-    @FXML  TableView<EmployeeRes> empTw;
-    @FXML TableColumn<EmployeeRes,String> c1;
-    @FXML  TableColumn<EmployeeRes,String> c2;
+    @FXML
+    TableView<EmployeeRes> empTw;
+    @FXML
+    TableColumn<EmployeeRes, String> c1;
+    @FXML
+    TableColumn<EmployeeRes, String> c2;
 
     public void init(IECModel ecModel) {
         this.ecModel = ecModel;
     }
 
-    public void reservate(ActionEvent actionEvent) throws IOException {
-        ecModel.addEmpRes(choosedate.getValue().toString(),empNoTF.getText());
+    public void empReservation() {
+        ecModel.addEmpRes(choosedate.getValue().toString(), empNoTF.getText());
         if (empNoTF.getText().trim().isEmpty()) {
-            // create a alert
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Employee Number");
             alert.setHeaderText("Employee number not added");
@@ -35,7 +34,6 @@ public class EReservationController {
             alert.show();
         }
         if (choosedate.getValue() == null) {
-            // create a alert
             Alert alert1 = new Alert(Alert.AlertType.ERROR);
             alert1.setTitle("Date");
             alert1.setHeaderText("Date not chosen");
@@ -44,10 +42,10 @@ public class EReservationController {
 
             alert1.show();
         }
-        getReservation(actionEvent);
+        getReservation();
     }
 
-    public void getReservation(ActionEvent actionEvent) {
+    public void getReservation() {
         c1.setCellValueFactory(new PropertyValueFactory<EmployeeRes, String>("DateFromPicker"));
         c2.setCellValueFactory(new PropertyValueFactory<>("empNo"));
 
@@ -55,7 +53,7 @@ public class EReservationController {
 
     }
 
-    public void deleteReservation(ActionEvent actionEvent) {
+    public void deleteReservation() {
         EmployeeRes employeeRes = empTw.getSelectionModel().getSelectedItem();
         Alert a = new Alert(Alert.AlertType.CONFIRMATION, "Delete " + empTw.getSelectionModel().getSelectedItem().getDateFromPicker() + " ?", ButtonType.YES, ButtonType.NO);
         a.showAndWait();

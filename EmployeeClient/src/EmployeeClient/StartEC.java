@@ -9,15 +9,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import static javafx.application.Application.launch;
-
 public class StartEC extends Application {
 
     public static void main(String[] args) {
         launch(args);
     }
 
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/View/EClient.fxml"));
         Parent main = loader.load();
@@ -26,7 +24,7 @@ public class StartEC extends Application {
         IECModel model = new ECModel(cl);
         ctrl.init(model);
         primaryStage.setTitle("IMPS");
-        primaryStage.setScene(new Scene(main,600,400));
+        primaryStage.setScene(new Scene(main, 600, 400));
         primaryStage.show();
     }
-    }
+}
