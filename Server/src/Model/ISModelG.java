@@ -1,9 +1,5 @@
 package Model;
 
-import model.Status;
-
-import java.util.List;
-
 public interface ISModelG {
     String empCheckIn(String empNo);
 
@@ -17,13 +13,6 @@ public interface ISModelG {
 
     String publicUserOut(String licencePlate);
 
-    int getParkingStatus();
 
-    List<Status> getAllStatuses();
 
-    int getNumberOfGuestsInParkingLot();
-
-    int getNumberOfEmployeesInParkingLot();
-
-    int getNumberOfPublicUsersInParkingLot();
 }

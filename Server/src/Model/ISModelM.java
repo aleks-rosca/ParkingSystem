@@ -3,6 +3,7 @@ package Model;
 import model.Employee;
 import model.EmployeeRes;
 import model.GuestRes;
+import model.Status;
 
 import java.util.List;
 
@@ -29,7 +30,15 @@ public interface ISModelM {
 
     String updateEmployee(Employee newEmployee, String empNo);
 
+    int getParkingStatus();
 
+    List<Status> getAllStatuses();
+
+    int getNumberOfGuestsInParkingLot();
+
+    int getNumberOfEmployeesInParkingLot();
+
+    int getNumberOfPublicUsersInParkingLot();
 
 
 }

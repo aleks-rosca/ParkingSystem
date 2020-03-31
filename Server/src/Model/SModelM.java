@@ -4,6 +4,7 @@ import DB.*;
 import model.Employee;
 import model.EmployeeRes;
 import model.GuestRes;
+import model.Status;
 
 import java.util.List;
 import java.util.Random;
@@ -13,6 +14,7 @@ public class SModelM implements ISModelM {
     private IEmpDAO empdb;
     private IEmpResDAO empResDAO;
     private IGuestResDAO guestResDAO;
+    private IStatusDAO statusDAO;
 
 
     public SModelM() {
@@ -20,6 +22,7 @@ public class SModelM implements ISModelM {
         empResDAO = new EmpResDAO();
         guestResDAO = new GuestResDAO();
         random = new Random();
+        statusDAO = new StatusDAO();
     }
 
     public String addEmployee(Employee employee) {
@@ -78,7 +81,30 @@ public class SModelM implements ISModelM {
         return empdb.updateEmployee(newEmployee, empNo);
     }
 
+    @Override
+    public int getParkingStatus() {
+        return statusDAO.getCurrentStatus();
+    }
 
+    @Override
+    public List<Status> getAllStatuses() {
+        return statusDAO.getAllStatuses();
+    }
+
+    @Override
+    public int getNumberOfGuestsInParkingLot() {
+        return statusDAO.getNumberOfGuestsInParkingLot();
+    }
+
+    @Override
+    public int getNumberOfEmployeesInParkingLot() {
+        return statusDAO.getNumberOfEmployeesInParkingLot();
+    }
+
+    @Override
+    public int getNumberOfPublicUsersInParkingLot() {
+        return statusDAO.getNumberOfPublicUsersInParkingLot();
+    }
 
 
 }
