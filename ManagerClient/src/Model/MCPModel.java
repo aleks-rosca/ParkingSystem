@@ -13,7 +13,6 @@ public class MCPModel implements IMCPModel {
 
         managerClientS = cls;
 
-
     }
     public MCPModel(){}
 

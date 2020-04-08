@@ -63,10 +63,7 @@ public class MCEModel implements IMCEModel {
 
         return employeeList;
 
-
     }
-
-
 
     @Override
     public String deleteEmpRes(EmployeeRes employeeRes) {

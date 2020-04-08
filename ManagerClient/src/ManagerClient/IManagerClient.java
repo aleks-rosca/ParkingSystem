@@ -2,7 +2,6 @@ package ManagerClient;
 
 import model.Employee;
 import model.EmployeeRes;
-import model.GuestRes;
 
 import java.util.List;
 
