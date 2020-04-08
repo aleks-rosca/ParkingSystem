@@ -1,16 +1,17 @@
 package Model;
 
 import ManagerClient.IManagerClient;
+import ManagerClient.IManagerClientS;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Status;
 
 public class MCPModel implements IMCPModel {
-    private IManagerClient managerClient;
+    private IManagerClientS managerClientS;
 
-    public MCPModel(IManagerClient cl){
+    public MCPModel(IManagerClientS cls){
 
-        managerClient = cl;
+        managerClientS = cls;
 
 
     }
@@ -18,28 +19,28 @@ public class MCPModel implements IMCPModel {
 
     @Override
     public ObservableList<Status> getAllStatues() {
-        ObservableList<Status> statuses = FXCollections.observableArrayList(managerClient.getAllStatues());
+        ObservableList<Status> statuses = FXCollections.observableArrayList(managerClientS.getAllStatues());
 
         return statuses;
     }
 
     @Override
     public int getOccupiedSpots() {
-        return (40 - managerClient.getCurrentStatus());
+        return (40 - managerClientS.getCurrentStatus());
     }
 
     @Override
     public int getNumberOfGuestsInParkingLot() {
-        return managerClient.getNumberOfGuestsInParkingLot();
+        return managerClientS.getNumberOfGuestsInParkingLot();
     }
 
     @Override
     public int getNumberOfEmployeesInParkingLot() {
-        return managerClient.getNumberOfEmployeesInParkingLot();
+        return managerClientS.getNumberOfEmployeesInParkingLot();
     }
 
     @Override
     public int getNumberOfPublicUsersInParkingLot() {
-        return managerClient.getNumberOfPublicUsersInParkingLot();
+        return managerClientS.getNumberOfPublicUsersInParkingLot();
     }
 }

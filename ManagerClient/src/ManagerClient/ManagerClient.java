@@ -1,7 +1,10 @@
 package ManagerClient;
 
 import Interface.IServerMC;
-import model.*;
+import model.Employee;
+import model.EmployeeRes;
+import model.GuestRes;
+import model.Status;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
@@ -9,7 +12,7 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.List;
 
-public class ManagerClient implements IManagerClient {
+public class ManagerClient implements IManagerClient, IManagerClientS , IManagerClientG{
     private IServerMC sInterfaceM;
 
     public ManagerClient() throws RemoteException, NotBoundException, MalformedURLException {

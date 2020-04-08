@@ -30,7 +30,6 @@ public class SModelE implements ISModelE {
         return empResDAO.addReservetion(employeeRes);
     }
 
-
     @Override
     public List<EmployeeRes> getEmpResByEmpNo(String empNo) {
         return empResDAO.reservationsByEmpNo(empNo);

@@ -20,7 +20,7 @@ public class StartMC extends Application {
         loader.setLocation(getClass().getResource("/View/MCClient.fxml"));
         Parent main = loader.load();
         MCController ctrl = loader.getController();
-        IManagerClient cl = new ManagerClient();
+        ManagerClient cl = new ManagerClient();
         IMCEModel model = new MCEModel(cl);
         IMCGModel gModel = new MCGModel(cl);
         IMCPModel pModel = new MCPModel(cl);

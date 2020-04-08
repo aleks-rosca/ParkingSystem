@@ -1,35 +1,35 @@
 package Model;
 
-import ManagerClient.IManagerClient;
+import ManagerClient.IManagerClientG;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.GuestRes;
 
-public class MCGModel implements IMCGModel{
+public class MCGModel implements IMCGModel {
 
-    private IManagerClient client;
+    private IManagerClientG clientG;
     private GuestRes guestRes;
 
-    public MCGModel(IManagerClient cl){
-        client = cl;
+    public MCGModel(IManagerClientG clg) {
+        clientG = clg;
     }
 
     @Override
     public String addGuestRes(String name, String purpose, String date) {
         guestRes = new GuestRes(name, purpose, date);
-        String guestNo = client.addGuestRes(guestRes).substring(32,38);
+        String guestNo = clientG.addGuestRes(guestRes).substring(32, 38);
 
         return guestNo;
     }
 
     @Override
     public ObservableList<GuestRes> allGuestReservations() {
-        ObservableList listOfGuests= FXCollections.observableArrayList(client.getAllGuestReservation());
-        return listOfGuests ;
+        ObservableList listOfGuests = FXCollections.observableArrayList(clientG.getAllGuestReservation());
+        return listOfGuests;
     }
 
     @Override
     public String cancelGuestReservation(String resNo) {
-        return client.cancelGuestRes(resNo);
+        return clientG.cancelGuestRes(resNo);
     }
 }
