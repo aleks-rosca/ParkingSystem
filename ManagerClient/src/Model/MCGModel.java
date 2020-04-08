@@ -24,7 +24,7 @@ public class MCGModel implements IMCGModel{
 
     @Override
     public ObservableList<GuestRes> allGuestReservations() {
-        ObservableList listOfGuests= FXCollections.observableArrayList(client.getAllGuestReserevation());
+        ObservableList listOfGuests= FXCollections.observableArrayList(client.getAllGuestReservation());
         return listOfGuests ;
     }
 

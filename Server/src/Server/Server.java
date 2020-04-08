@@ -2,10 +2,7 @@ package Server;
 
 import Interface.IServerGC;
 import Interface.IServerMC;
-import Model.ISModelG;
-import Model.ISModelM;
-import Model.SModelG;
-import Model.SModelM;
+import Model.*;
 import model.Employee;
 import model.EmployeeRes;
 import model.GuestRes;
@@ -16,13 +13,18 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 
 public class Server extends UnicastRemoteObject implements IServerMC, IServerGC {
-    private ISModelM modelMc;
+    private ISModelE modelMc;
     private ISModelG modelGc;
+    private ISModelU modelU;
+    private ISModelS modelS;
 
 
     public Server() throws RemoteException {
-        modelMc = new SModelM();
+        modelMc = new SModelE();
         modelGc = new SModelG();
+        modelU = new SModelU();
+        modelS = new SModelS();
+
         // UnicastRemoteObject.exportObject(this, 0);
     }
 
@@ -55,7 +57,7 @@ public class Server extends UnicastRemoteObject implements IServerMC, IServerGC 
 
     @Override
     public String addGuestRes(GuestRes guestRes) {
-        return modelMc.addGuestRes(guestRes);
+        return modelU.addGuestRes(guestRes);
     }
 
     @Override
@@ -85,12 +87,12 @@ public class Server extends UnicastRemoteObject implements IServerMC, IServerGC 
 
     @Override
     public String cancelGuestRes(String resNo) {
-        return modelMc.cancelGuestRes(resNo);
+        return modelU.cancelGuestRes(resNo);
     }
 
     @Override
     public List<GuestRes> getAllGuestReservation() {
-        return modelMc.getAllGuestReserevation();
+        return modelU.getAllGuestReserevation();
     }
 
 
@@ -111,12 +113,12 @@ public class Server extends UnicastRemoteObject implements IServerMC, IServerGC 
 
     @Override
     public int getParkingStatus() {
-        return modelMc.getParkingStatus();
+        return modelS.getParkingStatus();
     }
 
     @Override
     public List<Status> getAllStatuses() {
-        return modelMc.getAllStatuses();
+        return modelS.getAllStatuses();
     }
 
     @Override
@@ -131,17 +133,17 @@ public class Server extends UnicastRemoteObject implements IServerMC, IServerGC 
 
     @Override
     public int getNumberOfGuestsInParkingLot() {
-        return modelMc.getNumberOfGuestsInParkingLot();
+        return modelS.getNumberOfGuestsInParkingLot();
     }
 
     @Override
     public int getNumberOfEmployeesInParkingLot() {
-        return modelMc.getNumberOfEmployeesInParkingLot();
+        return modelS.getNumberOfEmployeesInParkingLot();
     }
 
     @Override
     public int getNumberOfPublicUsersInParkingLot() {
-        return modelMc.getNumberOfPublicUsersInParkingLot();
+        return modelS.getNumberOfPublicUsersInParkingLot();
     }
 
 }

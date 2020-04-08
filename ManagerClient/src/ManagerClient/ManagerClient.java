@@ -37,8 +37,6 @@ public class ManagerClient implements IManagerClient {
         }
     }
 
-
-
     @Override
     public String addEmployeeRes(EmployeeRes employeeRes) {
         try {
@@ -71,7 +69,7 @@ public class ManagerClient implements IManagerClient {
     }
 
     @Override
-    public List<GuestRes> getAllGuestReserevation() {
+    public List<GuestRes> getAllGuestReservation() {
         try {
             return sInterfaceM.getAllGuestReservation();
         } catch (RemoteException e) {

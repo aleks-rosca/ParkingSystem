@@ -2,17 +2,13 @@ package Model;
 
 import model.Employee;
 import model.EmployeeRes;
-import model.GuestRes;
-import model.Status;
 
 import java.util.List;
 
-public interface ISModelM {
+public interface ISModelE {
     String addEmployee(Employee employee);
 
     String addEmpRes(EmployeeRes employeeRes);
-
-    String addGuestRes(GuestRes guestRes);
 
     List<EmployeeRes> getEmpResByEmpNo(String empNo);
 
@@ -20,25 +16,13 @@ public interface ISModelM {
 
     List<EmployeeRes> getAllEmpReservation();
 
-    String cancelGuestRes(String resNo);
-
-    List<GuestRes> getAllGuestReserevation();
-
     List<Employee> getAllEmployee();
 
     String deleteEmployee(Employee employee);
 
     String updateEmployee(Employee newEmployee, String empNo);
 
-    int getParkingStatus();
 
-    List<Status> getAllStatuses();
-
-    int getNumberOfGuestsInParkingLot();
-
-    int getNumberOfEmployeesInParkingLot();
-
-    int getNumberOfPublicUsersInParkingLot();
 
 
 }

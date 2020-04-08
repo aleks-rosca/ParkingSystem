@@ -28,7 +28,7 @@ public interface IManagerClient {
 
     String cancelGuestRes(String resNo);
 
-    List<GuestRes> getAllGuestReserevation();
+    List<GuestRes> getAllGuestReservation();
 
     List<Status> getAllStatues();
 
@@ -39,6 +39,5 @@ public interface IManagerClient {
     int getNumberOfEmployeesInParkingLot();
 
     int getNumberOfPublicUsersInParkingLot();
-
 
 }

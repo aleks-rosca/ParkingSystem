@@ -1,0 +1,35 @@
+package Model;
+
+import DB.GuestResDAO;
+import DB.IGuestResDAO;
+import model.GuestRes;
+
+import java.util.List;
+import java.util.Random;
+
+public class SModelU implements ISModelU {
+    private Random random;
+    private IGuestResDAO guestResDAO;
+
+    public SModelU() {
+        guestResDAO = new GuestResDAO();
+        random = new Random();
+    }
+
+    @Override
+    public String addGuestRes(GuestRes guestRes) {
+        guestRes.setResNo("G" + Integer.toString(random.nextInt((9999 - 1001) + 1) + 99));
+        return guestResDAO.addGuestRes(guestRes) + " " + guestRes.getResNo();
+    }
+
+    @Override
+    public String cancelGuestRes(String resNo) {
+        return guestResDAO.cancelGuestRes(resNo);
+    }
+
+    @Override
+    public List<GuestRes> getAllGuestReserevation() {
+        return guestResDAO.getAllGuestReserevation();
+    }
+
+}
