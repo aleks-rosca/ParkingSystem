@@ -1,6 +1,6 @@
 package ManagerClient;
 
-import Interface.IServerMC;
+import Interface.IServer;
 import model.Employee;
 import model.EmployeeRes;
 import model.GuestRes;
@@ -13,17 +13,17 @@ import java.rmi.RemoteException;
 import java.util.List;
 
 public class ManagerClient implements IManagerClient, IManagerClientS , IManagerClientG{
-    private IServerMC sInterfaceM;
+    private IServer sInterfaceM;
 
     public ManagerClient() throws RemoteException, NotBoundException, MalformedURLException {
-        sInterfaceM = (IServerMC) Naming.lookup("rmi://localhost:1099/IPMS");
+        sInterfaceM = (IServer) Naming.lookup("rmi://localhost:1099/IPMS");
         sInterfaceM.message("Manager Connected");
     }
 
     @Override
     public String addEmployee(Employee employee) {
         try {
-            return sInterfaceM.addEmployee(employee);
+            return sInterfaceM.getEmployeeServer().addEmployee(employee);
         } catch (RemoteException e) {
             return "Error";
         }
@@ -32,7 +32,7 @@ public class ManagerClient implements IManagerClient, IManagerClientS , IManager
     @Override
     public List<Employee> getAllEmployee() {
         try {
-            return sInterfaceM.getAllEmployees();
+            return sInterfaceM.getEmployeeServer().getAllEmployees();
         } catch (RemoteException e) {
 
             e.printStackTrace();
@@ -43,7 +43,7 @@ public class ManagerClient implements IManagerClient, IManagerClientS , IManager
     @Override
     public String addEmployeeRes(EmployeeRes employeeRes) {
         try {
-            return sInterfaceM.addEmpRes(employeeRes);
+            return sInterfaceM.getEmployeeServer().addEmpRes(employeeRes);
         } catch (RemoteException e) {
             e.printStackTrace();
             return "Error";
@@ -54,7 +54,7 @@ public class ManagerClient implements IManagerClient, IManagerClientS , IManager
     @Override
     public String addGuestRes(GuestRes guestRes) {
         try {
-            return sInterfaceM.addGuestRes(guestRes);
+            return sInterfaceM.getServerGuestRes().addGuestRes(guestRes);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -64,7 +64,7 @@ public class ManagerClient implements IManagerClient, IManagerClientS , IManager
     @Override
     public String cancelGuestRes(String resNo) {
         try {
-            return sInterfaceM.cancelGuestRes(resNo);
+            return sInterfaceM.getServerGuestRes().cancelGuestRes(resNo);
         } catch (RemoteException e) {
             e.printStackTrace();
             return null;
@@ -74,7 +74,7 @@ public class ManagerClient implements IManagerClient, IManagerClientS , IManager
     @Override
     public List<GuestRes> getAllGuestReservation() {
         try {
-            return sInterfaceM.getAllGuestReservation();
+            return sInterfaceM.getServerGuestRes().getAllGuestReservation();
         } catch (RemoteException e) {
             e.printStackTrace();
             return null;
@@ -84,7 +84,7 @@ public class ManagerClient implements IManagerClient, IManagerClientS , IManager
     @Override
     public List<Status> getAllStatues() {
         try {
-            return sInterfaceM.getAllStatuses();
+            return sInterfaceM.getServerStatus().getAllStatuses();
         } catch (RemoteException e) {
             e.printStackTrace();
             return null;
@@ -95,7 +95,7 @@ public class ManagerClient implements IManagerClient, IManagerClientS , IManager
     public int getCurrentStatus() {
         try {
 
-            return sInterfaceM.getParkingStatus();
+            return sInterfaceM.getServerStatus().getParkingStatus();
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -105,7 +105,7 @@ public class ManagerClient implements IManagerClient, IManagerClientS , IManager
     @Override
     public int getNumberOfGuestsInParkingLot() {
         try {
-            return sInterfaceM.getNumberOfGuestsInParkingLot();
+            return sInterfaceM.getServerStatus().getNumberOfGuestsInParkingLot();
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -115,7 +115,7 @@ public class ManagerClient implements IManagerClient, IManagerClientS , IManager
     @Override
     public int getNumberOfEmployeesInParkingLot() {
         try {
-            return sInterfaceM.getNumberOfEmployeesInParkingLot();
+            return sInterfaceM.getServerStatus().getNumberOfEmployeesInParkingLot();
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -125,7 +125,7 @@ public class ManagerClient implements IManagerClient, IManagerClientS , IManager
     @Override
     public int getNumberOfPublicUsersInParkingLot() {
         try {
-            return sInterfaceM.getNumberOfPublicUsersInParkingLot();
+            return sInterfaceM.getServerStatus().getNumberOfPublicUsersInParkingLot();
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -136,7 +136,7 @@ public class ManagerClient implements IManagerClient, IManagerClientS , IManager
     public List<EmployeeRes> getAllReservationByEmpNo(String empNo) {
         try {
 
-            return sInterfaceM.getEmpResByEmpNo(empNo);
+            return sInterfaceM.getEmployeeServer().getEmpResByEmpNo(empNo);
         } catch (RemoteException e) {
             e.printStackTrace();
             return null;
@@ -146,7 +146,7 @@ public class ManagerClient implements IManagerClient, IManagerClientS , IManager
     @Override
     public List<EmployeeRes> getAllEmpReservations() {
         try {
-            return sInterfaceM.getAllEmpReservations();
+            return sInterfaceM.getEmployeeServer().getAllEmpReservations();
         } catch (RemoteException e) {
 
             e.printStackTrace();
@@ -157,7 +157,7 @@ public class ManagerClient implements IManagerClient, IManagerClientS , IManager
     @Override
     public String deleteEmpRes(EmployeeRes employeeRes) {
         try {
-            return sInterfaceM.deleteEmpRes(employeeRes);
+            return sInterfaceM.getEmployeeServer().deleteEmpRes(employeeRes);
         } catch (RemoteException e) {
             e.printStackTrace();
             return "Error";
@@ -167,7 +167,7 @@ public class ManagerClient implements IManagerClient, IManagerClientS , IManager
     @Override
     public String deleteEmployee(Employee employee) {
         try {
-            return sInterfaceM.deleteEmployee(employee);
+            return sInterfaceM.getEmployeeServer().deleteEmployee(employee);
         } catch (RemoteException e) {
 
             e.printStackTrace();
@@ -178,7 +178,7 @@ public class ManagerClient implements IManagerClient, IManagerClientS , IManager
     @Override
     public String updateEmployee(Employee newEmployee, String empNo) {
         try {
-            return sInterfaceM.updateEmployee(newEmployee, empNo);
+            return sInterfaceM.getEmployeeServer().updateEmployee(newEmployee, empNo);
         } catch (RemoteException e) {
             e.printStackTrace();
             return "Error";

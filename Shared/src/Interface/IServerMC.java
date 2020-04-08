@@ -2,8 +2,6 @@ package Interface;
 
 import model.Employee;
 import model.EmployeeRes;
-import model.GuestRes;
-import model.Status;
 
 import java.io.Serializable;
 import java.rmi.Remote;
@@ -18,7 +16,6 @@ public interface IServerMC extends Remote, Serializable {
 
     String addEmpRes(EmployeeRes employeeRes) throws RemoteException;
 
-    String addGuestRes(GuestRes guestRes) throws RemoteException;
 
     List<EmployeeRes> getEmpResByEmpNo(String empNo) throws RemoteException;
 
@@ -26,9 +23,6 @@ public interface IServerMC extends Remote, Serializable {
 
     String deleteEmpRes(EmployeeRes employeeRes) throws RemoteException;
 
-    String cancelGuestRes(String resNo) throws RemoteException;
-
-    List<GuestRes> getAllGuestReservation() throws RemoteException;
 
     List<Employee> getAllEmployees() throws RemoteException;
 
@@ -36,14 +30,5 @@ public interface IServerMC extends Remote, Serializable {
 
     String updateEmployee(Employee newEmployee, String empNo) throws RemoteException;
 
-    int getParkingStatus() throws RemoteException;
-
-    List<Status> getAllStatuses() throws RemoteException;
-
-    int getNumberOfGuestsInParkingLot() throws RemoteException;
-
-    int getNumberOfEmployeesInParkingLot() throws RemoteException;
-
-    int getNumberOfPublicUsersInParkingLot() throws RemoteException;
 
 }

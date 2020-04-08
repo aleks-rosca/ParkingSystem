@@ -1,6 +1,6 @@
 package GateClient;
 
-import Interface.IServerGC;
+import Interface.IServer;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
@@ -9,17 +9,17 @@ import java.rmi.RemoteException;
 
 
 public class GClient implements IGClient {
-    private IServerGC sInterfaceG;
+    private IServer sInterfaceG;
 
     public GClient() throws RemoteException, MalformedURLException, NotBoundException {
-        sInterfaceG = (IServerGC) Naming.lookup("rmi://localhost:1099/IPMS");
+        sInterfaceG = (IServer) Naming.lookup("rmi://localhost:1099/IPMS");
         sInterfaceG.message("Gate IN client connected");
     }
 
     @Override
     public String empCheckIn(String empNo) {
         try {
-            return sInterfaceG.empCheckIn(empNo);
+            return sInterfaceG.getGateServer().empCheckIn(empNo);
 
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -30,7 +30,7 @@ public class GClient implements IGClient {
     @Override
     public String guestCheckin(String resNo) {
         try {
-            return sInterfaceG.guestCheckIn(resNo);
+            return sInterfaceG.getGateServer().guestCheckIn(resNo);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -40,7 +40,7 @@ public class GClient implements IGClient {
     @Override
     public int getParkingStatus() {
         try {
-            return sInterfaceG.getParkingStatus();
+            return sInterfaceG.getGateServer().getParkingStatus();
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -50,7 +50,7 @@ public class GClient implements IGClient {
     @Override
     public String publicUserIn(String licencePlate) {
         try {
-            return sInterfaceG.publicUserIn(licencePlate);
+            return sInterfaceG.getGateServer().publicUserIn(licencePlate);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
