@@ -8,7 +8,8 @@ import java.util.List;
 
 public class ManagerClientS implements IManagerClientS {
     private IServer sInterfaceM;
-    public ManagerClientS(IServer s){
+
+    public ManagerClientS(IServer s) {
         sInterfaceM = s;
     }
 
