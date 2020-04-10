@@ -1,6 +1,7 @@
 package Model;
 
 import ManagerClient.IManagerClient;
+import ManagerClient.IManagerClientE;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Employee;
@@ -10,9 +11,9 @@ public class MCEModel implements IMCEModel {
 
     Employee employee;
     EmployeeRes employeeRes;
-    private IManagerClient client;
+    private IManagerClientE client;
 
-    public MCEModel(IManagerClient cl) {
+    public MCEModel(IManagerClientE cl) {
         client = cl;
 
     }
