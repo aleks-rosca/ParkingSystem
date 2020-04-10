@@ -27,7 +27,7 @@ public class ManagerClientG implements IManagerClientG{
             return sInterfaceM.getServerGuestRes().cancelGuestRes(resNo);
         } catch (RemoteException e) {
             e.printStackTrace();
-            return null;
+            return "Error";
         }
     }
 
