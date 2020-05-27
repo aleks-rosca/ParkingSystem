@@ -18,7 +18,7 @@ public class SModelU implements ISModelU {
 
     @Override
     public String addGuestRes(GuestRes guestRes) {
-        guestRes.setResNo("G" + Integer.toString(random.nextInt((9999 - 1001) + 1) + 99));
+        guestRes.setResNo("G" + Integer.toString(random.nextInt (9000)+1000));
         return guestResDAO.addGuestRes(guestRes) + " " + guestRes.getResNo();
     }
 
