@@ -44,11 +44,13 @@ public class EmployeeReservationController {
             } else if (temp.equals("Reservation is created")) {
                 Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Reservation is created", ButtonType.OK);
                 a1.show();
-            } else {
+            }
+            else {
                 Alert a1 = new Alert(Alert.AlertType.INFORMATION, "Check your connection and try again", ButtonType.OK);
                 a1.show();
             }
 
+            System.out.println(temp);
 
         } else {
             // create a alert
