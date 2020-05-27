@@ -26,7 +26,7 @@ public class EmpResDAO implements IEmpResDAO {
 
         } catch (SQLException e) {
 
-            if(e.getSQLState().equals("23505")){
+            if(e.getSQLState().equals("23505")|| e.getSQLState().equals("23503")){
                 return "Reservation is not created";
             }else if(e.getSQLState().equals("23514")){
 
