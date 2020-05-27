@@ -31,7 +31,7 @@ public class GuestReservationController {
 
     public void reservGuestBtn() {
 
-        if (guestReservNameTf.getText().isEmpty()) {
+        if (guestReservNameTf.getText().trim().isEmpty()) {
             // create a alert
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Guest Name");
@@ -48,6 +48,15 @@ public class GuestReservationController {
             alert1.setContentText("Please chose a date");
             alert1.getButtonTypes();
             alert1.show();
+        }
+        if (guestReservPurposeTf.getText().trim().isEmpty()) {
+            // create a alert
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Purpose");
+            alert.setHeaderText("Purpose not added");
+            alert.setContentText("Please add the purpose on the guest visit");
+            alert.getButtonTypes();
+            alert.show();
         }
 
         else{
