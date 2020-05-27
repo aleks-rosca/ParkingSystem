@@ -31,24 +31,12 @@ public class GuestReservationController {
 
     public void reservGuestBtn() {
 
-        try {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Reservation");
-            alert.setHeaderText("Reservation done");
-            alert.setContentText("Reservation added. Guest reservation number is: " + gModel.addGuestRes(guestReservNameTf.getText(), guestReservPurposeTf.getText(), guestReservDateDp.getValue().toString()));
-            alert.getButtonTypes();
-            alert.show();
-
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
-
-        if (guestReservNameTf.getText().trim().isEmpty()) {
+        if (guestReservNameTf.getText().isEmpty()) {
             // create a alert
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Guest Name");
             alert.setHeaderText("Guest Name not added");
-            alert.setContentText("Please add guest name to reserve a spot for given date");
+            alert.setContentText("Please add guest name");
             alert.getButtonTypes();
             alert.show();
         }
@@ -57,22 +45,28 @@ public class GuestReservationController {
             Alert alert1 = new Alert(Alert.AlertType.ERROR);
             alert1.setTitle("Date");
             alert1.setHeaderText("Date not chosen");
-            alert1.setContentText("Chose a date to reserve a parking on the given date");
+            alert1.setContentText("Please chose a date");
             alert1.getButtonTypes();
             alert1.show();
         }
-        if (guestReservPurposeTf.getText().trim().isEmpty()) {
-            // create a alert
+
+        else{
+
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Purpose");
-            alert.setHeaderText("Purpose not added");
-            alert.setContentText("Please add the purpose on the guest visit");
+            alert.setTitle("Reservation");
+            alert.setHeaderText("Reservation done");
+            try {
+                alert.setContentText("Guest reservation number is: " + gModel.addGuestRes(guestReservNameTf.getText(), guestReservPurposeTf.getText(), guestReservDateDp.getValue().toString()));
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
             alert.getButtonTypes();
             alert.show();
+            guestReservNameTf.clear();
+            guestReservPurposeTf.clear();
         }
-        guestReservNameTf.clear();
-        guestReservPurposeTf.clear();
         getAllGuestReservations();
+
 
 
     }
