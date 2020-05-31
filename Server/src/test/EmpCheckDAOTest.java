@@ -21,6 +21,7 @@ class EmpCheckDAOTest {
     private EmployeeRes empres;
    private LocalDate dt;
     private LocalDate tomorrow ;
+    private Employee emp;
     @BeforeEach
     void setUp() {
 
@@ -30,7 +31,7 @@ class EmpCheckDAOTest {
         eres = new EmpResDAO();
         epark = new EmpCheckDAO();
         empDAO = new EmpDAO();
-        Employee emp = new Employee("testUser2","testLastname", "E2222");
+         emp = new Employee("testUser2","testLastname", "E2222");
         empDAO.addEmployee(emp);
          empres = new EmployeeRes(tomorrow.toString(),emp.getEmpNumber());
 
@@ -40,13 +41,8 @@ class EmpCheckDAOTest {
 
     @AfterEach
     void tearDown() {
-        String sql = "delete from parkinglot where ID='E2222';";// will be exchanged with delete method later
-
-        try {
-            conn.update(sql);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        epark.empCheckOut(emp.getEmpNumber());
+        empDAO.deleteEmployee(emp);
 
     }
 
@@ -101,7 +97,7 @@ class EmpCheckDAOTest {
 
     @Test
     void invalidEmployeeNumber() {
-        String testcheckinEmp = epark.empCheckIn("E9999");
+        String testcheckinEmp = epark.empCheckIn("E8888");
         assertEquals("No such employee number", testcheckinEmp);
 
     }

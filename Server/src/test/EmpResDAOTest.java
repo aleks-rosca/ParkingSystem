@@ -20,6 +20,7 @@ class EmpResDAOTest {
     private IEmpDAO empdao; // used to create a test Employee
     private LocalDate dt;
     private LocalDate tomorrow ;
+    private Employee testEmployee;
     @BeforeEach
     void setUp() {
         conn = Conn.getInstance(); // used for deleting reservation after they have been tested
@@ -27,15 +28,15 @@ class EmpResDAOTest {
         empdao = new EmpDAO();
         dt =  LocalDate.now();
         tomorrow = dt.plusDays(1);
-        empdao.addEmployee(new Employee("Test","Employee","E1289"));
+       testEmployee = new Employee("Test","Employee","E1289");
+        empdao.addEmployee(testEmployee);
 
         testReservation = new EmployeeRes(tomorrow.toString(), "E1289");
     }
 
     @AfterEach
     void tearDown() throws SQLException {
-          String sql = "delete from empres where empno='"+testReservation.getEmpNo()+"';";
-        conn.update(sql);
+          empdao.deleteEmployee(testEmployee);
 
     }
 

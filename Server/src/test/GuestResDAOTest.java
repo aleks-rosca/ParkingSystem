@@ -16,47 +16,51 @@ class GuestResDAOTest {
     IGuestResDAO guestResDAO;
     GuestRes newGuest;
     private LocalDate dt;
-    private LocalDate tomorrow ;
-    private ArrayList<GuestRes> testArray=new ArrayList<>();
+    private LocalDate tomorrow;
+    private ArrayList<GuestRes> testArray = new ArrayList<>();
+
     @BeforeEach
     void setUp() {
-        dt =  LocalDate.now();
+        dt = LocalDate.now();
         tomorrow = dt.plusDays(1);
         guestResDAO = new GuestResDAO();
-        newGuest = new GuestRes("testGuest","testing",tomorrow.toString());
+        newGuest = new GuestRes("testGuest", "testing", tomorrow.toString());
         newGuest.setResNo("G1234");
     }
 
     @AfterEach
     void tearDown() {
+        guestResDAO.cancelGuestRes(newGuest.getResNo());
     }
 
     @Test
     void addGuestRes() {
         guestResDAO.cancelGuestRes(newGuest.getResNo());
-         String test =guestResDAO.addGuestRes(newGuest);
-        assertEquals("Reservation for guest is created",test);
-
-        //to clear db
+        String test = guestResDAO.addGuestRes(newGuest);
+        assertEquals("Reservation for guest is created", test);
 
 
     }
+
     @Test
-    void cancelGuestRes(){
-       // System.out.println(guestResDAO.addGuestRes(newGuest));
-        String test=guestResDAO.cancelGuestRes(newGuest.getResNo());
-        assertEquals("cancellation succeeded",test);
+    void cancelGuestRes() {
+        System.out.println(guestResDAO.addGuestRes(newGuest));
+        String test = guestResDAO.cancelGuestRes(newGuest.getResNo());
+        assertEquals("cancellation succeeded", test);
     }
+
     @Test
-    void getAllGuestReservations(){
+    void getAllGuestReservations() {
         System.out.println(guestResDAO.addGuestRes(newGuest));
         testArray.add(newGuest);
-        newGuest = new GuestRes("testGuest","testing",tomorrow.toString(),"G0001");
+        GuestRes newGuest1 = new GuestRes("testGuest", "testing", tomorrow.toString(), "G0001");
+        System.out.println(guestResDAO.addGuestRes(newGuest1));
+        testArray.add(newGuest1);
+        newGuest = new GuestRes("testGuest", "testing", tomorrow.toString(), "G0002");
         System.out.println(guestResDAO.addGuestRes(newGuest));
         testArray.add(newGuest);
-        newGuest = new GuestRes("testGuest","testing",tomorrow.toString(),"G0002");
-        System.out.println(guestResDAO.addGuestRes(newGuest));
-        testArray.add(newGuest);
-            assertEquals(testArray.size(),guestResDAO.getAllGuestReserevation().size());
+        assertEquals(testArray.size(), guestResDAO.getAllGuestReserevation().size());
+
+        guestResDAO.cancelGuestRes(newGuest1.getResNo()); // to clear database of test guest
     }
 }

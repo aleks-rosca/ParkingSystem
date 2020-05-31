@@ -34,7 +34,9 @@ class GuestCheckDAOTest {
 
     @AfterEach
     void tearDown() {
+        gpark.guestCheckOut(guestres.getResNo());
     }
+
 
     @Test
     void guestCheckIn() {/* only difference between this sql statement and the method in the DAO is that in DAO the date is set to current date and constraints restricts us from
