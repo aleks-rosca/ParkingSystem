@@ -11,8 +11,8 @@ import java.util.List;
 
 public class SModelE implements ISModelE {
 
-    private IEmpDAO empdb;
-    private IEmpResDAO empResDAO;
+    private final IEmpDAO empdb;
+    private final IEmpResDAO empResDAO;
 
 
     public SModelE() {

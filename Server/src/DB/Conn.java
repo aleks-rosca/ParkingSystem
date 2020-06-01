@@ -8,9 +8,9 @@ import java.sql.*;
  */
 public class Conn {
 
-    private String url;
-    private String user;
-    private String pw;
+    private final String url;
+    private final String user;
+    private final String pw;
     private Connection connection;
     private static Conn conn;
     private static final String DRIVER = "org.postgresql.Driver";

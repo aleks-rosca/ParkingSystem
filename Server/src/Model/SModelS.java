@@ -7,7 +7,7 @@ import model.Status;
 import java.util.List;
 
 public class SModelS implements ISModelS {
-    private IStatusDAO statusDAO;
+    private final IStatusDAO statusDAO;
 
     public SModelS(){
         statusDAO = new StatusDAO();

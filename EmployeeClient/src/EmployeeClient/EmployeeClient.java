@@ -10,7 +10,7 @@ import java.rmi.RemoteException;
 import java.util.List;
 
 public class EmployeeClient implements IEmployeeClient {
-    private IServer sInterfaceM;
+    private final IServer sInterfaceM;
    public EmployeeClient() throws RemoteException, NotBoundException, MalformedURLException {
        sInterfaceM = (IServer) Naming.lookup("rmi://localhost:1099/IPMS");
        sInterfaceM.message("Employee Connected");

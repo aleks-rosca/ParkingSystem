@@ -8,7 +8,7 @@ import java.rmi.RemoteException;
 import java.util.List;
 
 public class ManagerClientE implements IManagerClientE{
-    private IServer sInterfaceM;
+    private final IServer sInterfaceM;
     public ManagerClientE(IServer s){
         sInterfaceM = s;
     }

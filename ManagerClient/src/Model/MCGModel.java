@@ -7,7 +7,7 @@ import model.GuestRes;
 
 public class MCGModel implements IMCGModel {
 
-    private IManagerClientG clientG;
+    private final IManagerClientG clientG;
     private GuestRes guestRes;
 
     public MCGModel(IManagerClientG clg) {

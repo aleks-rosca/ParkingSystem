@@ -3,7 +3,7 @@ package DB;
 import java.sql.SQLException;
 
 public class PublicDAO implements IPublicDAO {
-    private Conn conn;
+    private final Conn conn;
 
     public PublicDAO() {
 

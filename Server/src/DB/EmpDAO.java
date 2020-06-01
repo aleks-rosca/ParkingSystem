@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmpDAO implements IEmpDAO {
-    private Conn conn;
+    private final Conn conn;
 
 
     public EmpDAO() {

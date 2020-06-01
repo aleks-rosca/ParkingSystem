@@ -10,7 +10,7 @@ import java.util.*;
 public class ECModel implements IECModel {
     EmployeeRes employeeRes;
     ArrayList<EmployeeRes> resList;
-    private IEmployeeClient client;
+    private final IEmployeeClient client;
 
     public ECModel(IEmployeeClient cl) {
         client = cl;

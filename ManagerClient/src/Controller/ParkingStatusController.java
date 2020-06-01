@@ -35,6 +35,7 @@ public class ParkingStatusController implements Initializable {
         statusDate.setCellValueFactory(new PropertyValueFactory<>("date"));
         statusSpots.setCellValueFactory(new PropertyValueFactory<>("occupiedSpots"));
         statusTable.setItems(model.getAllStatues());
+        statusTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         updatePie();
     }
 

@@ -10,7 +10,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 
 public class ServerGuestRes implements IServerGuestRes {
-    private ISModelU modelU;
+    private final ISModelU modelU;
 
     public ServerGuestRes() throws RemoteException {
         modelU = new SModelU();

@@ -10,7 +10,7 @@ import java.rmi.RemoteException;
 
 
 public class GClient implements IGClient {
-    private IServer sInterfaceG;
+    private final IServer sInterfaceG;
 
     public GClient() throws RemoteException, MalformedURLException, NotBoundException {
         sInterfaceG = (IServer) Naming.lookup("rmi://localhost:1099/IPMS");

@@ -35,9 +35,7 @@ public class MCEModel implements IMCEModel {
     }
 
     public boolean checkFirstChar(String empNo) {
-        if ('E' == empNo.charAt(0)) {
-            return true;
-        } else return false;
+        return 'E' == empNo.charAt(0);
     }
 
     @Override

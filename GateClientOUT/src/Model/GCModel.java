@@ -3,7 +3,7 @@ package Model;
 import GateClientOUT.IGClient;
 
 public class GCModel implements IGCModel {
-    private IGClient gClient;
+    private final IGClient gClient;
 
 
     public GCModel(IGClient gc) {

@@ -11,7 +11,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 
 public class ServerEmp  implements IServerMC {
-    private ISModelE modelMc;
+    private final ISModelE modelMc;
 
 
     public ServerEmp() throws RemoteException {

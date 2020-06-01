@@ -3,9 +3,9 @@ package Model;
 import DB.*;
 
 public class SModelG implements ISModelG{
-    private IEmpCheckDAO empcheck;
-    private IGuestCheckDAO guestCheckDAO;
-    private IPublicDAO publicDAO;
+    private final IEmpCheckDAO empcheck;
+    private final IGuestCheckDAO guestCheckDAO;
+    private final IPublicDAO publicDAO;
 
 
     public SModelG(){

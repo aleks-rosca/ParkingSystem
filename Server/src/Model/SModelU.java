@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Random;
 
 public class SModelU implements ISModelU {
-    private Random random;
-    private IGuestResDAO guestResDAO;
+    private final Random random;
+    private final IGuestResDAO guestResDAO;
 
     public SModelU() {
         guestResDAO = new GuestResDAO();
@@ -18,7 +18,7 @@ public class SModelU implements ISModelU {
 
     @Override
     public String addGuestRes(GuestRes guestRes) {
-        guestRes.setResNo("G" + Integer.toString(random.nextInt (9000)+1000));
+        guestRes.setResNo("G" + (random.nextInt(9000) + 1000));
         return guestResDAO.addGuestRes(guestRes) + " " + guestRes.getResNo();
     }
 

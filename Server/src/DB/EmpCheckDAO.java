@@ -3,7 +3,7 @@ package DB;
 import java.sql.SQLException;
 
 public class EmpCheckDAO implements IEmpCheckDAO {
-    private Conn conn;
+    private final Conn conn;
 
     public EmpCheckDAO() {
 

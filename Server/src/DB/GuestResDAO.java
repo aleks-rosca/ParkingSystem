@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GuestResDAO implements IGuestResDAO{
-    private Conn conn;
+    private final Conn conn;
 
     public GuestResDAO(){
         conn = Conn.getInstance();

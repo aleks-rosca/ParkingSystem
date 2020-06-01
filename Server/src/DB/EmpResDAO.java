@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmpResDAO implements IEmpResDAO {
-    private Conn conn;
+    private final Conn conn;
 
 
     public EmpResDAO() {

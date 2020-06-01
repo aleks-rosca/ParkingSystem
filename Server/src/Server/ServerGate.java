@@ -10,8 +10,8 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
 public class ServerGate implements IServerGC {
-    private ISModelG modelGc;
-    private ISModelS modelS;
+    private final ISModelG modelGc;
+    private final ISModelS modelS;
 
     public ServerGate() throws RemoteException {
         modelGc = new SModelG();

@@ -10,7 +10,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 
 public class ServerStatus implements IServerStatus {
-    private ISModelS modelS;
+    private final ISModelS modelS;
 
     public ServerStatus() throws RemoteException {
 

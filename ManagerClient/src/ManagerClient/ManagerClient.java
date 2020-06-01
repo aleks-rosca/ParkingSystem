@@ -8,7 +8,7 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
 public class ManagerClient implements IManagerClient {
-    private IServer sInterfaceM;
+    private final IServer sInterfaceM;
 
     public ManagerClient() throws RemoteException, NotBoundException, MalformedURLException {
         sInterfaceM = (IServer) Naming.lookup("rmi://localhost:1099/IPMS");

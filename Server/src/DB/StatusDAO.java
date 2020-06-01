@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StatusDAO implements IStatusDAO {
-    private Conn conn;
+    private final Conn conn;
 
     public StatusDAO(){
 
