@@ -12,9 +12,9 @@ public class CreateDatabase {
         String sql = "create schema parking; " +
                  "set search_path = 'parking'; " +
                  " " +
-                 " " +
+                "CREATE DOMAIN D_ENO CHAR(5) CONSTRAINT C_ENO CHECK (VALUE >='E0000' AND VALUE<='E9999');" +
                  "CREATE TABLE employee ( " +
-                 "empNo varchar(5) not null, " +
+                 "empNo D_ENO not null," +
                  "empFirstName varchar(50) not null, " +
                  "empLastName varchar(50) not null, " +
                  "primary key(empNo) " +

@@ -4,7 +4,7 @@ package model;
 import java.io.Serializable;
 
 public class GuestRes implements Serializable {
-    private String name;
+    private String name=null;
     private String purpose;
     private String date;
     private String resNo;
